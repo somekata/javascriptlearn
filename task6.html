@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>pH計算ツール</title>
+      <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+      <header class="navbar">
+        <a href="list.html">目次</a>
+        <a href="codeSample.html">コード例</a>
+        <a href="tagTransform.html">エスケープ変換</a>
+      </header>
+      <div class="container">
+        <h1>pH計算ツール</h1>
+        <label for="paco2">PaCO₂ (mmHg):</label>
+        <input
+          type="number"
+          id="paco2"
+          step="1"
+          placeholder="例: 40"
+          value="40"
+        /><br /><br />
+
+        <label for="hco3">HCO₃⁻ (mEq/L):</label>
+        <input
+          type="number"
+          id="hco3"
+          step="1"
+          placeholder="例: 24"
+          value="24"
+        /><br /><br />
+
+        <button onclick="calculatePH()">pHを計算</button>
+
+        <h2>結果: <span id="result">pHがここに表示されます</span></h2>
+      </div>
+      <script>
+        function calculatePH() {
+          const paco2 = parseFloat(document.getElementById("paco2").value);
+          const hco3 = parseFloat(document.getElementById("hco3").value);
+
+          if (!isNaN(paco2) && !isNaN(hco3) && paco2 > 0) {
+            const ph = 6.1 + Math.log10(hco3 / (0.03 * paco2));
+            document.getElementById("result").innerHTML =
+              "<br>pH = 6.1 + log ( [ HCO<sub>3</sub><sup>-</sup> ] / ( 0.03 x PaCO<sub>2</sub> ) ) <br>　= " +
+              ph.toFixed(2);
+          } else {
+            document.getElementById("result").innerText =
+              "正しい値を入力してください";
+          }
+        }
+      </script>
+    </body>
+  </head>
+</html>

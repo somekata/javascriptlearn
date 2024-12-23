@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事後確率ツール</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+      }
+      h1 {
+        text-align: center;
+      }
+      input {
+        margin: 5px;
+        padding: 10px;
+        width: 10%;
+      }
+      button.calc {
+        padding: 10px;
+        width: 100%;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+      }
+      .result {
+        background-color: #f4f4f4;
+        padding: 20px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="list.html">目次</a>
+      <a href="codeSample.html">コード例</a>
+      <a href="tagTransform.html">エスケープ変換</a>
+    </header>
+    <div class="container">
+      <h1>事後確率計算ツール</h1>
+      <label for="preTestProb">事前確率 (%):</label>
+      <input type="number" id="preTestProb" placeholder="例: 30" value="30" />
+      <br />
+      <label for="sensitivity">感度 (%):</label>
+      <input type="number" id="sensitivity" placeholder="例: 90" value="90" />
+      <br />
+      <label for="specificity">特異度 (%):</label>
+      <input type="number" id="specificity" placeholder="例: 95" value="95" />
+      <br />
+      <button class="calc" onclick="calculatePostTestProb()">
+        事後確率を計算
+      </button>
+
+      <div id="output" class="result"></div>
+      <p>
+        <button onclick="history.back()">戻る</button>
+      </p>
+    </div>
+
+    <script>
+      function calculatePostTestProb() {
+        const preTestProb =
+          parseFloat(document.getElementById("preTestProb").value) / 100;
+        const sensitivity =
+          parseFloat(document.getElementById("sensitivity").value) / 100;
+        const specificity =
+          parseFloat(document.getElementById("specificity").value) / 100;
+
+        // 事前確率をオッズに変換
+        const preTestOdds = preTestProb / (1 - preTestProb);
+
+        // 尤度比の計算
+        const LR_positive = sensitivity / (1 - specificity); // 陽性尤度比
+        const LR_negative = (1 - sensitivity) / specificity; // 陰性尤度比
+
+        // 事後オッズの計算
+        const postTestOddsPositive = preTestOdds * LR_positive;
+        const postTestOddsNegative = preTestOdds * LR_negative;
+
+        // 事後オッズを確率に変換
+        const postTestProbPositive =
+          postTestOddsPositive / (1 + postTestOddsPositive);
+        const postTestProbNegative =
+          postTestOddsNegative / (1 + postTestOddsNegative);
+
+        // 結果と解説の表示
+        const output = `
+                <h2>結果</h2>
+                <p>事前確率: ${(preTestProb * 100).toFixed(2)}%</p>
+                <p>陽性の場合の事後確率: ${(postTestProbPositive * 100).toFixed(
+                  2
+                )}%</p>
+                <p>陰性の場合の事後確率: ${(postTestProbNegative * 100).toFixed(
+                  2
+                )}%</p>
+                <h3>解説</h3>
+                <p>事前確率をオッズに変換: ${preTestProb.toFixed(2)} / ${(
+          1 - preTestProb
+        ).toFixed(2)} = ${preTestOdds.toFixed(4)}</p>
+                <p>陽性尤度比 (LR+): ${sensitivity.toFixed(2)} / ${(
+          1 - specificity
+        ).toFixed(2)} = ${LR_positive.toFixed(2)}</p>
+                <p>陰性尤度比 (LR-): ${(1 - sensitivity).toFixed(
+                  2
+                )} / ${specificity.toFixed(2)} = ${LR_negative.toFixed(2)}</p>
+                <p>事後オッズ (陽性): ${preTestOdds.toFixed(
+                  4
+                )} × ${LR_positive.toFixed(2)} = ${postTestOddsPositive.toFixed(
+          4
+        )}</p>
+                <p>事後オッズ (陰性):  ${preTestOdds.toFixed(
+                  4
+                )} × ${LR_negative.toFixed(2)} = ${postTestOddsNegative.toFixed(
+          4
+        )}</p>
+                <p>オッズから事後確率に変換 (陽性):${postTestOddsPositive.toFixed(
+                  2
+                )} / ${(1 + postTestOddsPositive).toFixed(2)} × 100 =
+                    ${(postTestProbPositive * 100).toFixed(2)}%</p>
+                <p>オッズから事後確率に変換 (陰性): ${postTestOddsNegative.toFixed(
+                  2
+                )} / ${(1 + postTestOddsNegative).toFixed(2)} × 100 =${(
+          postTestProbNegative * 100
+        ).toFixed(2)}%</p>
+            `;
+
+        document.getElementById("output").innerHTML = output;
+      }
+    </script>
+  </body>
+</html>

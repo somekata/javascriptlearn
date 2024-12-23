@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>演習5: A-aDO2を計算するツールを作ろう</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      button.calc {
+        padding: 10px;
+        width: 100%;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="list.html">目次</a>
+      <a href="codeSample.html">コード例</a>
+      <a href="tagTransform.html">エスケープ変換</a>
+    </header>
+
+    <div class="container">
+      <h1>A-aDO<sub>2</sub>の計算</h1>
+      <form>
+        <label for="fio2">F<sub>I</sub>O<sub>2</sub>（酸素濃度）: </label>
+        <input
+          type="number"
+          id="fio2"
+          step="0.1"
+          placeholder="例: 0.21"
+          value="0.21"
+          min="0"
+          max="1"
+        /><br /><br />
+
+        <label for="pao2">PaO<sub>2</sub>（動脈血酸素分圧）: </label>
+        <input
+          type="number"
+          id="pao2"
+          step="1"
+          placeholder="例: 95"
+          value="95"
+          min="0"
+        /><br /><br />
+
+        <label for="paco2">PaCO<sub>2</sub>（動脈血二酸化炭素分圧）: </label>
+        <input
+          type="number"
+          id="paco2"
+          step="1"
+          placeholder="例: 40"
+          value="40"
+          min="0"
+        /><br /><br />
+
+        <label for="pb">大気圧（Torr）: </label>
+        <input
+          type="number"
+          id="pb"
+          value="760"
+          step="10"
+          min="0"
+        /><br /><br />
+
+        <button class="calc" type="button" onclick="calculateAado2()">
+          計算する
+        </button>
+      </form>
+
+      <div id="result"></div>
+
+      <script>
+        function calculateAado2() {
+          const fio2 = parseFloat(document.getElementById("fio2").value);
+          const pao2 = parseFloat(document.getElementById("pao2").value);
+          const paco2 = parseFloat(document.getElementById("paco2").value);
+          const pb = parseFloat(document.getElementById("pb").value);
+
+          if (isNaN(fio2) || isNaN(pao2) || isNaN(paco2) || isNaN(pb)) {
+            document.getElementById("result").innerHTML =
+              "すべての値を正しく入力してください。";
+            return;
+          }
+
+          // A-aDO2 = [(PB - 47) * FiO2 - (PaCO2 / 0.8)] - PaO2
+          const aado2 = (pb - 47) * fio2 - paco2 / 0.8 - pao2;
+          let result = document.getElementById("result");
+          result.innerHTML = `<hr>解答<br>A-aDO<sub>2</sub> = ${aado2.toFixed(
+            2
+          )}`;
+          const kaisetsu = `<hr>解説<br>P<sub>A</sub>O<sub>2</sub> = (大気圧 - 47) × F<sub>I</sub>O<sub>2</sub> - PaCO<sub>2</sub>/0.8<br>A-aDO<sub>2</sub> = P<sub>A</sub>O<sub>2</sub> - PaO<sub>2</sub> = (${pb} - 47) × ${fio2} - ${paco2} / 0.8 - ${pao2} = ${aado2.toFixed(
+            2
+          )}<br><br>47は37℃での飽和水蒸気圧、0.8は呼吸商`;
+          result.innerHTML += kaisetsu;
+        }
+      </script>
+
+      <p>
+        <button onclick="history.back()">戻る</button>
+      </p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML,CSS,JavaScript サンプル</title>
+    <style>
+      body {
+        margin: 20px;
+        padding: 10px;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        color: #333;
+      }
+
+      h1 {
+        font-size: 2.5em;
+      }
+
+      h2 {
+        font-size: 2em;
+      }
+
+      h3 {
+        font-size: 1.75em;
+      }
+
+      h4 {
+        font-size: 1.5em;
+      }
+
+      h5 {
+        font-size: 1.25em;
+      }
+
+      h6 {
+        font-size: 1em;
+      }
+
+      nav {
+        background-color: #f4f4f4;
+        padding: 10px;
+      }
+
+      nav a {
+        margin-right: 10px;
+        color: #333;
+        text-decoration: none;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      canvas {
+        margin-top: 20px;
+      }
+      /* ナビゲーションバー */
+      .navbar {
+        background-color: #2c3e50;
+        padding: 10px 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      .navbar a {
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        text-align: center;
+      }
+
+      .navbar a:hover {
+        background-color: #34495e;
+      }
+      button {
+        background-color: #2980b9;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #3498db;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="list.html">目次</a>
+      <a href="codeSample.html">コード例</a>
+      <a href="tagTransform.html">エスケープ変換</a>
+    </header>
+    <hr />
+    <div>
+      <nav class="navbar">
+        <a href="#section1">セクション1</a>
+        <a href="#section2">セクション2</a>
+        <a href="#section3">セクション3</a>
+      </nav>
+    </div>
+
+    <section id="section1">
+      <h1>見出し1</h1>
+      <div>
+        <p>このページの概要を説明する段落です。</p>
+      </div>
+    </section>
+
+    <section id="section2">
+      <h2>見出し2</h2>
+      <div>
+        <p>さらに詳細な情報を表示するための段落です。</p>
+      </div>
+    </section>
+
+    <section id="section3">
+      <h3>見出し3</h3>
+      <div>
+        <p>関連する情報を表示します。</p>
+        <form>
+          <label for="inputText">テキストを入力してください:</label>
+          <input type="text" id="inputText" name="inputText" />
+        </form>
+      </div>
+      <div>
+        <form>
+          <button type="button" id="changeColorButton">図形の色を変える</button>
+        </form>
+        <canvas
+          id="myCanvas"
+          width="300"
+          height="150"
+          style="border: 1px solid #000000"
+        ></canvas>
+      </div>
+    </section>
+    <footer>
+      <hr />
+      <p>フッター情報です。</p>
+    </footer>
+    <hr />
+    <p>
+      <button onclick="history.back()">戻る</button>
+    </p>
+
+    <script>
+      window.onload = function () {
+        const canvas = document.getElementById("myCanvas");
+        const ctx = canvas.getContext("2d");
+
+        // 初期の図形の描画
+        ctx.fillStyle = "#FF0000"; // 赤色
+        ctx.fillRect(50, 50, 200, 100);
+
+        // ボタンがクリックされたときに図形の色を変える
+        document
+          .getElementById("changeColorButton")
+          .addEventListener("click", function () {
+            // ランダムな色を生成
+            const randomColor =
+              "#" + Math.floor(Math.random() * 16777215).toString(16);
+
+            // キャンバスをクリアして新しい色で再描画
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = randomColor;
+            ctx.fillRect(50, 50, 200, 100);
+          });
+      };
+    </script>
+  </body>
+</html>

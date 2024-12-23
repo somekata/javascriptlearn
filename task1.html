@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>タスク1 - HTMLとCSSでページを作ろう</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="list.html">目次</a>
+      <a href="codeSample.html">コード例</a>
+      <a href="tagTransform.html">エスケープ変換</a>
+    </header>
+
+    <div class="container">
+      <h1>タスク1: HTMLとCSSでページを作ろう</h1>
+      <p>
+        この演習では、HTMLとCSSを使用してシンプルなWebページを作成します。以下のコードをコピーして、自分のページを作ってください。ページには見出し、段落、ボタン、リストなどが含まれます。
+      </p>
+
+      <h2>コピペで使えるHTMLとCSSの例</h2>
+      <p>
+        以下のコードをコピーして、自分のHTMLファイルとCSSファイルに貼り付けてください。
+      </p>
+
+      <h3>HTMLファイル</h3>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;私のWebページ&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;header&gt;
+        &lt;h1&gt;私の最初のWebページ&lt;/h1&gt;
+    &lt;/header&gt;
+
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#about"&gt;自己紹介&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#hobbies"&gt;趣味&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#contact"&gt;お問い合わせ&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+
+    &lt;section id="about"&gt;
+        &lt;h2&gt;自己紹介&lt;/h2&gt;
+        &lt;p&gt;こんにちは！私はWeb開発に興味を持つ学生です。&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section id="hobbies"&gt;
+        &lt;h2&gt;趣味&lt;/h2&gt;
+        &lt;ul&gt;
+            &lt;li&gt;プログラミング&lt;/li&gt;
+            &lt;li&gt;読書&lt;/li&gt;
+            &lt;li&gt;音楽鑑賞&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section id="contact"&gt;
+        &lt;h2&gt;お問い合わせ&lt;/h2&gt;
+        &lt;p&gt;ご質問やコメントがあれば、以下のフォームからご連絡ください。&lt;/p&gt;
+        &lt;form action="#" method="post"&gt;
+            &lt;label for="name"&gt;名前:&lt;/label&gt;
+            &lt;input type="text" id="name" name="name" required&gt;&lt;br&gt;
+
+            &lt;label for="email"&gt;メールアドレス:&lt;/label&gt;
+            &lt;input type="email" id="email" name="email" required&gt;&lt;br&gt;
+
+            &lt;label for="message"&gt;メッセージ:&lt;/label&gt;&lt;br&gt;
+            &lt;textarea id="message" name="message" rows="4" cols="50" required&gt;&lt;/textarea&gt;&lt;br&gt;
+
+            &lt;button type="submit"&gt;送信&lt;/button&gt;
+        &lt;/form&gt;
+    &lt;/section&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;&copy; 2024 私のWebページ. All rights reserved.&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+
+      <h3>CSSファイル（style.css）</h3>
+      <pre><code>/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+nav ul {
+    background-color: #333;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+section {
+    padding: 20px;
+    margin: 20px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+        </code></pre>
+
+      <h3>実際に動かしてみましょう</h3>
+      <p>
+        上記のコードをコピーして、自分のHTMLファイルとCSSファイルに貼り付けたら、ブラウザで開いて正しく表示されることを確認しましょう。
+      </p>
+
+      <p>
+        <button onclick="history.back()">戻る</button>
+        <a href="column2.html">
+          <button>コラム2へ</button>
+        </a>
+        <a href="chap4.html">
+          <button>第4章へ</button>
+        </a>
+      </p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>演習4: 条件付き確率を求めるツールを作ろう</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      button.calc {
+        padding: 10px;
+        width: 100%;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="list.html">目次</a>
+      <a href="codeSample.html">コード例</a>
+      <a href="tagTransform.html">エスケープ変換</a>
+    </header>
+
+    <div class="container">
+      <h1>条件付き確率を求める</h1>
+
+      <form>
+        <label for="probA">P(A)（事象Aの確率）: </label>
+        <input
+          type="number"
+          id="probA"
+          step="0.01"
+          placeholder="例: 0.2"
+          value="0.2"
+        /><br /><br />
+
+        <label for="probB">P(B)（事象Bの確率）: </label>
+        <input
+          type="number"
+          id="probB"
+          step="0.01"
+          placeholder="例: 0.5"
+          value="0.5"
+        /><br /><br />
+
+        <label for="probBA">P(B|A)（Aが起きた時のBの確率）: </label>
+        <input
+          type="number"
+          id="probBA"
+          step="0.01"
+          placeholder="例: 0.7"
+          value="0.7"
+        /><br /><br />
+
+        <button
+          class="calc"
+          type="button"
+          onclick="calculateConditionalProbability()"
+        >
+          計算する
+        </button>
+      </form>
+
+      <div id="result"></div>
+
+      <script>
+        function calculateConditionalProbability() {
+          const probA = parseFloat(document.getElementById("probA").value);
+          const probB = parseFloat(document.getElementById("probB").value);
+          const probBA = parseFloat(document.getElementById("probBA").value);
+
+          if (isNaN(probA) || isNaN(probB) || isNaN(probBA)) {
+            document.getElementById("result").innerHTML =
+              "すべての値を正しく入力してください。";
+            return;
+          }
+
+          // 条件付き確率 P(A|B) = P(A) * P(B|A) / P(B)
+          const conditionalProb = (probA * probBA) / probB;
+
+          document.getElementById("result").innerHTML = `P(A|B) = ${(
+            conditionalProb * 100
+          ).toFixed(2)}%`;
+        }
+      </script>
+
+      <p>
+        <button onclick="history.back()">戻る</button>
+      </p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
