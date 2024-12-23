@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第3章 - CSSの基本</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="list.html">目次</a>
+        <a href="codeSample.html">コード例</a>
+        <a href="tagTransform.html">エスケープ変換</a>
+    </header>
+
+    <div class="container">
+        <h1>第3章: CSSの基本</h1>
+        <p>
+            　CSS（Cascading Style Sheets）は、Webページにスタイルを適用するための言語です。HTMLで作成したページのデザインやレイアウトを整え、視覚的に魅力的なページを作るために使用されます。この章では、CSSの基本的な書き方、セレクタ、プロパティ、そしてレイアウトの基礎を学んでいきます。
+        </p>
+        <ol>
+            <h2><li>CSSの基本的な書き方</li></h2>
+            <p>
+                　CSSは、HTML要素にスタイルを適用するために、セレクタとプロパティを使って書かれます。基本的な構文は以下の通りです。
+            </p>
+            <pre><code>セレクタ {
+    プロパティ: 値;
+}</code></pre>
+            <p>
+                　例えば、以下のコードはすべての&lt;h1&gt;要素の色を青に設定します。
+            </p>
+            <pre><code>h1 {
+    color: blue;
+}</code></pre>
+    
+            <h2><li>外部CSS、内部CSS、インラインCSS</li></h2>
+            <p>
+                　CSSをHTMLに適用する方法には、主に以下の3つがあります。
+            </p>
+            <ul>
+                <li>外部CSS: 別ファイル（通常は.css拡張子）にスタイルを記述し、HTML内でリンクします（<a href="#task1">演習1</a>）。</li>
+                <li>内部CSS: HTMLファイルの&lt;head&gt;セクション内にスタイルを直接記述します。
+                    <pre><code>&lt;head&gt;
+    &lt;style="color:#a0a0a0"&gt;
+    p {
+        color:#a0a0a0;
+    }
+    &lt;/style="color:#a0a0a0"&gt;
+&lt;/head&gt;</code></pre></li>
+                
+                <li>インラインCSS: HTML要素のstyle属性にスタイルを記述します。
+                    <pre><code>&lt;p style="color:#a0a0a0"&gt;</code></pre></li>
+            </ul>
+    
+            <h2><li>セレクタとプロパティ</li></h2>
+            <p>
+                　セレクタは、どのHTML要素にスタイルを適用するかを指定する部分です。以下のセレクタの種類があります。
+            </p>
+            <ul>
+                <li>タグセレクタ: 特定のタグにスタイルを適用します。例: `h1 { color: red; }`</li>
+                <li>クラスセレクタ: クラス属性を持つ要素にスタイルを適用します。例: `.class-name { font-size: 20px; }`</li>
+                <li>IDセレクタ: ID属性を持つ要素にスタイルを適用します。例: `#id-name { margin: 10px; }`</li>
+            </ul>
+    
+            <h2><li>レイアウトとデザインの基礎（Flexbox、Grid）</li></h2>
+            <p>
+                　Webページのレイアウトには、FlexboxとCSS Gridがよく使用されます。これらの技術を使うことで、ページ内の要素を効率的に配置し、レスポンシブなデザインを実現することができます。
+            </p>
+    
+            <h3>Flexboxの例:</h3>
+            <pre><code>.container {    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}</code></pre>
+            
+    
+            <h3>Gridの例:</h3>
+            <pre><code>.grid-container {    
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+}</code></pre>
+        </ol>
+
+<section id="task1">
+    <div class="container"></div>
+        <h2>演習1: HTMLとCSSでページを作ろう</h2>
+        <p>
+            　この演習では、HTMLとCSSを使用してシンプルなWebページを作成します。以下のコードをコピーして、自分のページを作ってください。ページには見出し、段落、ボタン、リストなどが含まれます。<br>
+            　コピペで使えるHTMLとCSSの例を示しますので、コピーして自分のHTMLファイルとCSSファイルに貼り付けてください。<br>
+            　構造がわかったら、自身で書き換えてみましょう。書き換えた部分が思った通りに表示されるかどうか、試してみてください。思った通りに表示されない場合には、どこかにエラーがあります。<a href="#column2">VScode</a>などのコードエディタでファイルを作成するとエラーを見つけやすくなります。
+        </p>
+
+        <h3>HTMLファイル</h3>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;私のWebページ&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt; <span style="background-color:rgba(255,0,0,0.2)">//ここで参照するcssを指定しています</span>
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;header&gt;
+        &lt;h1&gt;私の最初のWebページ&lt;/h1&gt;
+    &lt;/header&gt;
+
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#about"&gt;自己紹介&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#hobbies"&gt;趣味&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#contact"&gt;お問い合わせ&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+
+    &lt;section id="about"&gt;
+        &lt;h2&gt;自己紹介&lt;/h2&gt;
+        &lt;p&gt;こんにちは！私はWeb開発に興味を持つ学生です。&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section id="hobbies"&gt;
+        &lt;h2&gt;趣味&lt;/h2&gt;
+        &lt;ul&gt;
+            &lt;li&gt;プログラミング&lt;/li&gt;
+            &lt;li&gt;読書&lt;/li&gt;
+            &lt;li&gt;音楽鑑賞&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/section&gt;
+
+    &lt;section id="contact"&gt;
+        &lt;h2&gt;お問い合わせ&lt;/h2&gt;
+        &lt;p&gt;ご質問やコメントがあれば、以下のフォームからご連絡ください。&lt;/p&gt;
+        &lt;form action="#" method="post"&gt;
+            &lt;label for="name"&gt;名前:&lt;/label&gt;
+            &lt;input type="text" id="name" name="name" required&gt;&lt;br&gt;
+
+            &lt;label for="email"&gt;メールアドレス:&lt;/label&gt;
+            &lt;input type="email" id="email" name="email" required&gt;&lt;br&gt;
+
+            &lt;label for="message"&gt;メッセージ:&lt;/label&gt;&lt;br&gt;
+            &lt;textarea id="message" name="message" rows="4" cols="50" required&gt;&lt;/textarea&gt;&lt;br&gt;
+
+            &lt;button type="submit"&gt;送信&lt;/button&gt;
+        &lt;/form&gt;
+    &lt;/section&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;&copy; 2024 私のWebページ. All rights reserved.&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>        
+
+        <h3>CSSファイル（style.css）</h3>
+        <pre><code>/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+nav ul {
+    background-color: #333;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+section {
+    padding: 20px;
+    margin: 20px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}</code></pre>
+        
+
+        <h3>実際に動かしてみましょう</h3>
+        <p>
+            　上記のコードをコピーして、自分のHTMLファイルとCSSファイルに貼り付けたら、ブラウザで開いて正しく表示されることを確認しましょう。
+</p>
+
+</section>
+<div class="column">
+    <section id="column2">
+        <h3>コラム2: 便利なツール</h3>
+        <p>　必須ではないけれども、あると便利なツールをご紹介します。</p>
+        <ol>
+            <h3><li>Visual Studio Code (VSCode) </li></h3>
+            <p>
+                　Visual Studio Code (VSCode) は、JavaScriptを学習する際に非常に便利なコードエディタです。無料で使えるうえに、HTML、CSS、JavaScriptの開発に必要な多くの機能を持っており、エクステンション（拡張機能）を追加することでさらに機能を拡張できます。以下の手順に従ってインストールしてください。
+            </p>
+        
+            <h3>インストール手順</h3>
+            <ol>
+                <li><a href="https://code.visualstudio.com/">VSCodeの公式サイト</a>にアクセスします。</li>
+                <li>自分の使用しているOS（Windows、macOS、Linux）に対応するインストーラを選択してダウンロードします。</li>
+                <li>ダウンロードしたインストーラを開き、インストールを実行します。</li>
+                <li>インストール後、VSCodeを起動し、初期設定を行います。</li>
+                <li>「拡張機能」タブから、HTML、CSS、JavaScript関連の拡張機能をインストールして、開発環境をさらに充実させましょう。</li>
+            </ol>
+            <h3>便利な使い方</h3>
+            <p>
+                　Enmetという自動入力機能が便利です。少し面倒なタグ付けを短縮することが可能です。例えば、
+                <pre><code>div.container&gt;ul&gt;li*5</code></pre>
+                と入力してTabまたはEnterを押すと、
+<pre><code>&lt;div class="container"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+                と入力することができます。</p>
+            <h3>おすすめの拡張機能</h3>
+            <p>　以下の拡張機能をインストールすることで、コード入力やプログラム開発がよりスムーズになります。</p>
+            <ul>
+                <li><strong>Prettier - Code formatter</strong>: コードの自動フォーマットを行い、見やすく保つツールです。Windows/Linuxでは<code class="gray">Shift + Alt + F</code>、Macでは<code class="gray">Shift + Option + F</code>でフォーマットします。また、設定で、Format On Saveの状態にしておくと、ファイルを保存するたびにPrettierが自動でコードをフォーマットしてくれます。
+                    </li>
+                <li><strong>Live Server</strong>: HTMLファイルをリアルタイムでブラウザに反映し、変更を即座に確認できます。VSCodeの右下に「Go Live」というボタンが表示されます。このボタンをクリックすると、自動的にブラウザが起動し、ローカルサーバーでファイルがプレビューされます。</li>
+                <li><strong>JavaScript (ES6) code snippets</strong>: JavaScriptの効率的なコーディングをサポートするコードスニペット集です。</li>
+            </ul>
+        
+            <h3><li>JSAnywhereアプリのインストール方法</li></h3>
+            <p>
+                　JSAnywhereは、モバイル端末でもJavaScriptコードを簡単に実行できる便利なアプリです。オンラインのコードエディタとしてだけでなく、アプリとしても利用可能です。以下は、iOSとAndroidのインストール方法です。
+            </p>
+        
+            <h3>iOS端末の場合（App Store）</h3>
+            <p>
+                　iPhoneやiPadでJSAnywhereを使用するには、App Storeからインストールすることができます。以下の手順でアプリをダウンロードし、インストールを行ってください。
+            </p>
+            <ol>
+                <li>iPhoneまたはiPadでApp Storeを開く。</li>
+                <li>検索バーに「JSAnywhere」と入力して検索。</li>
+                <li>JSAnywhereアプリが表示されたら、「入手」ボタンをタップしてインストール。</li>
+                <li>インストールが完了したら、アプリを開いてすぐにJavaScriptのコーディングを始められます。</li>
+            </ol>
+        
+            <h3>Android端末の場合（Google Play）</h3>
+            <p>
+                　Android端末では、Google PlayからJSAnywhereアプリをインストールすることができます。以下の手順に従ってインストールを行ってください。
+            </p>
+            <ol>
+                <li>AndroidスマートフォンやタブレットでGoogle Playを開く。</li>
+                <li>検索バーに「JSAnywhere」と入力して検索。</li>
+                <li>表示されたJSAnywhereアプリを選択し、「インストール」をタップ。</li>
+                <li>インストールが完了したら、アプリを起動してすぐにJavaScriptの実行環境を使い始めることができます。</li>
+            </ol>
+        
+            <h3><li>Plicyへの登録と公開手順</li></h3>
+            <p>
+                　Plicyは、ゲームやアプリを公開できるプラットフォームで、JavaScriptを使って作成したプロジェクトを簡単に共有できます。自身の開発したコードを公開し、他のユーザーにプレイしてもらうことができます。登録や公開方法は以下の通りです。
+            </p>
+            <ul>
+                <li><a href="https://plicy.net/">Plicy公式サイト</a>にアクセスし、無料アカウントを作成。</li>
+                <li>アカウント作成後、プロジェクトをzipファイルとしてアップロード。</li>
+                <li>公開設定を行い、ゲームやアプリをPlicy上でシェアできます。</li>
+            </ul>
+            <p>　これにより、簡単に自身のJavaScript作品をオンラインで公開できます。</p>
+
+            <h3><li>GitHubのアカウント取得と公開手順</li></h3>
+            <p>
+                　GitHubは、ソースコードを保存・管理・共有できるプラットフォームです。以下の手順でアカウントを作成し、自分のプロジェクトを公開できます。
+            </p>
+            <ul>
+                <li><a href="https://github.com/">GitHub公式サイト</a>にアクセスし、無料アカウントを作成。</li>
+                <li>アカウント作成後、リポジトリ（プロジェクトフォルダ）を作成。</li>
+                <li>作成したリポジトリにソースコードをアップロード（GitコマンドまたはWebインターフェースを利用）。</li>
+                <li>リポジトリの公開設定を「Public」に変更し、他のユーザーとコードを共有可能。</li>
+                <li>GitHub Pagesを使用することで、Webサイトとしてプロジェクトを公開することも可能。</li>
+            </ul>
+            <p>　これにより、簡単に自身のコードやページをオンラインで公開し、オープンソースコミュニティに参加できます。</p>
+
+            <h3><li>GitBashのインストールと使用方法</li></h3>
+            <p>
+                GitBashは、Git操作やコマンドライン作業を簡単に行えるWindows向けのツールです。以下の手順でインストールして使用します。
+            </p>
+            <h4>インストール手順</h4>
+            <ol>
+                <li><a href="https://git-scm.com/">Git公式サイト</a>にアクセスします。</li>
+                <li>Windows用のGitをダウンロードしてインストールします。</li>
+                <li>インストール中、デフォルトエディタやパス設定を確認します（推奨: Visual Studio Code）。</li>
+                <li>インストール完了後、Git Bashを起動します。</li>
+            </ol>
+            <h4>使用方法</h4>
+            <ul>
+                <li><strong>Gitのバージョン確認:</strong> <code>git --version</code> を入力します。</li>
+                <li><strong>JavaScriptの実行:</strong> Node.jsをインストールした後、<code>node fileName.js</code> で実行できます。</li>
+            </ul>
+            <p>以下のコードをGitBashで動かした際の表示例を示します。</p>
+            <h4>スクリプト例</h4>
+            <pre><code>let arr1 = [1, 2, 3, 4];
+let sliced = arr1.slice(1, 2);
+console.log(`sliced:${sliced}`);
+console.log("sliced:", sliced);</code></pre>
+            <p>このスクリプトを <code>test.js</code> として保存し、VScodeのTERMINALで以下のように実行します。</p>
+            <pre><code>ykaneko@YKanekoPC MINGW64 ~/&lt;現在のディレクトリ&gt;
+$ node test.js</code></pre>
+            <p>すると、TERMINALには以下のように出力されます。</p>
+            <pre><code>sliced:2
+sliced: [ 2 ]</code></pre>
+
+<h3><li>Google Colaboratoryの使用方法</li></h3>
+<p>
+    Google Colaboratory（Google Colab）は、Pythonコードをブラウザ上で実行できる無料のクラウド環境です。以下の手順で使用を開始できます。
+</p>
+<h4>開始手順</h4>
+<ol>
+    <li><a href="https://colab.research.google.com/">Google Colaboratory</a>にアクセスします。</li>
+    <li>Googleアカウントでログインします。</li>
+    <li>新しいノートブックを作成し、Pythonコードを記述します。</li>
+</ol>
+<h4>主な特徴</h4>
+<ul>
+    <li><strong>コードの実行:</strong> コードセルに <code>print("Hello, Google Colab!")</code> と記述し、再生ボタンをクリック。</li>
+    <li><strong>ライブラリのインストール:</strong> <code>!pip install ライブラリ名</code> で簡単にインストール可能。</li>
+    <li><strong>データのアップロード:</strong> ローカルファイルをノートブックにアップロードして使用可能。</li>
+</ul>
+<p>
+    Google Colabはデータ分析や機械学習に適しており、リアルタイムでのコード共有も可能です。
+    さらに、Google Colabは基本的にはPythonを動かすツールですが、Node.jsを使ってJavaScriptを実行することも可能です。
+</p>
+<p>以下のJavaScriptコードをGoogle Colabで動かした際の表示例を示します。</p>
+<h4>スクリプト例</h4>
+<pre><code>let arr1 = [1, 2, 3, 4];
+let sliced = arr1.slice(1, 2);
+console.log(`sliced:${sliced}`);
+console.log("sliced:", sliced);
+</code></pre>
+<p>このスクリプトを <code>test.js</code> として保存する際の記述と操作方法を示します。</p>
+<p>左上の <code>+コード</code> をクリックして、コード入力画面を追加します。ここに以下を入力してください。</p>
+<pre><code>%%writefile test.js
+let arr1 = [1, 2, 3, 4];
+let sliced = arr1.slice(1, 2);
+console.log(`sliced:${sliced}`);
+console.log("sliced:", sliced);
+</code></pre>
+<p>左側の実行ボタンを押すと、以下のように表示されます。</p>
+<pre><code>Writing test.js
+</code></pre>
+<p>次に、もう一度 <code>+コード</code> をクリックして、以下を入力します。</p>
+<pre><code>!node test.js
+</code></pre>
+<p>再度、左側の実行ボタンを押すと以下のように表示されます。</p>
+<pre><code>sliced:2
+sliced: [ 2 ]
+</code></pre>
+
+
+        </ol>
+    </section>
+</div>
+
+
+
+        <p>
+            <button onclick="history.back()">戻る</button>
+            <a href="chap4.html">
+                <button>第4章へ</button>
+            </a>
+        </p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

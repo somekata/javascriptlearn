@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第8章 - 条件分岐と繰り返し処理</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="list.html">目次</a>
+      <a href="codeSample.html">コード例</a>
+      <a href="tagTransform.html">エスケープ変換</a>
+    </header>
+
+    <div class="container">
+      <h1>第8章: 条件分岐と繰り返し処理</h1>
+      <p>
+        　JavaScriptでは、条件に応じて異なる処理を行うために「条件分岐」を使用します。また、特定の処理を繰り返すために「繰り返し処理（ループ）」を使用します。この章では、条件分岐と繰り返し処理の基本を学びます。
+      </p>
+      <ol>
+        <h2><li>条件分岐（if、else if、else）</li></h2>
+        <p>
+          　条件分岐は、特定の条件が真（true）であるかどうかに基づいてコードの流れを制御します。最も一般的な方法は、`if`文を使った条件分岐です。さらに複雑な条件には、`else
+          if`や`else`を組み合わせて使用します。
+        </p>
+        <pre><code>// if文の例
+let age = 20;
+
+if (age &gt;= 18) {
+    console.log("成人です");
+} else if (age &gt;= 13) {
+    console.log("ティーンエイジャーです");
+} else {
+    console.log("子供です");
+}</code></pre>
+
+        <h3>条件式に基づく処理</h3>
+        <p>
+          　`if`文の中で使われる条件は、比較演算子（`==`, `===`, `!=`, `!==`,
+          `&gt;`など）を使って書かれます。条件が`true`の場合、そのブロックのコードが実行されます。複数の条件を使いたい場合は、論理演算子（`&&`,
+          `||`, `!`）を使って条件を組み合わせることができます。
+        </p>
+        <pre><code>// 複数条件の使用
+let score = 85;
+if (score &gt;= 90) {
+    console.log("優秀です");
+} else if (score &gt;= 70 && score &lt; 90) {
+    console.log("良い成績です");
+} else {
+    console.log("もっと頑張りましょう");
+}</code></pre>
+
+        <h2><li>switch-case構文</li></h2>
+        <p>
+          `switch-case`構文は、特定の値に基づいて異なる処理を実行したい場合に使います。この構文は、複数の`if-else`文を簡潔にまとめるのに適しています。
+        </p>
+        <pre><code>// switch-caseの例
+let day = 3;
+
+switch (day) {
+    case 1:
+        console.log("月曜日");
+        break;
+    case 2:
+        console.log("火曜日");
+        break;
+    case 3:
+        console.log("水曜日");
+        break;
+    default:
+        console.log("不明な曜日");
+}</code></pre>
+
+        <h3>if文で書いた場合</h3>
+        <p>
+          `switch-case`構文は簡潔に書ける一方、同じ処理を`if-else`文で書くことも可能です。以下は、同じロジックを`if-else`文で書いた例です。
+        </p>
+        <pre><code>// if文で書いた場合の例
+let day = 3;
+
+if (day === 1) {
+    console.log("月曜日");
+} else if (day === 2) {
+    console.log("火曜日");
+} else if (day === 3) {
+    console.log("水曜日");
+} else {
+    console.log("不明な曜日");
+}</code></pre>
+
+        <h2><li>三項演算子</li></h2>
+        <p>
+          三項演算子（条件演算子）は、`if-else`文を1行で書ける簡潔な構文です。形式は`条件式
+          ? 真の場合の値 : 偽の場合の値`です。
+        </p>
+        <pre><code>// 三項演算子の例
+let age = 20;
+let status = (age &gt;= 18) ? "成人" : "未成年";
+console.log(status); // 成人</code></pre>
+
+        <h3>if文で書いた場合</h3>
+        <p>
+          三項演算子の簡潔な書き方に対して、同じ処理を`if-else`文で記述することもできます。以下は、その例です。
+        </p>
+        <pre><code>// if文で書いた場合の例
+let age = 20;
+let status;
+
+if (age &gt;= 18) {
+    status = "成人";
+} else {
+    status = "未成年";
+}
+
+console.log(status); // 成人</code></pre>
+
+        <h3>ネストされた三項演算子の例</h3>
+        <p>
+          三項演算子は簡潔に条件分岐を書けますが、複数の条件がある場合にはネストすることもできます。以下は、年齢に基づいて「未成年」「成人」「高齢者」を分類する例です。
+        </p>
+        <pre><code>// ネストされた三項演算子の例
+let age = 70;
+let category = (age &lt; 18) 
+    ? "未成年" 
+    : (age &lt; 65) 
+        ? "成人" 
+        : "高齢者";
+
+console.log(category); // 高齢者</code></pre>
+
+        <h3>if文で書いた場合</h3>
+        <p>
+          ネストされた三項演算子と同じ処理を、`if-else`文で書くこともできます。以下は、その例です。
+        </p>
+        <pre><code>// if文で書いた場合の例
+let age = 70;
+let category;
+
+if (age &lt; 18) {
+    category = "未成年";
+} else if (age &lt; 65) {
+    category = "成人";
+} else {
+    category = "高齢者";
+}
+
+console.log(category); // 高齢者</code></pre>
+
+        <h2><li>論理演算子を利用した条件分岐</li></h2>
+        <p>条件に応じて値を返すときに論理演算子を使う方法です。</p>
+
+        <h3>AND (&&) 演算子</h3>
+        <p>条件が真の場合にのみ評価を実行します。</p>
+        <pre><code>// AND (&&) 演算子の例
+const loggedIn = true;
+const message = loggedIn && "Welcome, User!";
+console.log(message); // "Welcome, User!"
+</code></pre>
+
+        <h3>OR (||) 演算子</h3>
+        <p>条件が偽の場合にデフォルト値を設定します。</p>
+        <pre><code>// OR (||) 演算子の例
+const input = null;
+const result = input || "Default value";
+console.log(result); // "Default value"
+</code></pre>
+
+        <h3>Nullish Coalescing Operator (??)</h3>
+        <p>`null` または `undefined` の場合にデフォルト値を設定します。</p>
+        <pre><code>// Nullish Coalescing Operatorの例
+const input = 0; // falsy value but not null or undefined
+const result = input ?? "Default value";
+console.log(result); // 0
+</code></pre>
+
+        <h2><li>繰り返し処理（for、while、do...while）</li></h2>
+        <p>
+          　繰り返し処理（ループ）は、同じ処理を複数回実行したい場合に使います。JavaScriptでは主に`for`、`while`、`do...while`ループが使われます。
+        </p>
+
+        <h3>forループ</h3>
+        <p>
+          　`for`ループは、決まった回数だけ繰り返すときに使われます。以下は、1から5までの数を出力する例です。
+        </p>
+        <pre><code>// forループの例
+for (let i = 1; i &lt;= 5; i++) {
+    console.log(i);
+}</code></pre>
+
+        <h3>whileループ</h3>
+        <p>
+          　`while`ループは、条件が`true`である限り処理を繰り返します。条件が満たされなくなるとループが終了します。
+        </p>
+        <pre><code>// whileループの例
+let count = 0;
+while (count &lt; 5) {
+    console.log(count);
+    count++;
+}</code></pre>
+
+        <h3>do...whileループ</h3>
+        <p>
+          　`do...while`ループは、少なくとも一度はループ内の処理を実行してから条件を確認します。最初に必ず一回処理が実行される点が、`while`ループとの違いです。
+        </p>
+        <pre><code>// do...whileループの例
+let num = 0;
+do {
+    console.log(num);
+    num++;
+} while (num &lt; 5);</code></pre>
+      </ol>
+      <p>
+        <button onclick="history.back()">戻る</button>
+        <a href="chap9.html">
+          <button>第9章へ</button>
+        </a>
+      </p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

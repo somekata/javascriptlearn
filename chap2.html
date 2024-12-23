@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第2章 - HTMLの基本</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="list.html">目次</a>
+      <a href="codeSample.html">コード例</a>
+      <a href="tagTransform.html">エスケープ変換</a>
+    </header>
+
+    <div class="container">
+      <h1>第2章: HTMLの基本</h1>
+      <p>
+        　HTML（HyperText Markup
+        Language）は、Webページの基礎を作る言語です。この章では、HTMLの基本的な構造や要素について学んでいきます。
+      </p>
+      <ol>
+        <h2><li>HTMLタグの構造</li></h2>
+        <p>
+          　HTMLはタグで構成されており、各タグは要素を囲んでいます。HTML文書は&lt;html&gt;タグで始まり、&lt;body&gt;タグの中にページの内容が書かれます。
+        </p>
+
+        <pre><code>&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;ページのタイトル&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;見出し1&lt;/h1&gt;
+    &lt;p&gt;段落テキスト&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <h2><li>ブロック要素とインライン要素</li></h2>
+        <p>
+          　HTML要素には、ブロック要素とインライン要素があります。ブロック要素は、ページ全体で一つの大きな領域を占め、次の要素は新しい行から始まります。例えば、&lt;div&gt;や&lt;p&gt;タグはブロック要素です。一方、インライン要素は、要素の間に新しい行を作らずに他の要素と一緒に配置されます。&lt;span&gt;や&lt;a&gt;タグがインライン要素です。
+        </p>
+
+        <h3>ブロック要素の例:</h3>
+        <pre><code>&lt;div&gt;
+  &lt;h1&gt;ブロック要素の見出し&lt;/h1&gt;
+  &lt;p&gt;これはブロック要素の段落です。&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+        <h3>インライン要素の例:</h3>
+        <pre><code>&lt;p&gt;
+  このテキストには &lt;span&gt;インライン要素&lt;/span&gt; が含まれています。
+&lt;/p&gt;</code></pre>
+
+        <h2><li>属性とプロパティ</li></h2>
+        <p>
+          　HTMLタグは属性を持つことができ、これにより要素に追加情報を与えて、見た目や動作を制御します。例えば、&lt;a&gt;タグにはhref属性があり、リンク先のURLを指定します。
+        </p>
+        <pre><code>&lt;a href="https://example.com"&gt;こちらをクリック&lt;/a&gt;</code></pre>
+        <p>
+          　また、&lt;input&gt;タグにはvalue属性があり、要素の初期状態を指定します。 
+        </p>
+        <pre><code>&lt;input type=&quot;text&quot; value=&quot;初期値&quot;&gt;</code></pre>
+        <p>
+          　一方、JavaScriptでは、HTMLの属性がDOMのプロパティとして扱われます。これにより、要素の状態を動的に操作することができます。
+        </p>
+        <pre><code>document.querySelector('input').value = "新しい値";</code></pre>
+        　この場合、valueプロパティが"新しい値"に変更されます。
+        <p>
+          <h3>HTMLとDOMの関係</h3>
+          　HTMLの属性（valueなど）は、ページが読み込まれた後に、HTML要素がDOM（Document Object Model）に変換されます。その結果、DOMのプロパティとして扱われ、JavaScriptから操作可能になります。
+          <h3>HTML属性とDOMプロパティの違い          </h3>
+            <ul>
+              <li>HTML属性は、要素の初期状態を指定するために使用されます。例えば、&lt;input&gt;タグのvalue属性は、ページが読み込まれた時点での初期値を設定します。</li>
+              <li>DOMプロパティは、JavaScriptで操作可能な動的な値です。ページが読み込まれた後に、valueプロパティを変更することができます。</li>
+            </ul>
+              <p>
+                <pre><code>&lt;input type=&quot;text&quot; value=&quot;初期値&quot;&gt;</code></pre>
+                <ul>
+                  <li>このHTMLでは、value属性は"初期値"として設定されています。ページが読み込まれた後、次のようにJavaScriptで変更可能です。</li>
+                </ul>
+                <pre><code>document.querySelector('input').value = "新しい値";</code></pre>
+                <ul>
+                  <li>ここで、valueプロパティが"新しい値"に変更されますが、HTMLの元のvalue属性は依然として"初期値"のままです。</li>
+                </ul>
+              </p>
+
+
+        </p>
+        <h2><li>コメントの使い方</li></h2>
+        <p>
+          　HTML内では、コードの説明やメモを残すためにコメントを使うことができます。コメントはブラウザに表示されませんが、ソースコード上に残しておくことで、後から見直す際の助けになります。
+        </p>
+        <pre><code>&lt;!-- これはコメントです --&gt;</code></pre>
+      </ol>
+
+      <p>
+        <button onclick="history.back()">戻る</button>
+        <a href="chap3.html">
+          <button>第3章</button>
+        </a>
+      </p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第9章 - 関数の基礎</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="list.html">目次</a>
+      <a href="codeSample.html">コード例</a>
+      <a href="tagTransform.html">エスケープ変換</a>
+    </header>
+
+    <div class="container">
+      <h1>第9章: 関数の基礎</h1>
+      <p>
+        　関数は、特定の処理をまとめて実行するための重要なツールです。JavaScriptの関数は、複数の命令を一つにまとめ、必要に応じて呼び出すことができます。この章では、関数の宣言方法や引数、戻り値について学びます。
+      </p>
+      <ol>
+        <h2><li>関数の宣言と呼び出し</li></h2>
+        <p>
+          　JavaScriptでは、`function`キーワードを使って関数を宣言します。関数を呼び出すことで、その関数内に書かれたコードが実行されます。以下は、基本的な関数の宣言と呼び出しの例です。
+        </p>
+        <pre><code>// 関数の宣言
+function greet() {
+    console.log("こんにちは！");
+}
+
+// 関数の呼び出し
+greet();  // "こんにちは！"が出力されます</code></pre>
+
+        <h2><li>引数と戻り値</li></h2>
+        <p>
+          　関数に引数を渡すことで、柔軟に処理を実行できます。引数は、関数を呼び出す際に値を渡すために使われ、関数内部でその値を使用します。また、関数は`return`文を使って結果を返すことができます。
+        </p>
+
+        <h3>引数を持つ関数の例</h3>
+        <pre><code>// 引数を持つ関数の宣言
+function greetUser(name) {
+    console.log("こんにちは、" + name + "さん！");
+}
+
+// 引数を渡して関数を呼び出す
+greetUser("太郎");  // "こんにちは、太郎さん！"が出力されます</code></pre>
+
+        <h3>戻り値を持つ関数の例</h3>
+        <pre><code>// 戻り値を持つ関数の宣言
+function add(a, b) {
+    return a + b;
+}
+
+// 戻り値を受け取って使う
+let sum = add(5, 3);
+console.log(sum);  // 8が出力されます</code></pre>
+        <h2><li>デフォルト値</li></h2>
+        <p>
+        　これはES6（ECMAScript 2015）で導入された機能です。デフォルト値を設定することで、引数が渡されなかった場合や<code class="gray"> undefined </code>が渡された場合に、デフォルトの値を使用することができます。
+        </p>
+        <p>
+          デフォルト値を設定するには、関数定義の際に引数に対して<code class="gray"> = </code>を使って値を指定します。
+          <pre><code>function greet(name = "Guest") {
+    console.log(`Hello, ${name}!`);
+}
+
+greet();                // 出力: Hello, Guest!
+greet("Alice");         // 出力: Hello, Alice!</code></pre>
+          <ul>
+            <li><code class="gray"> name </code>引数に値を渡さなかった場合、デフォルト値<code class="gray"> "Guest" </code>が使用されます。</li>
+            <li>値を渡した場合、その値が優先されます。</li>
+          </ul>
+        </p>
+        <h2><li>関数式とアロー関数</li></h2>
+        <p>
+          　JavaScriptでは、関数を変数に格納することができ、これを「関数式」と呼びます。また、アロー関数（`=&gt;`）を使って関数をより簡潔に書くこともできます。
+        </p>
+
+        <h3>関数式の例</h3>
+        <pre><code>// 関数式
+const sayHello = function() {
+    console.log("Hello!");
+};
+
+// 関数式の呼び出し
+sayHello();  // "Hello!"が出力されます</code></pre>
+
+        <h3>アロー関数の例</h3>
+        <pre><code>// アロー関数
+const multiply = (a, b) =&gt; a * b;
+
+// アロー関数の呼び出し
+let result = multiply(4, 5);
+console.log(result);  // 20が出力されます</code></pre>
+      </ol>
+
+      <section id="task3">
+        <h2>演習3: JSを使ってツールを作ろう</h2>
+        <ol>
+          <h3><li>事後確率を求める</li></h3>
+          <p><a href="task3.html">こちら</a>と同じものをつくってみましょう。</p>
+          <h3><li>条件付き確率を求める</li></h3>
+          <p><a href="task4.html">こちら</a>と同じものをつくってみましょう。</p>
+          <h3><li>A-aDO2を計算する</li></h3>
+          <p><a href="task5.html">こちら</a>と同じものをつくってみましょう。</p>
+        </ol>
+      </section>
+
+      <section id="column4">
+        <div class="column">
+          <h3>コラム4: 困った時のMDN</h3>
+          <p>
+            　プログラミングで困った時、特にWeb開発に関する質問がある場合には、Mozilla
+            Developer
+            Network（MDN）が頼りになります。MDNは、JavaScript、HTML、CSSなどのWeb技術に関する正確で信頼性の高い情報を提供しています。
+          </p>
+          <p>
+            　ただし、MDNの情報はプロフェッショナル向けであるため、説明がやや専門的なこともあります。しかし、詳細なリファレンスや正確な解説があるため、正しい情報を得たい時には非常に有用です。
+          </p>
+          <h3>おすすめの使い方</h3>
+          <ul>
+            <li>JavaScriptの関数やメソッドを確認する</li>
+            <li>HTMLタグやCSSプロパティの意味を調べる</li>
+            <li>ブラウザごとの互換性を確認する</li>
+          </ul>
+          <p>
+            リンク: <a href="https://developer.mozilla.org/ja/">MDN Web Docs</a>
+          </p>
+        </div>
+      </section>
+      <p>
+        <button onclick="history.back()">戻る</button>
+        <a href="chap10.html">
+          <button>第10章へ</button>
+        </a>
+      </p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

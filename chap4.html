@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第4章 - JavaScriptの基本</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="list.html">目次</a>
+      <a href="codeSample.html">コード例</a>
+      <a href="tagTransform.html">エスケープ変換</a>
+    </header>
+
+    <div class="container">
+      <h1>第4章: JavaScriptの基本</h1>
+      <p>
+        　JavaScriptは、Webページに動的な要素を加えるためのスクリプト言語です。この章では、JavaScriptの基本的な要素を学びます。
+      </p>
+      <ol>
+        <h2>
+          <li>JavaScriptとは何か</li>
+        </h2>
+        <p>
+          　JavaScriptは、Webブラウザ上で動作するプログラミング言語です。ユーザーの操作に応じて、Webページの内容を動的に変更したり、アニメーションを作成したりすることができます。
+        </p>
+
+        <h2>
+          <li>変数とデータ型</li>
+        </h2>
+        <p>
+          　変数はデータを保存するための「箱」のようなものです。JavaScriptでは、`let`や`const`を使って変数を宣言します。また、データにはさまざまな型（数値、文字列、ブール値など）があります。<a
+            href="chap6.html"
+            >第6章</a
+          >で詳しく説明します。
+        </p>
+        <pre><code>let name = "Alice";  // 文字列型
+const age = 30;      // 数値型
+let isStudent = true; // ブール型</code></pre>
+
+        <h2>
+          <li>演算子と計算</li>
+        </h2>
+        <p>
+          　JavaScriptでは、演算子を使って数値を計算したり、文字列を結合することができます。以下は基本的な演算子の例です。
+        </p>
+        <ul>
+          <li>足し算: `+`</li>
+          <li>引き算: `-`</li>
+          <li>掛け算: `*`</li>
+          <li>割り算: `/`</li>
+        </ul>
+        <pre><code>let result = 10 + 5; // 結果は15</code></pre>
+
+        <h2>
+          <li>条件分岐（`if`文、`else`文）</li>
+        </h2>
+        <p>
+          　条件に応じて異なる処理を実行するために、条件分岐を使います。`if`文と`else`文を使用して、特定の条件が満たされた場合にのみコードを実行することができます。<a
+            href="chap8.html"
+            >第8章</a
+          >で詳しく説明します。
+        </p>
+        <pre><code>let age = 20;
+if (age >= 18) {
+    console.log("成人です");
+} else {
+    console.log("未成年です");
+}</code></pre>
+
+        <h2>
+          <li>繰り返し処理（`for`、`while`）</li>
+        </h2>
+        <p>
+          　繰り返し同じ処理を行いたい場合には、ループを使います。`for`ループや`while`ループを使って、指定回数または条件が満たされるまで処理を繰り返します。こちらも<a
+            href="chap8.html"
+            >第8章</a
+          >で詳しく説明します。
+        </p>
+        <pre><code>// forループの例
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+
+// whileループの例
+let count = 0;
+while (count < 5) {
+    console.log(count);
+    count++;
+}</code></pre>
+
+        <h2>
+          <li>関数の基本（関数宣言、関数式、アロー関数）</li>
+        </h2>
+        <p>
+          　関数は、複数の命令をまとめて実行できる便利な仕組みです。関数を定義しておけば、必要なときに何度でも呼び出すことができます。<a
+            href="chap9.html"
+            >第9章</a
+          >で詳しく説明します。
+        </p>
+        <pre><code>// 関数宣言の例
+function greet() {
+    console.log("こんにちは");
+}
+
+// 関数式の例
+const sayHello = function() {
+    console.log("Hello");
+}
+
+// アロー関数の例
+const add = (a, b) => {
+    return a + b;
+};</code></pre>
+      </ol>
+      <div class="column">
+        <h2>もっと知りたい人のコーナー: 演算子の応用</h2>
+        <p>
+          　ここでは、JavaScriptの演算子の中でもよく使われるものや、少し応用的な演算子について紹介します。
+        </p>
+        <ol>
+          <h3><li>複合代入演算子 `+=`, `-=`, `*=`, `/=`</li></h3>
+          <p>
+            　複合代入演算子は、変数に対して演算を行った結果を、その変数に再度代入するために使います。以下は`+=`を使った例です。
+          </p>
+          <pre><code>let score = 10;
+score += 5;  // scoreは15になります</code></pre>
+          <p>他の演算子も同様に動作します：</p>
+          <ul>
+            <li>`-=`: 引き算して結果を変数に代入する</li>
+            <li>`*=`: 掛け算して結果を変数に代入する</li>
+            <li>`/=`: 割り算して結果を変数に代入する</li>
+          </ul>
+
+          <h3><li>インクリメント `++` と デクリメント `--`</li></h3>
+          <p>
+            　`++`と`--`は、数値を1ずつ増やしたり減らしたりするための演算子です。
+          </p>
+          <pre><code>let count = 0;
+count++;  // countは1になります
+count--;  // countは再び0になります</code></pre>
+          <p>
+            　`++`や`--`は、変数の前に置くか後に置くかで挙動が異なります。前置の場合は、まずインクリメントまたはデクリメントが行われ、その結果が返されます。後置の場合は、元の値が返された後にインクリメントやデクリメントが行われます。
+          </p>
+
+          <h3><li>べき乗演算子 `**`</li></h3>
+          <p>
+            　JavaScriptでは、`**`を使って数値のべき乗を計算できます。例えば、2の3乗は以下のように計算できます。
+          </p>
+          <pre><code>let result = 2 ** 3;  // resultは8になります</code></pre>
+
+          <h3><li>その他の演算子</li></h3>
+          <p>　以下のような演算子もよく使われます：</p>
+          <ul>
+            <li>
+              `%`: 剰余演算子。割り算の余りを返します。例: `10 %
+              3`は`1`を返します。
+            </li>
+            <li>
+              `==`と`===`:
+              等価演算子。`==`は型の違いを無視して比較し、`===`は型も含めて厳密に比較します。
+            </li>
+            <li>
+              `!`:
+              否定演算子。値が`true`であれば`false`に、`false`であれば`true`に反転します。
+            </li>
+          </ul>
+        </ol>
+      </div>
+
+      <p>
+        <button onclick="history.back()">戻る</button>
+        <a href="chap5.html">
+          <button>第5章へ</button>
+        </a>
+      </p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第14章 - JavaScriptにおけるモジュール化</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="list.html">目次</a>
+      <a href="codeSample.html">コード例</a>
+      <a href="tagTransform.html">エスケープ変換</a>
+    </header>
+
+    <div class="container">
+      <h1>第14章: JavaScriptにおけるモジュール化</h1>
+      <ol>
+        <h2><li>モジュールの基本</li></h2>
+        <p>
+          　JavaScriptでは、コードを再利用しやすくするためにモジュール化することができます。モジュール化されたコードは、`import`と`export`を使って別のファイルから読み込んだり、提供したりできます。
+        </p>
+        <pre><code>// モジュールのエクスポート
+export function greet(name) {
+    console.log(`こんにちは、${name}さん！`);
+}
+
+// モジュールのインポート
+import { greet } from './greetModule.js';
+
+greet('太郎');  // "こんにちは、太郎さん！"</code></pre>
+
+        <h2><li>デフォルトエクスポートと名前付きエクスポート</li></h2>
+        <p>
+          　`export`には、デフォルトエクスポートと名前付きエクスポートの2つの方法があります。デフォルトエクスポートは一つの値をエクスポートし、名前付きエクスポートは複数の値をエクスポートすることができます。
+        </p>
+        <pre><code>// デフォルトエクスポート
+export default function greet() {
+    console.log("こんにちは！");
+}
+
+// 名前付きエクスポート
+export const PI = 3.14;
+export const multiply = (a, b) => a * b;</code></pre>
+      </ol>
+
+      <p>
+        <button onclick="history.back()">戻る</button>
+        <a href="chap15.html">
+          <button>第15章</button>
+        </a>
+      </p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

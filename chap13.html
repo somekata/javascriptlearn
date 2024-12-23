@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第13章 - エラーハンドリングと例外処理</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="list.html">目次</a>
+      <a href="codeSample.html">コード例</a>
+      <a href="tagTransform.html">エスケープ変換</a>
+    </header>
+
+    <div class="container">
+      <h1>第13章: エラーハンドリングと例外処理</h1>
+      <p>エラーハンドリングは、プログラムの予期しない中断を防ぎ、ユーザーエクスペリエンスを向上させるために不可欠です。この章では、さまざまなエラーハンドリングの手法を学びます。
+
+      </p>
+      <ol>
+        <h2><li>try、catchを使ったエラーハンドリング</li></h2>
+        <p>
+          　JavaScriptでは、エラーが発生した場合にプログラムが中断されないようにエラーハンドリングを行います。`try`ブロック内でエラーが発生した場合、そのエラーは`catch`ブロックで捕捉されます。
+        </p>
+        <pre><code>// try-catchを使った例
+try {
+    let result = someUndefinedFunction();
+    console.log(result);
+} catch (error) {
+    console.log("エラーが発生しました:", error.message);
+} finally {
+    console.log("エラーハンドリングが終了しました");
+}</code></pre>
+        <p>
+          `finally`ブロックは、エラーの有無にかかわらず実行されるため、後片付けなどに使用されます。
+        </p>
+
+        <h2><li>throwを使ったカスタムエラー</li></h2>
+        <p>
+          　`throw`キーワードを使って、自分でカスタムエラーを発生させることができます。例えば、ユーザー入力が不正な場合にエラーメッセージをスローすることが可能です。
+        </p>
+        <pre><code>// カスタムエラーをスローする
+function checkAge(age) {
+    if (age &lt; 18) {
+        throw new Error("年齢は18歳以上でなければなりません");
+    }
+    return "年齢が適切です";
+}
+
+try {
+    console.log(checkAge(15));
+} catch (error) {
+    console.log("エラー:", error.message);
+}</code></pre>
+
+<h2><li>非同期処理のエラーハンドリング</li></h2>
+<p>
+  　現在の内容は同期的なコードのエラーハンドリングが中心ですが、非同期処理におけるエラーハンドリングも重要です。非同期処理では、エラーが発生してもすぐにスローされず、<code class="gray">Promise</code>を通じて処理が続行されるため、専用のエラーハンドリング手法が必要です。
+</p>
+<p>
+<code class="gray">async/await</code>と<code class="gray">try-catch</code>
+非同期関数では<code class="gray">try-catch</code>を使ってエラーをキャッチします。
+</p>
+<pre><code>async function fetchData(url) {
+  try {
+      const response = await fetch(url);
+      if (!response.ok) {
+          throw new Error(`HTTPエラー: ${response.status}`);
+      }
+      const data = await response.json();
+      console.log(data);
+  } catch (error) {
+      console.log("非同期処理中にエラーが発生しました:", error.message);
+  } finally {
+      console.log("データ取得処理が終了しました");
+  }
+}
+
+fetchData("https://api.example.com/data");</code></pre>
+<p>
+  <code class="gray">Promise</code>の<code class="gray">.catch</code>を使う
+  <code class="gray">Promise</code>を直接使用する場合、<code class="gray">.catch</code>メソッドでエラーを処理できます。
+  </p>
+<pre><code>fetch("https://api.example.com/data")
+.then((response) =&gt; {
+    if (!response.ok) {
+        throw new Error(`HTTPエラー: ${response.status}`);
+    }
+    return response.json();
+})
+.then((data) =&gt; console.log(data))
+.catch((error) =&gt; console.log("エラー:", error.message));</code></pre>
+<h2><li>エラーの種類ごとに処理を分ける</li></h2>
+<p>
+  　現在の<code  class="gray">catch</code>ブロックではすべてのエラーを一括で処理していますが、エラーの種類によって異なる処理を行う方法を紹介すると実用性が高まります。
+<br>
+例: エラーの種類を確認する
+<pre><code>try {
+  // 意図的にエラーをスロー
+  throw new TypeError("これは型のエラーです");
+} catch (error) {
+  if (error instanceof TypeError) {
+      console.log("型エラー:", error.message);
+  } else if (error instanceof ReferenceError) {
+      console.log("参照エラー:", error.message);
+  } else {
+      console.log("その他のエラー:", error.message);
+  }
+}</code></pre>
+</p>
+<h2><li>ベストプラクティス</li></h2>
+<p>
+  　現在の内容は同期的なコードのエラーハンドリングが中心ですが、非同期処理におけるエラーハンドリングも重要です。
+</p>
+<ol>
+  <li>予期できるエラーを防ぐ: 入力値の検証や条件分岐を使用して、発生する可能性のあるエラーを事前に防ぐ。</li>
+  <pre><code>if (!userInput) {
+    console.log("入力が必要です");
+}</code></pre>
+  <li>エラーの詳細を記録する: 重要なエラーは、デバッグのためにログに記録する。</li>
+  <pre><code>try {
+    // 処理
+} catch (error) {
+    console.error("エラーログ:", error);
+}</code></pre>
+  <li>ユーザーへのフィードバックを工夫する: エラー時にユーザーへ適切なメッセージを表示することで、混乱を避ける。</li>
+  <li>再スローを活用する: 必要に応じてエラーをキャッチしても、処理を継続せず再スローする。</li>
+  <pre><code>try {
+    // 処理
+} catch (error) {
+    console.log("処理中にエラー:", error.message);
+    throw error; // 再スロー
+}</code></pre>
+</ol>
+<h2><li>追加例: 特定のシナリオでのエラーハンドリング</li></h2>
+<p>
+  　例えば、ファイル処理やAPI連携の具体例を加えると、読者が実用的に感じやすいです。
+</p>
+<pre><code>function parseJson(jsonString) {
+  try {
+      const data = JSON.parse(jsonString);
+      console.log("パース成功:", data);
+  } catch (error) {
+      console.log("JSONのパースに失敗しました:", error.message);
+  }
+}
+
+parseJson('{"key": "value"}'); // パース成功
+parseJson('不正なJSON文字列'); // JSONのパースに失敗しました</code></pre>
+      </ol>
+
+      <p>
+        <button onclick="history.back()">戻る</button>
+        <a href="chap14.html">
+          <button>第14章へ</button>
+        </a>
+      </p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

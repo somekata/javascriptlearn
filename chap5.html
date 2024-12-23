@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      第5章 - JavaScriptとHTML/CSSの連携（DOM操作とイベントリスナー）
+    </title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="list.html">目次</a>
+      <a href="codeSample.html">コード例</a>
+      <a href="tagTransform.html">エスケープ変換</a>
+    </header>
+
+    <div class="container">
+      <h1>第5章: JavaScriptとHTML/CSSの連携</h1>
+      <ol>
+        <h2><li>DOM（Document Object Model）の基礎</li></h2>
+        <p>
+          　HTMLとCSSは基本的には静的な表示を提供し、表示内容が自動的に変化することはありません。一方、JavaScriptはその静的な表示を動的に変更する役割を果たします。JavaScriptでは、DOM（Document
+          Object
+          Model）という仕組みを使って、HTMLやCSSで定義された要素やスタイルをリアルタイムに書き換えることができます。DOMはWebページのすべての要素をオブジェクトとして表現しており、JavaScriptを通じてこれらのオブジェクトを参照・操作することで、ページの内容や見た目を動的に変えることが可能です。
+        </p>
+        <pre><code>// DOMの基本操作
+const heading = document.getElementById('main-heading');
+heading.textContent = "新しい見出しテキスト";</code></pre>
+
+        <p>
+          　上記の例では、<code class="gray">document.getElementById</code
+          >を使って特定のIDを持つHTML要素を取得し、その内容（テキスト）を動的に変更しています。
+        </p>
+        <p>
+          注：<code class="gray"
+            >heading.textContent = "新しい見出しテキスト";</code
+          >の代わりに、<code class="gray"
+            >heading.innerHTML = "新しい見出しテキスト";</code
+          >としても、ほぼ同様の操作ができます。違いは、textContentではシンプルにテキストのみしか表示しませんが、innerHTMLではHTMLで表示することが可能です。<br />
+          例えば、<br />
+          <code class="gray"
+            >heading.textContent = "&lt;span style="color:#f00"
+            &gt;赤くする&lt;/span&gt;";</code
+          >の場合には、&lt;span style="color:#f00"
+          &gt;赤くする&lt;/span&gt;と表示されますが、<br />
+          <code class="gray"
+            >heading.innerHTML = "&lt;span style="color:#f00"
+            &gt;赤くする&lt;/span&gt;";</code
+          >の場合には、<span style="color: #f00">赤くする</span>と表示されます。
+        </p>
+
+        <h2><li>イベントハンドリング</li></h2>
+        <p>
+          　JavaScriptはユーザーがページ上で行う操作（クリック、キー入力、スクロールなど）に応じてコードを実行できます。これを「イベントハンドリング」と呼びます。以下は、<code
+            class="gray"
+            >addEventListener</code
+          >を使ってボタンのクリックイベントを処理する例です。
+        </p>
+        <pre><code>// イベントリスナーの追加
+const button = document.getElementById('myButton');
+button.addEventListener('click', function() {
+    alert('ボタンがクリックされました！');
+});</code></pre>
+        <p>
+          　上記のコードでは、ボタンがクリックされたときにアラートが表示されるようになっています。<code
+            class="gray"
+            >addEventListener</code
+          >を使うことで、複数のイベントリスナーを同じ要素に追加することが可能です。
+        </p>
+        <h3>ボタンに関数を紐づける方法</h3>
+        <p>
+          　イベントハンドリングの仕組みを利用しなくても、ボタンに直接関数を紐づける方法があります。以下の例では、onclick
+          属性を使用して、ボタンをクリックした際に指定した関数が実行されるようにしています。
+        </p>
+        <span>HTML</span>
+        <pre><code>&lt;span id="target"&gt;ここが変化します&lt;/span&gt;
+&lt;button onclick="pushButton()"&gt;押してください&lt;/button&gt;</code></pre>
+        <span>JS</span>
+        <pre><code>function pushButton() {
+  let targetText = document.getElementById('target');
+  targetText.textContent = "ボタンが押されました";
+}</code></pre>
+        <p>
+          　上記のコードでは、ボタンがクリックされたときに&lt;span
+          id="target"&gt;タグの`ここが変化します`というテキストが、`ボタンが押されました`というテキストに変化します。
+        </p>
+
+        <h2><li>簡単な操作：ボタンやフォームとの連携</li></h2>
+        <p>
+          　JavaScriptでフォームやボタンと連携することで、動的なユーザーインタラクションを作成することができます。例えば、フォームに入力された値を取得し、その値を使ってページ上の他の要素を更新することが可能です。
+        </p>
+        <pre><code>// フォームの値を取得し表示する
+const input = document.getElementById('myInput');
+const output = document.getElementById('output');
+
+document.getElementById('submitButton').addEventListener('click', function() {
+    output.textContent = input.value;
+});</code></pre>
+        <p>
+          　このコードでは、ユーザーが入力した内容がボタンを押すと表示されるようになっています。
+        </p>
+      </ol>
+
+      <section id="task2">
+        <h1>演習2: JSを使って簡単なゲームを作ろう</h1>
+        <p>
+          　JavaScriptを使って、シンプルなクリックゲームを作成してみましょう。このゲームでは、ボタンをクリックするたびにスコアが増えていきます。
+        </p>
+
+        <h2>コピペで使えるゲームコード例</h2>
+
+        <h3>HTMLファイル</h3>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;クリックゲーム&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;h1&gt;クリックしてスコアを増やそう！&lt;/h1&gt;
+    &lt;div id="score"&gt;スコア: 0&lt;/div&gt;
+    &lt;button id="clickButton"&gt;クリック！&lt;/button&gt;
+
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <h3>JavaScriptファイル（script.js）</h3>
+        <pre><code>let score = 0;
+const scoreElement = document.getElementById('score');
+const button = document.getElementById('clickButton');
+        
+button.addEventListener('click', function() {
+    score++;
+    scoreElement.textContent = 'スコア: ' + score;
+});</code></pre>
+
+        <p>
+          　上記のコードをコピーして、HTMLファイルとJavaScriptファイルに分けて作成し、ブラウザで動作させてみましょう。クリックするたびにスコアが増えていくシンプルなゲームです。
+        </p>
+      </section>
+      <div class="column">
+        <section id="column3">
+          <h1>コラム3: わからないことはChatGPTに聞いてみよう</h1>
+          <p>
+            　プログラミングを学んでいると、不明な単語が出てきたり、コードの意味が分からなかったりと、行き詰まることがよくあります。そんな時に頼りになるのがChatGPTです。わからないことをそのまま質問することで、答えを見つけたり、新しいアイデアを得たりすることができます。もちろん、ChatGPTでも解決できなことはありますが、ブレストをする相手としてとても手ごろだと思います。
+          </p>
+          <p>
+            　ChatGPTは、コードのエラー修正、プログラムの書き方、ライブラリの使い方、さらには高度なアルゴリズムの説明まで、多くの場面で役立ちます。以下のような使い方を試してみてください。
+          </p>
+          <ul>
+            <li>コードのバグを見つける</li>
+            <li>アルゴリズムやデータ構造について質問する</li>
+            <li>特定の言語のシンタックスや構文を確認する</li>
+          </ul>
+          <p>
+            　ChatGPTを使って、質問をシンプルに明確にすることがポイントです。質問の具体性が高いほど、得られる回答も的確になります。
+          </p>
+        </section>
+      </div>
+
+      <p>
+        <button onclick="history.back()">戻る</button>
+
+        <a href="chap6.html">
+          <button>第6章へ</button>
+        </a>
+      </p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

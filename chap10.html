@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第10章 - 関数の応用</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="list.html">目次</a>
+      <a href="codeSample.html">コード例</a>
+      <a href="tagTransform.html">エスケープ変換</a>
+    </header>
+
+    <div class="container">
+      <h1>第10章: 関数の応用</h1>
+      <p>
+        　第9章までの知識でも、十分に簡単なプログラムを作成することができます。しかし、中級以上のプログラムでは、ベストプラクティスやエラーハンドリングを考慮することが求められます。この章では、関数の応用として、アロー関数やコールバック関数、エラーハンドリングについて学びます。コードが長くなったり、複雑な構造になるとエラーが起こりやすくなるため、これらの技術を使うことで、コードの可読性や保守性を向上させることができます。
+      </p>
+      <ol>
+        <h2><li>アロー関数</li></h2>
+        <p>
+          　アロー関数（`=&gt;`）は、関数をより簡潔に書くことができる文法です。特にコールバック関数などでよく使われます。アロー関数には次のような特徴があります。
+        </p>
+        <ul>
+          <li>関数の宣言がシンプル</li>
+          <li>`this`キーワードが親スコープを参照する</li>
+        </ul>
+        <pre><code>// 通常の関数
+const add = function(a, b) {
+    return a + b;
+};
+
+// アロー関数
+const addArrow = (a, b) =&gt; a + b;</code></pre>
+
+        <h2><li>コールバック関数</li></h2>
+        <p>
+          　コールバック関数は、他の関数に引数として渡される関数で、ある処理が完了した後に呼び出される関数を指定することができます。非同期処理やイベントハンドリングなどでよく使われます。
+        </p>
+        <p>
+          <code class="gray">setTimeout</code>を使ったコールバック関数の例：
+        </p>
+        <pre><code>function greet(name, callback) {
+    console.log("こんにちは、" + name + "さん！");
+    setTimeout(callback, 2000);  // 2秒後にコールバック関数を実行
+}
+
+function goodbye() {
+    console.log("さようなら！");
+}
+
+greet("太郎", goodbye);</code></pre>
+        <p>
+          　この例の説明：
+          <ul>
+            <li><code class="gray">greet</code>関数は、最初に名前を出力し、その後にコールバック関数を2秒後に実行するために<code class="gray">setTimeout</code>を使っています。</li>
+            <li><code class="gray">setTimeout</code>は、指定した時間（この場合は2秒後）に、渡されたコールバック関数（<code class="gray">goodbye</code>）を呼び出します。</li>
+            <li>この例では、<code class="gray">greet</code>関数で「こんにちは、太郎さん！」がすぐに出力され、その後2秒経過した後に「さようなら！」が出力されます。</li>
+          </ul>
+        </p>
+        <h2><li>関数式 (Function Expression)と無名関数 (Anonymous Function)</li></h2>
+        <p>変数に関数を代入して用います。</p>
+        <p>
+        <pre><code>const calBMI = function (weight, height) {
+  return parseFloat((weight / (height * height)).toFixed(1));
+};
+
+console.log(calBMI(63, 1.7));// Expected output: 21.8</code></pre></p>
+<p>
+  <ul>
+    <li>関数式を使うと、関数に名前を付けずに無名関数（匿名関数, 名前のない関数）を作成し、それを変数に代入することができます。この場合、変数名が実質的に関数名の役割を果たします。</li>
+    <li>x.toFixed(a)はxを小数点第a位に変換します。しかし、文字列型なので注意が必要です。parseFloatで浮動小数点の数値型に変換できます。</li>
+    <li>toFixedの代わりに、以下のようにMath.roundを使って記述することもできます。</li>
+  </ul>  
+</p>
+<p>
+  <pre><code>const calBMI = function (weight, height) {
+  return (Math.round(weight / (height * height))*10)/10;
+};
+
+console.log(calBMI(63, 1.7));// Expected output: 21.8</code></pre>  
+</p>
+        <h2><li>即時関数 (IIFE: Immediately Invoked Function Expression)</li></h2>
+        <p>即時関数とは、関数を定義した直後にその場で実行する関数のことです。通常の関数定義と異なり、IIFE はスコープを隔離するため、グローバル汚染を防ぐのに役立ちます。</p>
+        <p>
+        <pre><code>(function calBMI (weight, height) {
+  const result = parseFloat((weight / (height * height)).toFixed(1));
+  console.log(result);
+})(63, 1.7);// Expected output: 21.8</code></pre></p>
+<p>特徴
+  <ul>
+    <li>定義と同時に実行する。</li>
+    <li>スコープが閉じられるため、外部から内部の変数にアクセスできない。</li>
+    <li>グローバル変数を汚染せずに安全に処理を行える。</li>
+  </ul>
+</p>
+<p>なぜ使うのか？
+  <ul>
+    <li>スコープを隔離する: 即時関数内部で使用される変数や関数は、グローバルスコープを汚染しません。</li>
+    <li>初期化処理: 例えば、ウェブページがロードされたときに一度だけ実行するコードに適しています。</li>
+    <li>他のライブラリとの競合防止: グローバルスコープに同じ名前の変数が存在していても影響を受けません。</li>
+  </ul>  
+</p>
+<p>ES6 以降では、即時関数を アロー関数 で書くこともできます。
+  <pre><code>((weight, height) =&gt; {
+  const result = parseFloat((weight / (height * height)).toFixed(1));
+  console.log(result);
+})(63, 1.7);// Expected output: 21.8</code></pre>  
+</p>
+
+      </ol>
+      <p>
+        <button onclick="history.back()">戻る</button>
+        <a href="chap11.html">
+          <button>第11章へ</button>
+        </a>
+      </p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

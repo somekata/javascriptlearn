@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第12章 - オブジェクト指向プログラミング</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="list.html">目次</a>
+      <a href="codeSample.html">コード例</a>
+      <a href="tagTransform.html">エスケープ変換</a>
+    </header>
+
+    <div class="container">
+      <h1>第12章: オブジェクト指向プログラミング（OOP）</h1>
+      <ol>
+        <h2><li>クラスの定義</li></h2>
+        <p>
+          　JavaScriptでのオブジェクト指向プログラミング（OOP）の基本は、クラスを使ってオブジェクトを定義することです。`class`キーワードを使って新しいクラスを作成できます。
+        </p>
+        <pre><code>// クラスの定義
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    greet() {
+        console.log(`こんにちは、${this.name}です！`);
+    }
+}
+
+// クラスからインスタンスを生成
+const person1 = new Person("太郎", 30);
+person1.greet();  // "こんにちは、太郎です！"</code></pre>
+
+        <h2><li>クラスの継承</li></h2>
+        <p>
+          　クラスの継承を使って、既存のクラスの機能を再利用することができます。`extends`キーワードを使って、別のクラスを拡張します。以下は、`Person`クラスを継承して`Student`クラスを作る例です。
+        </p>
+        <pre><code>// クラスの継承
+class Student extends Person {
+    constructor(name, age, studentId) {
+        super(name, age);  // 親クラスのコンストラクタを呼び出す
+        this.studentId = studentId;
+    }
+
+    study() {
+        console.log(`${this.name}は勉強中です`);
+    }
+}
+
+const student1 = new Student("次郎", 20, "S12345");
+student1.greet();  // "こんにちは、次郎です！"
+student1.study();  // "次郎は勉強中です"</code></pre>
+      </ol>
+
+      <p>
+        <button onclick="history.back()">戻る</button>
+        <a href="chap13.html">
+          <button>第13章へ</button>
+        </a>
+      </p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

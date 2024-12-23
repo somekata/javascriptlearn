@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第7章 - 配列とオブジェクトの操作</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="list.html">目次</a>
+      <a href="codeSample.html">コード例</a>
+      <a href="tagTransform.html">エスケープ変換</a>
+    </header>
+
+    <div class="container">
+      <h1>第7章: 配列とオブジェクトの操作</h1>
+      <p>
+        　JavaScriptの配列とオブジェクトは、データを管理するための基本的なデータ構造です。この章では、それらの基本操作や、いつどのように使うべきかを学びます。
+      </p>
+      <ol>
+        <h2><li>配列の基本操作</li></h2>
+        <p>
+          　配列は複数のデータを1つの変数に格納できるデータ構造です。配列の要素には、インデックスを使ってアクセスできます。以下の例では、配列を作成し、いくつかの操作を行います。
+        </p>
+        <pre><code>// 配列の宣言とアクセス
+let fruits = ['りんご', 'バナナ', 'オレンジ'];
+console.log(fruits[0]);  // 'りんご'が出力されます</code></pre>
+
+        <h3>配列の操作（push、pop、shift、unshift）</h3>
+        <p>
+          　配列に新しい要素を追加したり、既存の要素を削除する操作は非常に一般的です。以下は、代表的な配列操作メソッドの例です。
+        </p>
+        <pre><code>// 配列の操作
+fruits.push('ぶどう');    // 'ぶどう'を追加
+console.log(fruits);      // ['りんご', 'バナナ', 'オレンジ', 'ぶどう']
+
+fruits.pop();             // 最後の要素を削除
+console.log(fruits);      // ['りんご', 'バナナ', 'オレンジ']</code></pre>
+        <ul>
+          <li><code>push()</code>: 配列の末尾に新しい要素を追加します。</li>
+          <li><code>pop()</code>: 配列の末尾から要素を削除します。</li>
+          <li><code>shift()</code>: 配列の最初の要素を削除します。</li>
+          <li><code>unshift()</code>: 配列の最初に新しい要素を追加します。</li>
+        </ul>
+
+        <h3>map()やfilter()の活用</h3>
+        <p>
+          　配列を操作する際に、<code>map()</code>や<code>filter()</code>といったメソッドを使うことで、要素を効率的に操作することができます。
+        </p>
+        <pre><code>// mapを使った例
+let numbers = [1, 2, 3, 4];
+let squaredNumbers = numbers.map(function(num) {
+    return num * num;
+});
+console.log(squaredNumbers);  // [1, 4, 9, 16]
+
+// filterを使った例
+let evenNumbers = numbers.filter(function(num) {
+    return num % 2 === 0;
+});
+console.log(evenNumbers);  // [2, 4]</code></pre>
+
+        <h2><li>オブジェクトの基本操作</li></h2>
+        <p>
+          　オブジェクトは、キーと値のペアを持つデータ構造です。キーは一意で、値にはどんなデータ型でも格納できます。以下はオブジェクトの作成と基本的な操作の例です。
+        </p>
+        <pre><code>// オブジェクトの作成とアクセス
+let person = {
+    name: 'Alice',
+    age: 25,
+    city: 'Tokyo'
+};
+
+console.log(person.name);  // 'Alice'が出力されます</code></pre>
+
+        <h3>オブジェクトの操作（追加、削除、更新）</h3>
+        <p>
+          　オブジェクトのプロパティは簡単に追加、削除、更新することができます。以下にその例を示します。
+        </p>
+        <pre><code>// オブジェクトの操作
+person.age = 26;             // プロパティの更新
+person.country = 'Japan';    // 新しいプロパティの追加
+delete person.city;          // プロパティの削除
+
+console.log(person);  // { name: 'Alice', age: 26, country: 'Japan' }</code></pre>
+
+        <h2><li>配列とオブジェクトの使い分け</li></h2>
+        <p>
+          　配列は順序があるデータのリストを扱うのに適しており、オブジェクトは一意のキーを持つデータを扱うのに適しています。例えば、ユーザーの情報を管理する場合、各ユーザーをオブジェクトとして格納し、複数のユーザーを配列でまとめると良いでしょう。
+        </p>
+        <pre><code>// 配列とオブジェクトの組み合わせ
+let users = [
+    { name: 'Alice', age: 25 },
+    { name: 'Bob', age: 30 },
+    { name: 'Charlie', age: 35 }
+];
+
+console.log(users[1].name);  // 'Bob'が出力されます</code></pre>
+      </ol>
+      <p>
+        参考：言語によって、配列の呼び名や仕組みがやや異なっています。参考までに、Pythonとの比較していますので、<a
+          href="append5syntax.html#sec3"
+          >こちら</a
+        >をご覧ください。
+      </p>
+      <h3>オブジェクトのアクセス方法：ドット記法とブラケット記法</h3>
+      <p>
+        　オブジェクトのプロパティにアクセスするためには、ドット記法またはブラケット記法を使用します。次に例を示します。
+      </p>
+      <pre><code>// ドット記法とブラケット記法
+let users = { 
+  name: 'Alice', 
+  age: 25 
+};
+
+console.log(users.name);  // ドット記法によるnameプロパティへのアクセス　'Alice'が出力されます
+console.log(users["name"]);  // ブラケット記法によるnameプロパティへのアクセス　'Alice'が出力されます</code></pre>
+
+      <h3>キーと値の取得</h3>
+      <p>
+        　オブジェクトのキーや値を取得するためには、<code class="gray"
+          >Object.keys()</code
+        >や<code class="gray">Object.values()</code>を使用します。また、<code
+          class="gray"
+          >Object.entries()</code
+        >を使うと、キーと値のペアが返ります。
+      </p>
+      <pre><code>let users = { 
+name: 'Alice', 
+age: 25,
+nationality: 'Japan' 
+};
+
+cconsole.log(Object.keys(users));  // ['name', 'age', 'nationality']
+console.log(Object.values(users));  // ['Alice', 25, 'Japan']
+console.log(Object.entries(users));  // [['name', 'Alice'], ['age', 25], ['nationality', 'Japan']]</code></pre>
+
+      <h3>オブジェクトのスプレッド演算子</h3>
+      <p>
+        　スプレッド演算子を使うと、オブジェクトを簡単にクローンしたり、新しいプロパティを追加できます。
+      </p>
+      <pre><code>const obj = { a: 1, b: 2 };
+
+const newObj = {...obj, c: 3};  // { a: 1, b: 2, c: 3 }</code></pre>
+
+      <h3>オブジェクトの分割代入</h3>
+      <p>
+        　プロパティのアクセスを効率化するためには、分割代入を使うことができます。
+      </p>
+      <pre><code>const { a, b, c } = { a: 1, b: 2, c: 3 };
+
+console.log(a, b, c);  // 1, 2, 3</code></pre>
+
+      <p>
+        <button onclick="history.back()">戻る</button>
+        <a href="chap8.html">
+          <button>第8章へ</button>
+        </a>
+      </p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

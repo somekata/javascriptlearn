@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第6章 - 変数と定数（let、const、var）</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      table.hensu,
+      table.hensu tr,
+      table.hensu th,
+      table.hensu td {
+        border-collapse: collapse;
+        border: solid 1px #999;
+        text-align: center;
+        padding: 0px 10px 0px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="list.html">目次</a>
+      <a href="codeSample.html">コード例</a>
+      <a href="tagTransform.html">エスケープ変換</a>
+    </header>
+
+    <div class="container">
+      <h1>第6章: 変数と定数（let、const、var）</h1>
+      <p>
+        　JavaScriptでは、データを保存するために変数を使います。この章では、`let`、`const`、`var`を使った変数の宣言方法と、それらの違いについて学びます。
+      </p>
+      <ol>
+        <h2><li>変数の種類</li></h2>
+        <p>
+          　変数には、グローバル変数とローカル変数の2種類があります。それぞれの違いについて説明します。
+        </p>
+        <p>
+          <h3>グローバル変数</h3>
+          　グローバル変数は、プログラム全体でアクセス可能な変数です。関数やブロックの外側で宣言された変数は、グローバルスコープに属します。グローバル変数は便利ですが、どこからでも変更可能であるため、意図しないバグを引き起こす可能性があります。
+          <pre><code>let globalVar = "I am global";
+
+function accessGlobal() {
+    console.log(globalVar);  // グローバル変数にアクセス可能
+}
+
+accessGlobal();
+console.log(globalVar);  // グローバル変数にアクセス可能</code></pre>
+          <h3>ローカル変数</h3>
+          　ローカル変数は、特定の関数やブロック内でのみ有効な変数です。ローカル変数を使うことで、変数の影響範囲を限定でき、予期しない干渉を防ぐことができます。
+        </p>
+        <pre><code>function localExample() {
+    let localVar = "I am local";
+    console.log(localVar);  // ローカル変数にアクセス可能
+}
+
+localExample();
+console.log(localVar);  // エラー: localVar is not defined</code></pre>
+
+        <h2><li>変数の宣言方法</li></h2>
+        <p>
+          　JavaScriptで変数を宣言するためには、`let`、`const`、`var`の3つの方法があります。以下にそれぞれの使い方を説明します。
+        </p>
+
+        <h3>`let`による変数宣言</h3>
+        <p>
+          　`let`は、再代入可能な変数を宣言する際に使います。`let`で宣言された変数は、**ブロックスコープ**内でのみ有効です。
+        </p>
+        <pre><code>let score = 10;
+score = 15;  // 再代入が可能</code></pre>
+
+        <h3>`const`による定数の宣言</h3>
+        <p>
+          　`const`は、定数を宣言するために使用します。`const`で宣言された変数には再代入できません。基本的に、値が変わらないデータには`const`を使うのが良い習慣です。
+        </p>
+        <pre><code>const pi = 3.14;
+pi = 3.15;  // エラーが発生します</code></pre>
+
+        <h3>`var`による変数宣言</h3>
+        <p>
+          　`var`は、従来のJavaScriptで使われていた変数宣言方法です。`var`で宣言された変数は**関数スコープ**を持ち、`let`や`const`とは異なる挙動を示すことがあります。現在では、`let`や`const`の使用が推奨されています。
+        </p>
+        <pre><code>var name = "Alice";
+name = "Bob";  // 再代入が可能</code></pre>
+
+
+        <h2><li>スコープ（有効範囲）の違い</li></h2>
+        <p>
+          　変数が有効な範囲（スコープ）は、変数をどのように宣言するかによって異なります。`let`と`const`は**ブロックスコープ**を持ち、`var`は**関数スコープ**を持ちます。
+        </p>
+        <h3>ブロックスコープ</h3>
+        <p>
+          　`{}`で囲まれたコードブロック内でのみ変数が有効になります。ループや条件分岐で変数が使われる場合、ブロックスコープが適用されます。
+        </p>
+        <pre><code>if (true) {
+    let localVar = "ローカル";
+    console.log(localVar);  // ローカル変数が表示されます
+}
+console.log(localVar);  // エラーが発生します</code></pre>
+
+        <h3>関数スコープ</h3>
+        <p>
+          　`var`で宣言された変数は、関数内で宣言された場合、その関数全体で有効になります。ブロックを越えても有効な場合があるため、意図しない挙動を避けるために`var`の使用は控えた方がよいです。
+        </p>
+        <pre><code>function testVar() {
+    var globalVar = "グローバル";
+    if (true) {
+        var globalVar = "上書き";
+        console.log(globalVar);  // "上書き"が表示されます
+    }
+    console.log(globalVar);  // "上書き"が表示されます
+}</code></pre>
+
+        <h2><li>まとめとベストプラクティス</li></h2>
+        <p>
+          　現在のJavaScriptでは、基本的に`let`と`const`を使い、`var`は古いコードにしか登場しないようにしましょう。以下のガイドラインに従って変数を宣言するのが一般的です。
+        </p>
+        <ul>
+          <li>値が変わる可能性がある場合は`let`を使う。</li>
+          <li>値が変わらない場合は`const`を使う。</li>
+          <li>`var`は避ける。</li>
+        </ul>
+        <table class="hensu">
+          <tr>
+            <th>変数</th>
+            <th>再宣言</th>
+            <th>再代入</th>
+            <th>スコープ</th>
+          </tr>
+          <tr>
+            <th>var</th>
+            <td>〇</td>
+            <td>〇</td>
+            <td>関数スコープ</td>
+          </tr>
+          <tr>
+            <th>let</th>
+            <td>×</td>
+            <td>〇</td>
+            <td>ブロックスコープ</td>
+          </tr>
+          <tr>
+            <th>const</th>
+            <td>×</td>
+            <td>×</td>
+            <td>ブロックスコープ</td>
+          </tr>
+        </table>
+      </ol>
+      <h2>参考：複数の変数を代入する方法</h2>
+      複数の値の代入
+      <pre><code>let a = 1, b = 2;
+console.log(a); // 1
+console.log(b); // 2
+</code></pre>
+      分割代入も可能です
+      <pre><code>let [a, b] = [1, 2];
+console.log(a); // 1
+console.log(b); // 2
+</code></pre>
+      配列の代入
+      <pre><code>let arr1 = [1, 2, 3], arr2 = [4, 5, 6];
+console.log(arr1); // [1, 2, 3]
+console.log(arr2); // [4, 5, 6]
+</code></pre>
+      配列も分割代入可能です
+      <pre><code>let [arr1, arr2] = [[1, 2, 3], [4, 5, 6]];
+console.log(arr1); // [1, 2, 3]
+console.log(arr2); // [4, 5, 6]
+</code></pre>
+      オブジェクトの代入
+      <pre><code>let a = { x: 1 }, b = { y: 2 };
+console.log(a); // { x: 1 }
+console.log(b); // { y: 2 }
+</code></pre>
+      配列も分割代入可能です
+      <pre><code>let [a, b] = [{ x: 1 }, { y: 2 }];
+console.log(a); // { x: 1 }
+console.log(b); // { y: 2 }
+</code></pre>
+      オブジェクトのプロパティを分割代入することもできます
+      <pre><code>let obj = { x: 1, y: 2 };
+let { x: a, y: b } = obj;
+console.log(a); // 1
+console.log(b); // 2
+</code></pre>
+
+      <p>
+        <button onclick="history.back()">戻る</button>
+        <a href="chap7.html">
+          <button>第7章へ</button>
+        </a>
+      </p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
