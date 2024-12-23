@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 8</title>
+    <link rel="stylesheet" href="question.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>JavaScript Quiz</h1>
+
+      <!-- 問題文 -->
+      <p class="question">
+        <strong>問題8</strong>
+        以下のコードを実行すると、コンソールに表示される値はどれか。
+      </p>
+      <pre class="code">
+let a = 10;
+let b = 5;
+let c = a + b;
+
+a = c - b;
+b = a * 2;
+c = a + b;
+
+console.log(c);
+    </pre
+      >
+
+      <!-- 回答フォーム -->
+      <form id="quizForm" data-correct-answer="30">
+        <label><input type="radio" name="answer" value="30" /> a. 30</label
+        ><br />
+        <label><input type="radio" name="answer" value="40" /> b. 40</label
+        ><br />
+        <label><input type="radio" name="answer" value="50" /> c. 50</label
+        ><br />
+        <label><input type="radio" name="answer" value="60" /> d. 60</label
+        ><br />
+        <label
+          ><input type="radio" name="answer" value="error" /> e. error</label
+        ><br />
+        <button type="button" id="submitAnswer">Submit</button>
+      </form>
+
+      <!-- 結果表示 -->
+      <p id="result"></p>
+
+      <!-- 解説セクション -->
+      <div id="explanation" class="hidden">
+        <h2>解説</h2>
+        <p>
+          <strong>正解: a. 30</strong><br />
+          このコードの処理内容は以下の通りです:
+        </p>
+        <ol>
+          <li>
+            <code>let a = 10;</code>, <code>let b = 5;</code>,
+            <code>let c = a + b;</code>: <code>c = 15</code>
+          </li>
+          <li><code>a = c - b;</code>: <code>a = 15 - 5 = 10</code></li>
+          <li><code>b = a * 2;</code>: <code>b = 10 * 2 = 20</code></li>
+          <li><code>c = a + b;</code>: <code>c = 10 + 20 = 30</code></li>
+        </ol>
+        <p>
+          最終的に <code>console.log(c)</code> の出力は
+          <code>30</code> となります。
+        </p>
+        <p>問題レベル：初級</p>
+        <p>難易度：☆</p>
+        <p>領域：基本的な計算と変数操作</p>
+      </div>
+
+      <!-- 戻るボタンとジャンプセクション -->
+      <div class="jump-section">
+        <button id="backButton">戻る</button>
+        <label for="jumpToQuestion">問題を選択:</label>
+        <select id="jumpToQuestion">
+          <option value="jsquestion1.html">問題1</option>
+          <option value="jsquestion2.html">問題2</option>
+          <option value="jsquestion3.html">問題3</option>
+          <option value="jsquestion4.html">問題4</option>
+          <option value="jsquestion5.html">問題5</option>
+          <option value="jsquestion6.html">問題6</option>
+          <option value="jsquestion7.html">問題7</option>
+          <option value="jsquestion8.html" selected>問題8</option>
+          <option value="jsquestion9.html">問題9</option>
+          <option value="jsquestion10.html">問題10</option>
+          <option value="jsquestion11.html">問題11</option>
+          <option value="jsquestion12.html">問題12</option>
+          <option value="jsquestion13.html">問題13</option>
+          <option value="jsquestion14.html">問題14</option>
+          <option value="jsquestion15.html">問題15</option>
+          <option value="jsquestion16.html">問題16</option>
+          <option value="jsquestion17.html">問題17</option>
+          <option value="jsquestion18.html">問題18</option>
+          <option value="jsquestion19.html">問題19</option>
+          <option value="jsquestion20.html">問題20</option>
+        </select>
+        <button id="jumpButton">ジャンプ</button>
+      </div>
+    </div>
+    <script src="question.js"></script>
+  </body>
+</html>

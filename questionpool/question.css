@@ -1,0 +1,128 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+}
+
+.question {
+  font-size: 1.2em;
+}
+
+.code {
+  background-color: #f4f4f4;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: 'Courier New', Courier, monospace;
+  white-space: pre-wrap; /* 折り返しを有効にする */
+  word-wrap: break-word; /* 長い単語も折り返す */
+}
+
+label {
+  display: block;
+  margin: 5px 0;
+}
+
+/* Submitボタンのスタイル */
+#submitAnswer {
+  display: block;
+  margin: 20px auto; /* ボタンを中央揃え */
+  width: 60%; /* ボタンの幅を画面幅の60%に */
+  padding: 10px 0; /* ボタンの高さを増やす */
+  font-size: 1.2em; /* ボタンの文字サイズを大きく */
+  background-color: #007bff; /* ボタンの背景色 */
+  color: #fff; /* ボタンの文字色 */
+  border: none; /* ボーダーを削除 */
+  border-radius: 5px; /* ボタンの角を丸く */
+  cursor: pointer; /* マウスオーバー時にポインタ表示 */
+}
+
+#submitAnswer:hover {
+  background-color: #0056b3; /* ホバー時の背景色 */
+}
+
+#result {
+  margin-top: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+#explanation {
+  margin-top: 20px;
+  background-color: #e9f7ef;
+  border: 1px solid #bde5d6;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+/* 戻るボタンのスタイル */
+#backButton {
+  display: inline-block;
+  margin: 20px auto; /* ボタンを中央揃え */
+  padding: 10px 20px; /* ボタン内の余白 */
+  font-size: 1em; /* 文字サイズ */
+  background-color: #28a745; /* 背景色：緑 */
+  color: #fff; /* 文字色：白 */
+  border: none; /* ボーダーを削除 */
+  border-radius: 5px; /* 角を丸く */
+  cursor: pointer; /* マウスオーバー時のポインタ */
+  text-align: center;
+  transition: background-color 0.3s ease; /* ホバー時の背景色変更のアニメーション */
+}
+
+#backButton:hover {
+  background-color: #218838; /* ホバー時の色：濃い緑 */
+}
+
+/* 問題ジャンプセクション */
+#jumpToQuestion {
+  margin: 0 10px; /* 上下の余白と左右の調整 */
+  padding: 10px; /* 内側の余白 */
+  font-size: 1em; /* 文字サイズ */
+  border: 1px solid #ddd; /* 枠線 */
+  border-radius: 5px; /* 角を丸く */
+  background-color: #f8f9fa; /* 背景色：薄いグレー */
+  appearance: none; /* デフォルトのブラウザスタイルを削除 */
+  cursor: pointer; /* マウスオーバー時のポインタ */
+}
+
+#jumpButton {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #007bff; /* 背景色：青 */
+  color: #fff; /* 文字色：白 */
+  border: none; /* ボーダーを削除 */
+  border-radius: 5px; /* 角を丸く */
+  cursor: pointer; /* マウスオーバー時のポインタ */
+  transition: background-color 0.3s ease; /* ホバー時の背景色変更のアニメーション */
+}
+
+#jumpButton:hover {
+  background-color: #0056b3; /* ホバー時の色：濃い青 */
+}
+
+/* ジャンプセクション全体の調整 */
+.jump-section {
+  text-align: center; /* 中央揃え */
+  margin: 20px 0; /* 上下にスペース */
+}

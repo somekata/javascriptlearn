@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 13</title>
+    <link rel="stylesheet" href="question.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>JavaScript Quiz</h1>
+
+      <!-- 問題文 -->
+      <p class="question">
+        <strong>問題13</strong>
+        以下のコードを実行すると、コンソールに表示される値はどれか。
+      </p>
+      <pre class="code">
+let a = 2;
+let b = 4;
+let result = `Result:${a++} + ${--b} = ${a + b}`;
+console.log(result);</pre
+      >
+
+      <!-- 回答フォーム -->
+      <form id="quizForm" data-correct-answer="Result:\n2 + 3 = 6">
+        <label
+          ><input type="radio" name="answer" value="Result: 2 + 4 = 7" /> a.
+          Result:2 + 4 = 7</label
+        ><br />
+        <label
+          ><input type="radio" name="answer" value="Result:\n2 + 3 = 6" /> b.
+          Result:2 + 3 = 6</label
+        ><br />
+        <label
+          ><input type="radio" name="answer" value="Result: 3 + 3 = 7" /> c.
+          Result:3 + 3 = 7</label
+        ><br />
+        <label
+          ><input type="radio" name="answer" value="Result:\n3 + 3 = 7" /> d.
+          Result:3 + 3 = 7</label
+        ><br />
+        <label
+          ><input type="radio" name="answer" value="error" /> e. error</label
+        ><br />
+        <button type="button" id="submitAnswer">Submit</button>
+      </form>
+
+      <!-- 結果表示 -->
+      <p id="result"></p>
+
+      <!-- 解説セクション -->
+      <div id="explanation" class="hidden">
+        <h2>解説</h2>
+        <p>
+          <strong>正解: b. Result:2 + 3 = 6</strong><br />
+          このコードの処理内容は以下の通りです:
+        </p>
+        <ol>
+          <li>初期値: <code>a = 2</code>, <code>b = 4</code></li>
+          <li>
+            <code>${a++}</code>: 後置インクリメントなので、<code>a</code>
+            の現在の値（<code>2</code>）が式に使用され、<code>a = 3</code>
+            に増加します。
+          </li>
+          <li>
+            <code>${--b}</code>: 前置デクリメントなので、<code>b</code> の値が 1
+            減少して <code>3</code> になり、その値が式に使用されます。
+          </li>
+          <li>
+            <code>${a + b}</code>: <code>a = 3</code>,
+            <code>b = 3</code> なので、<code>a + b = 6</code> です。
+          </li>
+          <li>
+            出力は次のようになります:
+            <pre>
+Result:
+2 + 3 = 6</pre
+            >
+          </li>
+        </ol>
+        <p>
+          最終的に
+          <code>console.log(result)</code> の出力は上記の通りとなります。
+        </p>
+        <p>問題レベル：初級</p>
+        <p>難易度：☆☆</p>
+        <p>領域：インクリメント、エスケープシーケンス</p>
+      </div>
+
+      <!-- 戻るボタンとジャンプセクション -->
+      <div class="jump-section">
+        <button id="backButton">戻る</button>
+        <label for="jumpToQuestion">問題を選択:</label>
+        <select id="jumpToQuestion">
+          <option value="jsquestion1.html">問題1</option>
+          <option value="jsquestion2.html">問題2</option>
+          <option value="jsquestion3.html">問題3</option>
+          <option value="jsquestion4.html">問題4</option>
+          <option value="jsquestion5.html">問題5</option>
+          <option value="jsquestion6.html">問題6</option>
+          <option value="jsquestion7.html">問題7</option>
+          <option value="jsquestion8.html">問題8</option>
+          <option value="jsquestion9.html">問題9</option>
+          <option value="jsquestion10.html">問題10</option>
+          <option value="jsquestion11.html">問題11</option>
+          <option value="jsquestion12.html">問題12</option>
+          <option value="jsquestion13.html" selected>問題13</option>
+          <option value="jsquestion14.html">問題14</option>
+          <option value="jsquestion15.html">問題15</option>
+          <option value="jsquestion16.html">問題16</option>
+          <option value="jsquestion17.html">問題17</option>
+          <option value="jsquestion18.html">問題18</option>
+          <option value="jsquestion19.html">問題19</option>
+          <option value="jsquestion20.html">問題20</option>
+        </select>
+        <button id="jumpButton">ジャンプ</button>
+      </div>
+    </div>
+    <script src="question.js"></script>
+  </body>
+</html>

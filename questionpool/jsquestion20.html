@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 20</title>
+    <link rel="stylesheet" href="question.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>JavaScript Quiz</h1>
+
+      <!-- 問題文 -->
+      <p class="question">
+        <strong>問題20</strong>
+        以下のコードを実行すると、コンソールに表示される値はどれか。
+      </p>
+      <pre class="code">
+let user = {
+  name: "John",
+  age: 30,
+  preferences: ["coding", "reading"],
+};
+
+user.age++;
+user.preferences.push("traveling");
+
+let key = "name";
+let result = `${user[key]} is ${user.age} years old and likes ${user.preferences.join(", ")}.`;
+
+console.log(result);</pre
+      >
+
+      <!-- 回答フォーム -->
+      <form
+        id="quizForm"
+        data-correct-answer="John is 31 years old and likes coding, reading, traveling."
+      >
+        <label
+          ><input
+            type="radio"
+            name="answer"
+            value="John is 30 years old and likes coding, reading."
+          />
+          a. John is 30 years old and likes coding, reading.</label
+        ><br />
+        <label
+          ><input
+            type="radio"
+            name="answer"
+            value="John is 31 years old and likes coding, reading."
+          />
+          b. John is 31 years old and likes coding, reading.</label
+        ><br />
+        <label
+          ><input
+            type="radio"
+            name="answer"
+            value="John is 31 years old and likes coding, reading, traveling."
+          />
+          c. John is 31 years old and likes coding, reading, traveling.</label
+        ><br />
+        <label
+          ><input
+            type="radio"
+            name="answer"
+            value="Error: Invalid property access"
+          />
+          d. Error: Invalid property access</label
+        ><br />
+        <label
+          ><input type="radio" name="answer" value="error" /> e. error</label
+        ><br />
+        <button type="button" id="submitAnswer">Submit</button>
+      </form>
+
+      <!-- 結果表示 -->
+      <p id="result"></p>
+
+      <!-- 解説セクション -->
+      <div id="explanation" class="hidden">
+        <h2>解説</h2>
+        <p>
+          <strong
+            >正解: c. John is 31 years old and likes coding, reading,
+            traveling.</strong
+          ><br />
+          このコードの処理内容は以下の通りです:
+        </p>
+        <ol>
+          <li>
+            初期状態:
+            <ul>
+              <li><code>user.name = "John"</code></li>
+              <li><code>user.age = 30</code></li>
+              <li><code>user.preferences = ["coding", "reading"]</code></li>
+            </ul>
+          </li>
+          <li>
+            <code>user.age++</code>: <code>user.age</code> の値が 1
+            増加し、<code>31</code> になります。
+          </li>
+          <li>
+            <code>user.preferences.push("traveling")</code>: 配列に新しい要素
+            <code>"traveling"</code> が追加され、<code
+              >["coding", "reading", "traveling"]</code
+            >
+            となります。
+          </li>
+          <li>
+            <code>key = "name"</code>: プロパティ名を変数で指定し、<code
+              >user[key]</code
+            >
+            は <code>"John"</code> を返します。
+          </li>
+          <li>
+            テンプレートリテラル:
+            <ul>
+              <li>
+                <code
+                  >\`John is 31 years old and likes coding, reading,
+                  traveling.\`</code
+                >
+                が計算されます。
+              </li>
+            </ul>
+          </li>
+          <li>
+            <code>console.log(result)</code>:
+            最終的に上記の文字列が出力されます。
+          </li>
+        </ol>
+        <p>問題レベル：中級</p>
+        <p>難易度：☆☆☆</p>
+        <p>領域：オブジェクト操作、テンプレートリテラル、配列操作</p>
+      </div>
+
+      <!-- 戻るボタンとジャンプセクション -->
+      <div class="jump-section">
+        <button id="backButton">戻る</button>
+        <label for="jumpToQuestion">問題を選択:</label>
+        <select id="jumpToQuestion">
+          <option value="jsquestion1.html">問題1</option>
+          <option value="jsquestion2.html">問題2</option>
+          <option value="jsquestion3.html">問題3</option>
+          <option value="jsquestion4.html">問題4</option>
+          <option value="jsquestion5.html">問題5</option>
+          <option value="jsquestion6.html">問題6</option>
+          <option value="jsquestion7.html">問題7</option>
+          <option value="jsquestion8.html">問題8</option>
+          <option value="jsquestion9.html">問題9</option>
+          <option value="jsquestion10.html">問題10</option>
+          <option value="jsquestion11.html">問題11</option>
+          <option value="jsquestion12.html">問題12</option>
+          <option value="jsquestion13.html">問題13</option>
+          <option value="jsquestion14.html">問題14</option>
+          <option value="jsquestion15.html">問題15</option>
+          <option value="jsquestion16.html">問題16</option>
+          <option value="jsquestion17.html">問題17</option>
+          <option value="jsquestion18.html">問題18</option>
+          <option value="jsquestion19.html">問題19</option>
+          <option value="jsquestion20.html" selected>問題20</option>
+        </select>
+        <button id="jumpButton">ジャンプ</button>
+      </div>
+    </div>
+    <script src="question.js"></script>
+  </body>
+</html>

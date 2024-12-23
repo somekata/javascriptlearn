@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 24</title>
+    <link rel="stylesheet" href="question.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>JavaScript Quiz</h1>
+
+      <!-- 問題文 -->
+      <p class="question">
+        <strong>問題24</strong>
+        以下のコードを実行すると、コンソールに表示される値はどれか。
+      </p>
+      <pre class="code">
+function calculateMatchScore(seq1, seq2) {
+  if (seq1.length !== seq2.length) {
+    throw new Error("Sequences must be of equal length");
+  }
+
+  let score = 0;
+
+  for (let i = 0; i &lt; seq1.length; i++) {
+    if (seq1[i] === "-" || seq2[i] === "-") {
+      score -= 1;
+    } else if (seq1[i] === seq2[i]) {
+      score += 1;
+    }
+  }
+
+  return score;
+}
+
+let seq1 = "ATG-CATG";
+let seq2 = "ATGCAT-G";
+let matchScore = calculateMatchScore(seq1, seq2);
+console.log(`Match Score: ${matchScore}`);</pre
+      >
+
+      <!-- 回答フォーム -->
+      <form id="quizForm" data-correct-answer="Match Score: 2">
+        <label
+          ><input type="radio" name="answer" value="Match Score: 4" /> a. Match
+          Score: 4</label
+        ><br />
+        <label
+          ><input type="radio" name="answer" value="Match Score: 5" /> b. Match
+          Score: 5</label
+        ><br />
+        <label
+          ><input type="radio" name="answer" value="Match Score: 2" /> c. Match
+          Score: 2</label
+        ><br />
+        <label
+          ><input type="radio" name="answer" value="Match Score: 7" /> d. Match
+          Score: 7</label
+        ><br />
+        <label
+          ><input
+            type="radio"
+            name="answer"
+            value="Error: Sequences must be of equal length"
+          />
+          e. Error: Sequences must be of equal length</label
+        ><br />
+        <button type="button" id="submitAnswer">Submit</button>
+      </form>
+
+      <!-- 結果表示 -->
+      <p id="result"></p>
+
+      <!-- 解説セクション -->
+      <div id="explanation" class="hidden">
+        <h2>解説</h2>
+        <p>
+          <strong>正解: c. Match Score: 2</strong><br />
+          このコードの処理内容は以下の通りです:
+        </p>
+        <ol>
+          <li>
+            アライメント:
+            <ul>
+              <li><code>seq1 = "ATG-CATG"</code></li>
+              <li><code>seq2 = "ATGCAT-G"</code></li>
+            </ul>
+          </li>
+          <li>
+            比較ルール:
+            <ul>
+              <li>一致する塩基ペア: `+1点`</li>
+              <li>ギャップを含むペア: `-1点`</li>
+              <li>不一致する塩基ペア: `0点`</li>
+            </ul>
+          </li>
+          <li>
+            各位置でのスコア:
+            <ul>
+              <li>1文字目: AとA → +1点</li>
+              <li>2文字目: TとT → +1点</li>
+              <li>3文字目: GとG → +1点</li>
+              <li>4文字目: -とC → -1点</li>
+              <li>5文字目: CとA → 0点</li>
+              <li>6文字目: AとT → 0点</li>
+              <li>7文字目: Tと- → -1点</li>
+              <li>8文字目: GとG → +1点</li>
+            </ul>
+          </li>
+          <li>合計スコア: `+1 + 1 + 1 - 1 + 0 + 0 - 1 + 1 = 2`</li>
+        </ol>
+
+        <p>問題レベル：中級</p>
+        <p>難易度：☆☆☆</p>
+        <p>領域：配列操作、条件分岐、文字列操作</p>
+      </div>
+
+      <!-- 戻るボタンとジャンプセクション -->
+      <div class="jump-section">
+        <button id="backButton">戻る</button>
+        <label for="jumpToQuestion">問題を選択:</label>
+        <select id="jumpToQuestion">
+          <option value="jsquestion1.html">問題1</option>
+          <option value="jsquestion2.html">問題2</option>
+          <option value="jsquestion3.html">問題3</option>
+          <option value="jsquestion4.html">問題4</option>
+          <option value="jsquestion5.html">問題5</option>
+          <option value="jsquestion6.html">問題6</option>
+          <option value="jsquestion7.html">問題7</option>
+          <option value="jsquestion8.html">問題8</option>
+          <option value="jsquestion9.html">問題9</option>
+          <option value="jsquestion10.html">問題10</option>
+          <option value="jsquestion11.html">問題11</option>
+          <option value="jsquestion12.html">問題12</option>
+          <option value="jsquestion13.html">問題13</option>
+          <option value="jsquestion14.html">問題14</option>
+          <option value="jsquestion15.html">問題15</option>
+          <option value="jsquestion16.html">問題16</option>
+          <option value="jsquestion17.html">問題17</option>
+          <option value="jsquestion18.html">問題18</option>
+          <option value="jsquestion19.html">問題19</option>
+          <option value="jsquestion20.html">問題20</option>
+          <option value="jsquestion21.html">問題21</option>
+          <option value="jsquestion22.html">問題22</option>
+          <option value="jsquestion23.html">問題23</option>
+          <option value="jsquestion24.html" selected>問題24</option>
+        </select>
+        <button id="jumpButton">ジャンプ</button>
+      </div>
+    </div>
+    <script src="question.js"></script>
+  </body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 23</title>
+    <link rel="stylesheet" href="question.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>JavaScript Quiz</h1>
+
+      <!-- 問題文 -->
+      <p class="question">
+        <strong>問題23</strong>
+        以下のコードを実行すると、コンソールに表示される値はどれか。
+      </p>
+      <pre class="code">
+function findSequence(target, query) {
+    let matches = [];
+
+    for (let i = 0; i &lt;= target.length - query.length; i++) {
+        let subsequence = target.slice(i, i + query.length);
+
+        if (subsequence === query) {
+            matches.push(i);
+        }
+    }
+
+    return matches;
+}
+
+let targetSequence = "ATGCATGCGTACGATCG";
+let querySequence = "ATGC";
+let result = findSequence(targetSequence, querySequence);
+console.log(`Result: ${result}`);</pre
+      >
+
+      <!-- 回答フォーム -->
+      <form id="quizForm" data-correct-answer="Result: 0,4">
+        <label
+          ><input type="radio" name="answer" value="Result: 0,4" /> a. Result:
+          0,4</label
+        ><br />
+        <label
+          ><input type="radio" name="answer" value="Result: 0,3" /> b. Result:
+          0,3</label
+        ><br />
+        <label
+          ><input type="radio" name="answer" value="Result: 4,10" /> c. Result:
+          4,10</label
+        ><br />
+        <label
+          ><input type="radio" name="answer" value="Result: []" /> d. Result:
+          []</label
+        ><br />
+        <label
+          ><input type="radio" name="answer" value="error" /> e. error</label
+        ><br />
+        <button type="button" id="submitAnswer">Submit</button>
+      </form>
+
+      <!-- 結果表示 -->
+      <p id="result"></p>
+
+      <!-- 解説セクション -->
+      <div id="explanation" class="hidden">
+        <h2>解説</h2>
+        <p>
+          <strong>正解: a. Result: 0,4</strong><br />
+          このコードの処理内容は以下の通りです:
+        </p>
+        <ol>
+          <li>
+            関数 <code>findSequence</code>:
+            <ul>
+              <li><code>target</code>: 対象となる塩基配列。</li>
+              <li><code>query</code>: 検索する塩基配列。</li>
+              <li>
+                <code>matches</code>:
+                部分一致が見つかった開始位置を格納する配列。
+              </li>
+            </ul>
+          </li>
+          <li>
+            ループ:
+            <ul>
+              <li>
+                <code>i</code> は <code>0</code> から
+                <code>target.length - query.length</code> まで増加。
+              </li>
+              <li>
+                <code>slice(i, i + query.length)</code> で現在の部分配列を取得。
+              </li>
+              <li>
+                部分配列が <code>query</code> と一致した場合、<code
+                  >matches</code
+                >
+                に開始位置を追加。
+              </li>
+            </ul>
+          </li>
+          <li>
+            対象配列:
+            <ul>
+              <li><code>targetSequence = "ATGCATGCGTACGATCG"</code></li>
+              <li><code>querySequence = "ATGC"</code></li>
+            </ul>
+          </li>
+          <li>
+            部分一致:
+            <ul>
+              <li>0文字目から一致 → 開始位置 <code>0</code>。</li>
+              <li>4文字目から一致 → 開始位置 <code>4</code>。</li>
+            </ul>
+          </li>
+          <li>
+            結果:
+            <ul>
+              <li><code>matches = [0, 4]</code>。</li>
+              <li>
+                <code>console.log(result)</code>:
+                <code>Result: 0,4</code> を出力。
+              </li>
+            </ul>
+          </li>
+        </ol>
+        <p>問題レベル：中級</p>
+        <p>難易度：☆☆☆</p>
+        <p>領域：配列操作、文字列検索</p>
+      </div>
+
+      <!-- 戻るボタンとジャンプセクション -->
+      <div class="jump-section">
+        <button id="backButton">戻る</button>
+        <label for="jumpToQuestion">問題を選択:</label>
+        <select id="jumpToQuestion">
+          <option value="jsquestion1.html">問題1</option>
+          <option value="jsquestion2.html">問題2</option>
+          <option value="jsquestion3.html">問題3</option>
+          <option value="jsquestion4.html">問題4</option>
+          <option value="jsquestion5.html">問題5</option>
+          <option value="jsquestion6.html">問題6</option>
+          <option value="jsquestion7.html">問題7</option>
+          <option value="jsquestion8.html">問題8</option>
+          <option value="jsquestion9.html">問題9</option>
+          <option value="jsquestion10.html">問題10</option>
+          <option value="jsquestion11.html">問題11</option>
+          <option value="jsquestion12.html">問題12</option>
+          <option value="jsquestion13.html">問題13</option>
+          <option value="jsquestion14.html">問題14</option>
+          <option value="jsquestion15.html">問題15</option>
+          <option value="jsquestion16.html">問題16</option>
+          <option value="jsquestion17.html">問題17</option>
+          <option value="jsquestion18.html">問題18</option>
+          <option value="jsquestion19.html">問題19</option>
+          <option value="jsquestion20.html">問題20</option>
+          <option value="jsquestion21.html">問題21</option>
+          <option value="jsquestion22.html">問題22</option>
+          <option value="jsquestion23.html" selected>問題23</option>
+        </select>
+        <button id="jumpButton">ジャンプ</button>
+      </div>
+    </div>
+    <script src="question.js"></script>
+  </body>
+</html>

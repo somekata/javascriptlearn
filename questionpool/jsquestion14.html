@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 14</title>
+    <link rel="stylesheet" href="question.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>JavaScript Quiz</h1>
+
+      <!-- 問題文 -->
+      <p class="question">
+        <strong>問題14</strong>
+        以下のコードを実行すると、コンソールに表示される値はどれか。
+      </p>
+      <pre class="code">
+let a = 5;
+let b = --a + a--;
+console.log(a, b);</pre
+      >
+
+      <!-- 回答フォーム -->
+      <form id="quizForm" data-correct-answer="3, 8">
+        <label><input type="radio" name="answer" value="3, 8" /> a. 3, 8</label
+        ><br />
+        <label><input type="radio" name="answer" value="4, 9" /> b. 4, 9</label
+        ><br />
+        <label><input type="radio" name="answer" value="4, 8" /> c. 4, 8</label
+        ><br />
+        <label><input type="radio" name="answer" value="3, 7" /> d. 3, 7</label
+        ><br />
+        <label
+          ><input type="radio" name="answer" value="error" /> e. error</label
+        ><br />
+        <button type="button" id="submitAnswer">Submit</button>
+      </form>
+
+      <!-- 結果表示 -->
+      <p id="result"></p>
+
+      <!-- 解説セクション -->
+      <div id="explanation" class="hidden">
+        <h2>解説</h2>
+        <p>
+          <strong>正解: a. 3, 8</strong><br />
+          このコードの処理内容は以下の通りです:
+        </p>
+        <ol>
+          <li>初期値: <code>a = 5</code></li>
+          <li>
+            <code>--a</code>: 前置デクリメントで、<code>a</code> が 1 減少し
+            <code>4</code> になります。
+          </li>
+          <li>
+            <code>a--</code>:
+            後置デクリメントで、現在の値（<code>4</code>）が式で使用され、その後
+            <code>a = 3</code> になります。
+          </li>
+          <li>
+            計算: <code>b = --a + a--</code> は次のように評価されます:
+            <ul>
+              <li><code>--a = 4</code></li>
+              <li><code>a-- = 4</code></li>
+              <li><code>b = 4 + 4 = 8</code></li>
+            </ul>
+          </li>
+          <li>
+            <code>console.log(a, b)</code>: 最終的に <code>a = 3</code>,
+            <code>b = 8</code> となります。
+          </li>
+        </ol>
+        <p>
+          最終的に <code>console.log(a, b)</code> の出力は
+          <code>3, 8</code> です。
+        </p>
+        <p>問題レベル：中級</p>
+        <p>難易度：☆☆</p>
+        <p>領域：デクリメント、演算子の優先順位</p>
+      </div>
+
+      <!-- 戻るボタンとジャンプセクション -->
+      <div class="jump-section">
+        <button id="backButton">戻る</button>
+        <label for="jumpToQuestion">問題を選択:</label>
+        <select id="jumpToQuestion">
+          <option value="jsquestion1.html">問題1</option>
+          <option value="jsquestion2.html">問題2</option>
+          <option value="jsquestion3.html">問題3</option>
+          <option value="jsquestion4.html">問題4</option>
+          <option value="jsquestion5.html">問題5</option>
+          <option value="jsquestion6.html">問題6</option>
+          <option value="jsquestion7.html">問題7</option>
+          <option value="jsquestion8.html">問題8</option>
+          <option value="jsquestion9.html">問題9</option>
+          <option value="jsquestion10.html">問題10</option>
+          <option value="jsquestion11.html">問題11</option>
+          <option value="jsquestion12.html">問題12</option>
+          <option value="jsquestion13.html">問題13</option>
+          <option value="jsquestion14.html" selected>問題14</option>
+          <option value="jsquestion15.html">問題15</option>
+          <option value="jsquestion16.html">問題16</option>
+          <option value="jsquestion17.html">問題17</option>
+          <option value="jsquestion18.html">問題18</option>
+          <option value="jsquestion19.html">問題19</option>
+          <option value="jsquestion20.html">問題20</option>
+        </select>
+        <button id="jumpButton">ジャンプ</button>
+      </div>
+    </div>
+    <script src="question.js"></script>
+  </body>
+</html>

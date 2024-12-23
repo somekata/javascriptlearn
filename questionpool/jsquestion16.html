@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 16</title>
+    <link rel="stylesheet" href="question.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>JavaScript Quiz</h1>
+
+      <!-- 問題文 -->
+      <p class="question">
+        <strong>問題16</strong>
+        以下のコードを実行すると、コンソールに表示される値はどれか。
+      </p>
+      <pre class="code">
+let count = 0;
+let total = 0;
+while (count &lt; 4) {
+  total += count;
+  count++;
+}
+console.log(total);</pre
+      >
+
+      <!-- 回答フォーム -->
+      <form id="quizForm" data-correct-answer="6">
+        <label><input type="radio" name="answer" value="3" /> a. 3</label><br />
+        <label><input type="radio" name="answer" value="6" /> b. 6</label><br />
+        <label><input type="radio" name="answer" value="10" /> c. 10</label
+        ><br />
+        <label><input type="radio" name="answer" value="15" /> d. 15</label
+        ><br />
+        <label
+          ><input type="radio" name="answer" value="error" /> e. error</label
+        ><br />
+        <button type="button" id="submitAnswer">Submit</button>
+      </form>
+
+      <!-- 結果表示 -->
+      <p id="result"></p>
+
+      <!-- 解説セクション -->
+      <div id="explanation" class="hidden">
+        <h2>解説</h2>
+        <p>
+          <strong>正解: b. 6</strong><br />
+          このコードの処理内容は以下の通りです:
+        </p>
+        <ol>
+          <li>初期値: <code>count = 0</code>, <code>total = 0</code></li>
+          <li>
+            <code>while</code> 文の条件: <code>count &lt; 4</code>（<code
+              >count</code
+            >
+            が 4 より小さい間ループ継続）
+          </li>
+          <li>
+            ループごとの計算:
+            <ul>
+              <li>
+                1回目: <code>total += 0</code> → <code>total = 0</code>,
+                <code>count++</code> → <code>count = 1</code>
+              </li>
+              <li>
+                2回目: <code>total += 1</code> → <code>total = 1</code>,
+                <code>count++</code> → <code>count = 2</code>
+              </li>
+              <li>
+                3回目: <code>total += 2</code> → <code>total = 3</code>,
+                <code>count++</code> → <code>count = 3</code>
+              </li>
+              <li>
+                4回目: <code>total += 3</code> → <code>total = 6</code>,
+                <code>count++</code> → <code>count = 4</code>
+              </li>
+            </ul>
+          </li>
+          <li>条件が偽（<code>count = 4</code>）となった時点でループ終了。</li>
+          <li>
+            <code>console.log(total)</code>: 最終的に
+            <code>total = 6</code> が出力されます。
+          </li>
+        </ol>
+        <p>問題レベル：初級</p>
+        <p>難易度：☆</p>
+        <p>領域：while 文の基礎</p>
+      </div>
+
+      <!-- 戻るボタンとジャンプセクション -->
+      <div class="jump-section">
+        <button id="backButton">戻る</button>
+        <label for="jumpToQuestion">問題を選択:</label>
+        <select id="jumpToQuestion">
+          <option value="jsquestion1.html">問題1</option>
+          <option value="jsquestion2.html">問題2</option>
+          <option value="jsquestion3.html">問題3</option>
+          <option value="jsquestion4.html">問題4</option>
+          <option value="jsquestion5.html">問題5</option>
+          <option value="jsquestion6.html">問題6</option>
+          <option value="jsquestion7.html">問題7</option>
+          <option value="jsquestion8.html">問題8</option>
+          <option value="jsquestion9.html">問題9</option>
+          <option value="jsquestion10.html">問題10</option>
+          <option value="jsquestion11.html">問題11</option>
+          <option value="jsquestion12.html">問題12</option>
+          <option value="jsquestion13.html">問題13</option>
+          <option value="jsquestion14.html">問題14</option>
+          <option value="jsquestion15.html">問題15</option>
+          <option value="jsquestion16.html" selected>問題16</option>
+          <option value="jsquestion17.html">問題17</option>
+          <option value="jsquestion18.html">問題18</option>
+          <option value="jsquestion19.html">問題19</option>
+          <option value="jsquestion20.html">問題20</option>
+        </select>
+        <button id="jumpButton">ジャンプ</button>
+      </div>
+    </div>
+    <script src="question.js"></script>
+  </body>
+</html>

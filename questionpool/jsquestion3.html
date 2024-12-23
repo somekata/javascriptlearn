@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 3</title>
+    <link rel="stylesheet" href="question.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>JavaScript Quiz</h1>
+
+      <!-- 問題文 -->
+      <p class="question">
+        <strong>問題3</strong>
+        以下のコードを実行すると、コンソールに表示される値はどれか。
+      </p>
+      <pre class="code">
+let stack = [1, 2, 3];
+stack.push(4);
+stack.pop();
+stack.push(5);
+console.log(stack);</pre
+      >
+
+      <!-- 回答フォーム -->
+      <form id="quizForm" data-correct-answer="[1, 2, 3, 5]">
+        <label
+          ><input type="radio" name="answer" value="[1, 2, 3, 4, 5]" /> a. [1,
+          2, 3, 4, 5]</label
+        ><br />
+        <label
+          ><input type="radio" name="answer" value="[1, 2, 3]" /> b. [1, 2,
+          3]</label
+        ><br />
+        <label
+          ><input type="radio" name="answer" value="[1, 2, 3, 4]" /> c. [1, 2,
+          3, 4]</label
+        ><br />
+        <label
+          ><input type="radio" name="answer" value="[1, 2, 3, 5]" /> d. [1, 2,
+          3, 5]</label
+        ><br />
+        <label
+          ><input type="radio" name="answer" value="error" /> e. error</label
+        ><br />
+        <button type="button" id="submitAnswer">Submit</button>
+      </form>
+
+      <!-- 結果表示 -->
+      <p id="result"></p>
+
+      <!-- 解説セクション -->
+      <div id="explanation" class="hidden">
+        <h2>解説</h2>
+        <p>
+          <strong>正解: d. [1, 2, 3, 5]</strong><br />
+          このコードの処理内容は以下の通りです:
+        </p>
+        <ol>
+          <li>初期値: 配列 <code>stack = [1, 2, 3]</code>。</li>
+          <li>
+            <code>stack.push(4)</code>: 配列の末尾に
+            <code>4</code> を追加します。結果: <code>[1, 2, 3, 4]</code>。
+          </li>
+          <li>
+            <code>stack.pop()</code>:
+            配列の末尾の要素（<code>4</code>）を削除します。結果:
+            <code>[1, 2, 3]</code>。
+          </li>
+          <li>
+            <code>stack.push(5)</code>: 配列の末尾に
+            <code>5</code> を追加します。結果: <code>[1, 2, 3, 5]</code>。
+          </li>
+          <li><code>console.log(stack)</code>: 配列全体を出力します。</li>
+        </ol>
+        <p>問題レベル：中級</p>
+        <p>難易度：☆☆</p>
+        <p>領域：配列操作</p>
+      </div>
+      <!-- 戻るボタン -->
+      <button id="backButton">戻る</button>
+
+      <!-- 問題ジャンプセクション -->
+      <div class="jump-section">
+        <label for="jumpToQuestion">問題を選択:</label>
+        <select id="jumpToQuestion">
+          <option value="jsquestion1.html">問題1</option>
+          <option value="jsquestion2.html">問題2</option>
+          <option value="jsquestion3.html">問題3</option>
+          <option value="jsquestion4.html" selected>問題4</option>
+          <option value="jsquestion5.html">問題5</option>
+          <option value="jsquestion6.html">問題6</option>
+          <option value="jsquestion7.html">問題7</option>
+          <option value="jsquestion8.html">問題8</option>
+          <option value="jsquestion9.html">問題9</option>
+          <option value="jsquestion10.html">問題10</option>
+          <option value="jsquestion11.html">問題11</option>
+          <option value="jsquestion12.html">問題12</option>
+          <option value="jsquestion13.html">問題13</option>
+          <option value="jsquestion14.html">問題14</option>
+          <option value="jsquestion15.html">問題15</option>
+          <option value="jsquestion16.html">問題16</option>
+          <option value="jsquestion17.html">問題17</option>
+          <option value="jsquestion18.html">問題18</option>
+          <option value="jsquestion19.html">問題19</option>
+          <option value="jsquestion20.html">問題20</option>
+        </select>
+        <button id="jumpButton">ジャンプ</button>
+      </div>
+    </div>
+    <script src="question.js"></script>
+  </body>
+</html>

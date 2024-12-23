@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 21</title>
+    <link rel="stylesheet" href="question.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>JavaScript Quiz</h1>
+
+      <!-- 問題文 -->
+      <p class="question">
+        <strong>問題21</strong>
+        以下のコードを実行すると、コンソールに表示される値はどれか。
+      </p>
+      <pre class="code">
+let result = "";
+let counter = 1;
+
+while (counter &lt;= 5) {
+  if (counter % 2 === 0) {
+    result += `${counter * 2}-`;
+  } else {
+    result += `${counter * 3},`;
+  }
+  counter++;
+}
+
+result = result.slice(0, -1); // 最後の余計な文字を削除
+console.log(result);</pre
+      >
+
+      <!-- 回答フォーム -->
+      <form id="quizForm" data-correct-answer="3,4-9,8-15">
+        <label
+          ><input type="radio" name="answer" value="3,6,9,12,15" /> a.
+          3,6,9,12,15</label
+        ><br />
+        <label
+          ><input type="radio" name="answer" value="3,4-9,8-15" /> b.
+          3,4-9,8-15</label
+        ><br />
+        <label
+          ><input type="radio" name="answer" value="2,4-6,8-10,12-" /> c.
+          2,4-6,8-10,12-</label
+        ><br />
+        <label
+          ><input type="radio" name="answer" value="3,9,15,21,27" /> d.
+          3,9,15,21,27</label
+        ><br />
+        <label
+          ><input type="radio" name="answer" value="error" /> e. error</label
+        ><br />
+        <button type="button" id="submitAnswer">Submit</button>
+      </form>
+
+      <!-- 結果表示 -->
+      <p id="result"></p>
+
+      <!-- 解説セクション -->
+      <div id="explanation" class="hidden">
+        <h2>解説</h2>
+        <p>
+          <strong>正解: b. 3,4-9,8-15</strong><br />
+          このコードの処理内容は以下の通りです:
+        </p>
+        <ol>
+          <li>初期値: <code>result = ""</code>, <code>counter = 1</code></li>
+          <li>
+            <code>while (counter &lt;= 5)</code>:
+            条件が真の間、ループが実行されます。
+          </li>
+          <li>
+            ループ内の条件分岐:
+            <ul>
+              <li>
+                <code>counter % 2 === 0</code>: 偶数の場合、<code>result</code>
+                に <code>counter * 2</code> を追加し、区切り文字として
+                <code>"-"</code> を追加します。
+              </li>
+              <li>
+                奇数の場合、<code>result</code> に
+                <code>counter * 3</code> を追加し、区切り文字として
+                <code>","</code> を追加します。
+              </li>
+            </ul>
+          </li>
+          <li>
+            各ループの処理:
+            <ul>
+              <li>
+                1回目 (<code>counter = 1</code>): <code>result = "3,"</code>
+              </li>
+              <li>
+                2回目 (<code>counter = 2</code>): <code>result = "3,4-"</code>
+              </li>
+              <li>
+                3回目 (<code>counter = 3</code>): <code>result = "3,4-9,"</code>
+              </li>
+              <li>
+                4回目 (<code>counter = 4</code>):
+                <code>result = "3,4-9,8-"</code>
+              </li>
+              <li>
+                5回目 (<code>counter = 5</code>):
+                <code>result = "3,4-9,8-15,"</code>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <code>result.slice(0, -1)</code>: 最後の余計な文字 (<code>","</code>
+            または <code>"-"</code>) を削除します。
+          </li>
+          <li>
+            <code>console.log(result)</code>: 最終的な出力は
+            <code>"3,4-9,8-15"</code> です。
+          </li>
+        </ol>
+
+        <p>問題レベル：中級</p>
+        <p>難易度：☆☆☆</p>
+        <p>領域：文字列操作、条件分岐、繰り返し</p>
+      </div>
+
+      <!-- 戻るボタンとジャンプセクション -->
+      <div class="jump-section">
+        <button id="backButton">戻る</button>
+        <label for="jumpToQuestion">問題を選択:</label>
+        <select id="jumpToQuestion">
+          <option value="jsquestion1.html">問題1</option>
+          <option value="jsquestion2.html">問題2</option>
+          <option value="jsquestion3.html">問題3</option>
+          <option value="jsquestion4.html">問題4</option>
+          <option value="jsquestion5.html">問題5</option>
+          <option value="jsquestion6.html">問題6</option>
+          <option value="jsquestion7.html">問題7</option>
+          <option value="jsquestion8.html">問題8</option>
+          <option value="jsquestion9.html">問題9</option>
+          <option value="jsquestion10.html">問題10</option>
+          <option value="jsquestion11.html">問題11</option>
+          <option value="jsquestion12.html">問題12</option>
+          <option value="jsquestion13.html">問題13</option>
+          <option value="jsquestion14.html">問題14</option>
+          <option value="jsquestion15.html">問題15</option>
+          <option value="jsquestion16.html">問題16</option>
+          <option value="jsquestion17.html">問題17</option>
+          <option value="jsquestion18.html">問題18</option>
+          <option value="jsquestion19.html">問題19</option>
+          <option value="jsquestion20.html">問題20</option>
+          <option value="jsquestion21.html" selected>問題21</option>
+        </select>
+        <button id="jumpButton">ジャンプ</button>
+      </div>
+    </div>
+    <script src="question.js"></script>
+  </body>
+</html>
