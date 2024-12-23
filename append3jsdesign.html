@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>付録3 - JavaScriptのサンプル</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="list.html">目次</a>
+      <a href="codeSample.html">コード例</a>
+      <a href="tagTransform.html">エスケープ変換</a>
+    </header>
+
+    <div class="container">
+      <h1>付録3　JavaScriptのサンプル</h1>
+      <ol>
+        <h2><li>変数とデータ型</li></h2>
+        <pre><code>// 変数の宣言
+var a =0;
+let number = 10;
+let text = "こんにちは";
+let isTrue = true;
+const pageCount = 1;
+
+// コンソールに出力
+console.log(number);  // 10
+console.log(text);    // "こんにちは"
+console.log(isTrue);  // true</code></pre>
+
+        <h2><li>条件分岐</li></h2>
+        <pre><code>// 条件分岐の例
+let score = 85;
+
+if (score &gt;= 90) {
+    console.log("優");
+} else if (score &gt;= 70) {
+    console.log("良");
+} else {
+    console.log("可");
+}</code></pre>
+
+        <h2><li>繰り返し処理</li></h2>
+        <pre><code>// for文の例
+for (let i = 0; i &lt; 5; i++) {
+    console.log("ループ回数: " + i);
+}
+
+// while文の例
+let count = 0;
+while (count &lt; 5) {
+    console.log("カウント: " + count);
+    count++;
+}</code></pre>
+
+        <h2>
+          <li>関数</li>
+        </h2>
+        <pre><code>// 関数の定義
+function greet(name) {
+    return "こんにちは、" + name + "さん！";
+}
+
+// 関数の呼び出し
+let message = greet("太郎");
+console.log(message);  // こんにちは、太郎さん！</code></pre>
+
+        <h2><li>DOM操作の例</li></h2>
+        <pre><code>// DOMの要素を取得して操作
+let heading = document.getElementById("title");
+heading.textContent = "新しいタイトル";
+
+// ボタンをクリックしたときのイベント処理
+document.getElementById("myButton").addEventListener("click", function() {
+    alert("ボタンがクリックされました！");
+});</code></pre>
+
+        <h2><li>オブジェクトと配列</li></h2>
+        <pre><code>// オブジェクトの例
+let person = {
+    name: "太郎",
+    age: 25,
+    greet: function() {
+        return "こんにちは、" + this.name + "さん！";
+    }
+};
+
+console.log(person.name);  // 太郎
+console.log(person.greet());  // こんにちは、太郎さん！
+
+// 配列の例
+let fruits = ["りんご", "バナナ", "オレンジ"];
+console.log(fruits[0]);  // りんご</code></pre>
+
+        <h2><li>非同期処理（Promiseとasync/await）</li></h2>
+        <pre><code>// Promiseを使った非同期処理
+let promise = new Promise(function(resolve, reject) {
+    let success = true;
+    if (success) {
+        resolve("成功しました！");
+    } else {
+        reject("失敗しました...");
+    }
+});
+
+promise.then(function(result) {
+    console.log(result);  // "成功しました！"
+}).catch(function(error) {
+    console.log(error);
+});
+
+// async/awaitを使った非同期処理
+async function fetchData() {
+    try {
+        let response = await fetch("https://api.example.com/data");
+        let data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.log("エラーが発生しました: " + error);
+    }
+}</code></pre>
+
+        <h2><li>consoleオブジェクトの使い方</li></h2>
+        <p>
+          JavaScriptの`console`オブジェクトは、`log`以外にも多くの便利なメソッドを提供しています。以下はそのいくつかの例です。
+        </p>
+        <pre><code>// consoleの便利なメソッド
+
+// エラーを出力
+console.error("これはエラーメッセージです");
+
+// 警告を出力
+console.warn("これは警告メッセージです");
+
+// 情報を出力
+console.info("これは情報メッセージです");
+
+// グループ化して出力
+console.group("グループ化されたログ");
+console.log("ログ1");
+console.log("ログ2");
+console.groupEnd();
+
+// 表形式で出力
+let data = [
+    { 名前: "太郎", 年齢: 25 },
+    { 名前: "花子", 年齢: 30 }
+];
+console.table(data);
+
+// 実行時間を測定
+console.time("タイマー");
+for (let i = 0; i &lt; 1000000; i++) {}  // 適当な処理
+console.timeEnd("タイマー");
+
+// スタックトレースを表示
+console.trace("スタックトレースの例");
+</code></pre>
+        <p>
+          これらを使用することで、開発中により詳しい情報を得たり、デバッグ作業を効率化できます。
+        </p>
+        <p>
+          コンソールへの表示は、用いるプラットフォーム（例:
+          Node.js、ブラウザの開発者ツール）や記述の仕方によって若干異なることがあります。
+        </p>
+        <div class="example">
+          <pre><code>let arr = [1, 2, 3];
+arr[1] = 10; // インデックス1の値を10に変更
+
+// 異なる記述方法でコンソールに表示
+console.log("array:", arr);  // 引数として配列を渡す
+console.log("array:" + arr); // 文字列連結で配列を渡す
+console.log(`array:${arr}`); // テンプレートリテラルで配列を渡す</code></pre>
+          <p><strong>実行結果（Node.jsの場合）:</strong></p>
+          <pre><code>array: [ 1, 10, 3 ]
+array:1,10,3
+array:1,10,3</code></pre>
+          <p><strong>補足解説:</strong></p>
+          <ul>
+            <li>
+              <code>console.log("array:", arr);</code><br />
+              <ul>
+                <li>
+                  <code>console.log</code>
+                  にカンマ区切りで複数の引数を渡す場合、配列はオブジェクトとして表示されます。
+                </li>
+                <li>
+                  Node.js 環境では
+                  <code>[ 1, 10, 3 ]</code> のように明示的な形式で表示されます。
+                </li>
+              </ul>
+            </li>
+            <li>
+              <code>console.log("array:" + arr);</code><br />
+              <ul>
+                <li>
+                  文字列連結を行うと、配列はカンマ区切りの文字列として変換されます
+                  (<code>1,10,3</code>)。
+                </li>
+              </ul>
+            </li>
+            <li>
+              <code>console.log(`array:${arr}`);</code><br />
+              <ul>
+                <li>
+                  テンプレートリテラルでは、文字列連結と同じように表示されます。
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p><strong>使い方のポイント:</strong></p>
+          <ul>
+            <li>
+              デバッグ用途では、<code>console.log</code>
+              に複数引数で配列を渡す形式が推奨されます。
+            </li>
+            <li>
+              文字列として処理結果を表示したい場合は、テンプレートリテラルや文字列連結を利用すると適切です。
+            </li>
+          </ul>
+        </div>
+
+        <h2><li>タイマー関数（setTimeoutとsetInterval）</li></h2>
+        <p>
+          JavaScriptでは、一定時間後に処理を実行する`setTimeout`や、一定間隔で処理を繰り返す`setInterval`を使用できます。これらを使うことで、時間制御のある処理が可能です。
+        </p>
+        <pre><code>// setTimeoutの例
+console.log("処理開始");
+setTimeout(function() {
+    console.log("2秒後に実行されます");
+}, 2000);
+
+// setIntervalの例
+let count = 0;
+let intervalId = setInterval(function() {
+    console.log("1秒ごとに実行されています: " + count);
+    count++;
+    if (count &gt; 5) {
+        clearInterval(intervalId); // 繰り返しを停止
+        console.log("setIntervalが停止されました");
+    }
+}, 1000);
+</code></pre>
+
+        <h3>応用例: setTimeoutで再帰的な繰り返し</h3>
+        <p>
+          `setTimeout`を再帰的に呼び出すことで、`setInterval`のような繰り返し処理を実現することもできます。
+        </p>
+        <pre><code>// 再帰的なsetTimeoutの例
+let counter = 0;
+
+function repeat() {
+    if (counter &gt; 5) {
+        console.log("再帰的な処理を終了します");
+        return;
+    }
+    console.log("再帰的に実行されています: " + counter);
+    counter++;
+    setTimeout(repeat, 1000); // 1秒後に再実行
+}
+
+repeat();
+</code></pre>
+
+        <p>
+          タイマーを正しく制御することで、柔軟な時間操作が可能になります。特に`setInterval`や`setTimeout`の使い分けが重要です。
+        </p>
+      </ol>
+    </div>
+    <p>
+      <button onclick="history.back()">戻る</button>
+      <a href="codeSample.html">
+        <button>コード例</button>
+      </a>
+    </p>
+    <script src="script.js"></script>
+  </body>
+</html>

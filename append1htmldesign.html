@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第1章 - HTML、CSS、JavaScriptの基本</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="list.html">目次</a>
+      <a href="codeSample.html">コード例</a>
+      <a href="tagTransform.html">エスケープ変換</a>
+    </header>
+
+    <div class="container">
+      <h1>付録1　HTMLのサンプル</h1>
+      <h2>1. HTMLの基本構造</h2>
+      <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;サンプルページ&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;HTMLの基本構造&lt;/h1&gt;
+    &lt;p&gt;このページは、HTMLの基本構造を説明しています。&lt;/p&gt;
+    &lt;a href="index.html"&gt;ホームに戻る&lt;/a&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+
+      <h2>2. HTML要素の例</h2>
+      <pre><code>
+&lt;h1&gt;見出し1&lt;/h1&gt;
+&lt;p&gt;これは段落の例です。&lt;/p&gt;
+&lt;a href="https://example.com"&gt;リンクの例&lt;/a&gt;
+&lt;ul&gt;
+  &lt;li&gt;リストの項目1&lt;/li&gt;
+  &lt;li&gt;リストの項目2&lt;/li&gt;
+  &lt;li&gt;リストの項目3&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- 順序付きリスト (ol) の例 --&gt;
+&lt;ol&gt;
+  &lt;li&gt;順序付きリストの項目1&lt;/li&gt;
+  &lt;li&gt;順序付きリストの項目2&lt;/li&gt;
+  &lt;li&gt;順序付きリストの項目3&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- 定義リスト (dl) の例 --&gt;
+&lt;dl&gt;
+  &lt;dt&gt;定義語1&lt;/dt&gt;
+  &lt;dd&gt;定義語1の説明&lt;/dd&gt;
+  &lt;dt&gt;定義語2&lt;/dt&gt;
+  &lt;dd&gt;定義語2の説明&lt;/dd&gt;
+&lt;/dl&gt;
+        </code></pre>
+
+      <h2>3. フォーム要素の例</h2>
+      <pre><code>
+&lt;form action="/submit" method="post"&gt;
+  &lt;label for="name"&gt;名前:&lt;/label&gt;
+  &lt;input type="text" id="name" name="name"&gt;&lt;br&gt;&lt;br&gt;
+  
+  &lt;label for="email"&gt;メール:&lt;/label&gt;
+  &lt;input type="email" id="email" name="email"&gt;&lt;br&gt;&lt;br&gt;
+  
+  &lt;input type="submit" value="送信"&gt;
+&lt;/form&gt;
+        </code></pre>
+      <h2>4. テーブルの例</h2>
+      <pre><code>
+&lt;table border="1"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;ヘッダー1&lt;/th&gt;
+    &lt;th&gt;ヘッダー2&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;データ1-1&lt;/td&gt;
+    &lt;td&gt;データ1-2&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;データ2-1&lt;/td&gt;
+    &lt;td&gt;データ2-2&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+        </code></pre>
+    </div>
+    <p>
+      <button onclick="history.back()">戻る</button>
+      <a href="append2cssdesign.html">
+        <button>付録2</button>
+      </a>
+    </p>
+
+    <script src="script.js"></script>
+  </body>
+</html>

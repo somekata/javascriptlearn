@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>コラム11 - JSとPythonの変数、構文、配列の比較</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      table.compare,
+      tr,
+      th,
+      td {
+        text-align: center;
+        border-collapse: collapse;
+        border: solid 1px #555;
+        padding: 0px 20px 0px 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="list.html">目次</a>
+      <a href="codeSample.html">コード例</a>
+      <a href="tagTransform.html">エスケープ変換</a>
+    </header>
+
+    <div class="container">
+      <h1>JSとPythonの変数、構文、配列の比較</h1>
+      <p>
+        　JavaScript（JS）とPythonは、どちらも広く使われている人気の高いプログラミング言語です。どちらも異なる特性を持っているため、それぞれの用途に応じて選択されます。ここでは、JSとPythonの変数の扱い方、基本的な構文、配列操作の違いを比較してみましょう。
+      </p>
+      <ol>
+        <h2><li>変数の宣言</li></h2>
+        <p>
+          　JavaScriptとPythonの間で、変数の宣言には違いがあります。JavaScriptでは、`let`や`const`キーワードを使って変数を宣言しますが、Pythonではキーワードを使わず、直接変数名に値を代入します。
+        </p>
+
+        <h3>JavaScript</h3>
+        <pre><code>let x = 10;  // 変数xを宣言して値を代入
+const y = 20;  // 定数yを宣言</code></pre>
+
+        <h3>Python</h3>
+        <pre><code>x = 10  # 変数xを宣言して値を代入
+y = 20  # 変数yに値を代入（定数は通常使わない）</code></pre>
+
+        <h2><li>条件分岐とループ構文</li></h2>
+        <p>
+          　JavaScriptとPythonの間で、条件分岐やループの構文に若干の違いがあります。Pythonではインデントが重要ですが、JavaScriptでは中括弧を使います。
+        </p>
+
+        <h3>条件分岐の比較</h3>
+
+        <h3>JavaScript</h3>
+        <pre><code>if (x &gt; 10) {
+console.log('xは10より大きい');
+} else {
+console.log('xは10以下');
+}</code></pre>
+
+        <h3>Python</h3>
+        <pre><code>if x &gt; 10:
+print('xは10より大きい')
+else:
+print('xは10以下')</code></pre>
+
+        <h3>ループの比較</h3>
+
+        <h3>JavaScript</h3>
+        <pre><code>for (let i = 0; i &lt; 5; i++) {
+console.log(i);
+}</code></pre>
+
+        <h3 id="sec3">Python</h3>
+        <pre><code>for i in range(5):
+print(i)</code></pre>
+
+        <h2><li>配列とリストの扱い</li></h2>
+        <p>
+          　JavaScriptでは配列（Array）を使い、Pythonではリスト（List）を使います。両者は似たような機能を提供しますが、操作方法や構造には違いがあります。また、Pythonにはリストに加えて、タプル（Tuple）や辞書（Dictionary）といったデータ構造もあります。これらはJavaScriptで言うところのオブジェクトに対応する部分もあり、使い分けが重要です。
+        </p>
+
+        <h3>JavaScriptの配列</h3>
+        <p>
+          　JavaScriptでは、配列は可変長であり、異なるデータ型を同じ配列に格納できます。配列操作にはさまざまなメソッドが提供されています。
+        </p>
+        <pre><code>let arr = [1, 2, 3, 4];
+arr.push(5);  // 配列に要素を追加
+console.log(arr);  // [1, 2, 3, 4, 5]</code></pre>
+
+        <h3>Pythonのリスト</h3>
+        <p>
+          　PythonのリストはJavaScriptの配列と似ています。可変長で、異なるデータ型も格納でき、要素の追加や削除などの操作が簡単です。
+        </p>
+        <pre><code>arr = [1, 2, 3, 4]
+arr.append(5)  # リストに要素を追加
+print(arr)  # [1, 2, 3, 4, 5]</code></pre>
+
+        <p>
+          　JavaScriptとPythonにはそれぞれ特徴があり、どちらも学んでおくと便利です。
+        </p>
+        <h3>リスト、タプル、辞書の比較</h3>
+        <h4>Pythonのリスト</h4>
+        <p>
+          　リストは可変で、重複する要素を持つことができ、順序も保持されます。
+        </p>
+        <h4>Pythonのタプル</h4>
+        <p>
+          　タプルはリストに似ていますが、不変（immutable）で、一度作成すると内容を変更できません。主に変更不要なデータのグループ化に使われます。
+        </p>
+        <pre><code>tuple_data = (1, 2, 3, 4)
+print(tuple_data)  # (1, 2, 3, 4)</code></pre>
+        <h4>Pythonの辞書</h4>
+        <p>
+          　辞書（Dictionary）はキーと値のペアを持つデータ構造です。キーを使って値を素早く検索でき、キーは一意である必要があります。これはJavaScriptのオブジェクトに似た機能です。
+        </p>
+        <pre><code>dict_data = {'name': 'John', 'age': 30}
+print(dict_data['name'])  # John</code></pre>
+        <p></p>
+        <h4>JavaScriptのオブジェクト</h4>
+        <p>
+          　JavaScriptでは、オブジェクトはキーと値のペアを持つデータ構造です。キーは文字列またはシンボルで、値は任意のデータ型が使えます。Pythonの辞書に相当します。
+        </p>
+        <pre><code>let obj = { name: 'John', age: 30 };
+          console.log(obj.name);  // John</code></pre>
+
+        <p>
+          　JavaScriptとPythonには、それぞれ異なるデータ構造があり、どちらも便利な方法でデータを扱うことができます。特に、配列（リスト）、タプル、辞書（オブジェクト）の使い分けを理解することは、効率的なデータ処理において重要です。
+        </p>
+        <table class="compare">
+          <tr>
+            <th>JavaScript</th>
+            <th>Python</th>
+          </tr>
+          <tr>
+            <td>配列（Array）<br />オブジェクト（Object）<br />　</td>
+            <td>
+              リスト（List）<br />辞書（Dictionary）<br />タプル（Tupple）
+            </td>
+          </tr>
+        </table>
+      </ol>
+      <h1 id="array">配列の操作</h1>
+      <ol>
+        <h2><li>配列の作成</li></h2>
+        <div class="example">
+          配列リテラルを使って簡単に作成できます。
+          <pre><code>let arr = [1, 2, 3];
+console.log(arr); // [1, 2, 3]</code></pre>
+        </div>
+        <div class="example">
+          配列コンストラクタを使った方法もあります。
+          <pre><code>let arr = new Array(1, 2, 3);
+console.log(arr); // [1, 2, 3]</code></pre>
+        </div>
+        <div class="example">
+          注意点: 引数を1つだけ渡した場合、それが配列の長さと解釈されます。
+          <pre><code>let arr = new Array(3); // 長さ3の空の配列
+console.log(arr); // [empty × 3]</code></pre>
+        </div>
+
+        <div class="example">
+          違い:
+          <ul>
+            <li>リテラル: シンプルで推奨される方法。</li>
+            <li>コンストラクタ: 特別な操作が必要な場合に使用。</li>
+          </ul>
+        </div>
+        <h2><li>要素の追加</li></h2>
+        <div class="example">
+          <strong>末尾に追加:</strong>
+          <pre><code>let arr = [1, 2, 3];
+arr.push(4,5);
+console.log(arr); // [1, 2, 3, 4, 5]</code></pre>
+        </div>
+        <div class="example">
+          <strong>先頭に追加:</strong>
+          <pre><code>let arr = [1, 2, 3];
+arr.unshift(0, -1);
+console.log(arr); // [-1, 0, 1, 2, 3]</code></pre>
+          <div class="code-block"></div>
+        </div>
+        <div class="example">
+          <strong>スプレッド構文:</strong>
+          <pre><code>let arr = [1, 2, 3];
+arr = [...arr, 4, 5]; // 末尾に追加
+console.log(arr); // [1, 2, 3, 4, 5]
+
+arr = [-1, 0, ...arr]; // 先頭に追加
+console.log(arr); // [-1, 0, 1, 2, 3, 4, 5]</code></pre>
+          <div class="code-block"></div>
+        </div>
+        <div class="example">
+          <strong>
+            <code>splice</code>を使って、任意の場所に追加することが可能です:
+          </strong>
+          <pre><code>let arr = [1, 2, 3, 4];
+
+// 先頭から2つ目の場所に、5と6を追加
+arr.splice(1, 0, 5, 6);
+
+console.log(arr); // [1, 5, 6, 2, 3, 4]</code></pre>
+          解説<br>
+          <p>
+            <code>arr.splice(開始場所, 削除する個数, 追加1, 追加2);</code><br>
+            <ul>
+              <li>開始場所は<code>1</code>なので、2番目の位置から操作が始まります。</li>
+              <li>削除する個数は<code>0</code>なので、既存の要素は削除されません。</li>
+              <li>その位置に、追加1である<code>5</code>と追加2である<code>6</code>が追加されます。</li>
+            </ul>
+            結果として、配列は<code>[1, 5, 6, 2, 3, 4]</code>になります。
+          </p>
+        </div>
+
+        <h2><li>要素の削除</li></h2>
+        <div class="example">
+          <strong>末尾から削除<code>pop</code>:</strong>
+          <pre><code>let arr = [1, 2, 3];
+arr.pop();
+console.log(arr); // [1, 2]</code></pre>
+        </div>
+        <div class="example">
+          <strong>先頭から削除<code>shift</code>:</strong>
+          <pre><code>let arr = [1, 2, 3];
+arr.shift();
+console.log(arr); // [2, 3]</code></pre>
+        </div>
+        <div class="example">
+          <strong>*<code>shiftとunshift</code>に関する注意</strong>
+          <pre><code>let arr = [1, 2, 3];
+let shifted = arr.shift();
+console.log(arr); // [2, 3]
+console.log(shifted); // 1</code></pre>
+          のように<code>arr.shift()</code>自体は、削除された数値を返します。<br>
+          同様に、
+          <pre><code>let arr = [1, 2, 3];
+let unshifted = arr.unshift(0);
+console.log(arr); // [0, 1, 2, 3]
+console.log(shifted); // 4</code></pre>
+          のように<code>arr.unshift()</code>は、新しい配列の長さを返します。
+        </div>
+        <div class="example">
+          <strong
+            >開始位置と削除する個数を決めて削除<code>splice</code>:</strong
+          >
+          <pre><code>let arr = [1, 2, 3, 4, 5, 6];
+
+// 先頭から2つ削除
+arr.splice(0, 2);
+
+// 末尾から2つ削除
+arr.splice(-2, 2);
+
+console.log(arr); // [3, 4]</code></pre>
+          解説
+          <ol>
+            <li>
+              先頭から削除:
+              <ul>
+                <li>splice(開始位置, 削除する個数) を使います。</li>
+                <li>arr.splice(0, 2) でインデックス 0 から2つ削除します。</li>
+              </ul>
+            </li>
+            <li>
+              末尾から削除:
+              <ul>
+                <li>負のインデックスを指定して splice を使います。</li>
+                <li>arr.splice(-2, 2) で後ろから2つ削除します。</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+
+             
+
+        <h2><li>要素の変更</li></h2>
+
+        <div class="example">
+          <strong>特定の要素を直接変更</strong>
+          <pre><code>let arr = [1, 2, 3];
+arr[1] = 10; // インデックス1の値を10に変更
+console.log(arr); // [1, 10, 3]</code></pre>
+          <p><strong>解説</strong></p>
+          <ul>
+            <li>配列のインデックスを指定して直接値を変更します。</li>
+            <li>元の配列がそのまま変更されます（破壊的操作）。</li>
+          </ul>
+        </div>
+        
+        <div class="example">
+          <strong>spliceを用いて要素を変更</strong>
+          <pre><code>let arr = [1, 2, 3, 4];
+// インデックス1から2つの要素を削除し、代わりに5と6を挿入
+let spliced = arr.splice(1, 2, 5, 6);
+console.log(arr); // [1, 5, 6, 4]（元の配列が変更される）
+console.log(spliced); // [2, 3]（削除された要素）</code></pre>
+          <p><strong>解説</strong></p>
+          <ul>
+            <li><code>splice(開始位置, 削除する要素数, 追加1, 追加2, ...)</code> で指定します。</li>
+            <li>インデックス1から2つの要素（<code>2, 3</code>）を削除します。</li>
+            <li>削除した位置に新しい要素（<code>5, 6</code>）を挿入します。</li>
+            <li><code>splice</code>は元の配列を変更し、削除された要素を返します。</li>
+          </ul>
+        </div>  
+
+        <h2><li>要素を検索 (indexOf / includes)</li></h2>
+        <div class="example">
+          <strong>indexや真偽を出力</strong>
+          <pre><code>let arr = [1, 2, 3];
+console.log(arr.indexOf(2)); // 1
+console.log(arr.includes(4)); // false</code></pre>
+        </div>
+        <h2><li>配列のコピー (slice)</li></h2>
+        <div class="example">
+          <strong>要素をコピー</strong>
+          <pre><code>let arr = [1, 2, 3];
+let copy = arr.slice();
+console.log(copy); // [1, 2, 3]</code></pre>
+        </div>
+        <p>sliceは開始位置と終了位置を指定すると、配列の一部を新しい配列として返します（元の配列は変更されません）。</p>
+        <pre><code>let arr = [1, 2, 3, 4];
+        // インデックス1からインデックス3の手前までを取得
+let subArray = arr.slice(1, 3);
+console.log(subArray); // [2, 3]
+console.log(arr); // [1, 2, 3, 4] (元の配列は変更されない)</code></pre>
+        <p><strong>解説</strong></p>
+        <ul>
+          <li><code>arr.slice(開始位置, 終了位置)</code> で指定します。位置はインデックスです。</li>
+          <li>開始位置は <code>1</code> なので、インデックス1（値: <code>2</code>）から取得が始まります。</li>
+          <li>終了位置は <code>3</code> ですが、インデックス3の要素（値: <code>4</code>）は含まれません。</li>
+          <li>結果として、<code>slice(1, 3)</code> は新しい配列 <code>[2, 3]</code> を生成します。</li>
+          <li>開始位置と終了位置を指定しない場合（<code>arr.slice()</code>）、配列全体をコピーします。</li>
+        </ul>
+
+        <h2><li>配列の結合 (concat)</li></h2>
+        <div class="example">
+          <strong>2つ以上の配列を結合</strong>
+          <pre><code>let arr1 = [1, 2];
+let arr2 = [3, 4];
+let merged = arr1.concat(arr2);
+console.log(merged); // [1, 2, 3, 4]</code></pre>
+        </div>
+        
+        <h2><li>配列操作のその他のメソッド</li></h2>
+        
+        <h3>元の配列を変更しないメソッド</h3>
+        
+        <h3>join</h3>
+        <p>配列の要素を結合して文字列に変換します。区切り文字を指定できます。</p>
+        <pre><code>let arr = ["a", "b", "c"];
+console.log(arr.join("-")); // "a-b-c"
+console.log(arr); // ["a", "b", "c"] (元の配列は変更されない)</code></pre>
+        
+        <h3>split</h3>
+        <p>文字列を指定された区切り文字で分割し、配列に変換します。</p>
+        <pre><code>let str = "a-b-c";
+let arr = str.split("-");
+console.log(arr); // ["a", "b", "c"]</code></pre>
+        
+        <h3>reduce</h3>
+        <p>配列の各要素に対して関数を実行し、単一の累積結果を生成します。</p>
+        <pre><code>let arr = [1, 2, 3, 4];
+let sum = arr.reduce((acc, num) =&gt; acc + num, 0);
+console.log(sum); // 10
+console.log(arr); // [1, 2, 3, 4] (元の配列は変更されない)</code></pre>
+        
+
+
+
+        
+        <h3>map</h3>
+        <p>配列の各要素に対して関数を実行し、新しい配列を生成します。</p>
+        <pre><code>let arr = [1, 2, 3];
+let doubled = arr.map(num =&gt; num * 2);
+console.log(doubled); // [2, 4, 6]
+console.log(arr); // [1, 2, 3] (元の配列は変更されない)</code></pre>
+        
+        <h3>元の配列を変更するメソッド</h3>
+        
+        <h3>splice</h3>
+        <p>配列の内容を変更して要素を追加または削除します。</p>
+        <pre><code>let arr = [1, 2, 3, 4];
+arr.splice(1, 2, "a", "b"); // インデックス1から2つ削除し、"a"と"b"を追加
+console.log(arr); // [1, "a", "b", 4] (元の配列が変更される)</code></pre>
+        
+        <h3>concat</h3>
+        <p>通常、元の配列を変更しません。ただし、新しい配列を返すだけで元の配列はそのままです。</p>
+        
+        <h3>push</h3>
+        <p>配列の末尾に要素を追加します。</p>
+        <pre><code>let arr = [1, 2];
+arr.push(3);
+console.log(arr); // [1, 2, 3] (元の配列が変更される)</code></pre>    
+
+        <h2><li>配列の並び替え (sort)</li></h2>
+        <div class="example">
+          <strong>ソートする</strong>
+          <pre><code>let arr = [3, 1, 2];
+arr.sort(); // 文字列としてソートされる
+console.log(arr); // [1, 2, 3]</code></pre>
+        </div>
+        <div class="example">
+          <h3>リテラルとコンストラクタの違い</h3>
+          <p>配列の作成方法について、以下の違いがあります。</p>
+          <ul>
+            <li><strong>リテラル:</strong> <code>[value1, value2, ...]</code> のように簡単に記述でき、推奨される方法。</li>
+            <li><strong>コンストラクタ:</strong> <code>new Array(...)</code> を使うが、引数の数に応じて意図しない動作をする可能性がある。</li>
+          </ul>
+          <pre><code>// リテラル
+let arr1 = [1, 2, 3];
+console.log(arr1); // [1, 2, 3]
+
+// コンストラクタ
+let arr2 = new Array(3); // 長さ3の空配列
+console.log(arr2); // [empty × 3]</code></pre>
+          
+          <h3>配列操作のまとめ</h3>
+          <p>以下の表は、配列操作の主なメソッドを「元の配列を変更するかどうか」で分類しています。</p>
+          
+          <table border="1" style="border-collapse: collapse;">
+            <thead>
+              <tr>
+                <th>操作内容</th>
+                <th>元の配列を変更する</th>
+                <th>元の配列を変更しない</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>作成</td>
+                <td>なし</td>
+                <td><code>let arr = [1, 2, 3]</code></td>
+              </tr>
+              <tr>
+                <td>追加</td>
+                <td><code>push</code>, <code>unshift</code></td>
+                <td>スプレッド構文</td>
+              </tr>
+              <tr>
+                <td>削除</td>
+                <td><code>pop</code>, <code>shift</code>, <code>splice</code></td>
+                <td>なし</td>
+              </tr>
+              <tr>
+                <td>変更</td>
+                <td><code>arr[index] = value</code></td>
+                <td>なし</td>
+              </tr>
+              <tr>
+                <td>検索</td>
+                <td>なし</td>
+                <td><code>indexOf</code>, <code>includes</code></td>
+              </tr>
+              <tr>
+                <td>コピー</td>
+                <td>なし</td>
+                <td><code>slice</code></td>
+              </tr>
+              <tr>
+                <td>結合</td>
+                <td>なし</td>
+                <td><code>concat</code></td>
+              </tr>
+              <tr>
+                <td>並び替え</td>
+                <td><code>sort</code></td>
+                <td>なし</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>この表を参考に、配列操作の際に元の配列が変更されるかどうかに注意してください。</p>
+        </div>
+
+        <h2 id="lodash">Lodash: JavaScriptのユーティリティライブラリ</h2>
+        <p>
+          Lodash（ローダッシュ）は、JavaScriptでよく使用されるユーティリティライブラリで、配列、オブジェクト、文字列などの操作を効率的に行うための多くの便利な関数を提供します。特に複雑なデータ処理や繰り返し行うタスクを簡潔に書けるようにするために広く利用されています。
+        </p>
+        
+        <h3>特徴</h3>
+        <ul>
+          <li><strong>多くの関数:</strong> 配列操作やオブジェクト操作、文字列操作など、多数の関数が提供されています。例えば、<code>map()</code>, <code>filter()</code>, <code>reduce()</code>, <code>clone()</code>, <code>merge()</code>, <code>debounce()</code> など。</li>
+          <li><strong>パフォーマンス:</strong> 大規模なデータセットに対しても高いパフォーマンスを発揮します。</li>
+          <li><strong>互換性:</strong> 古いブラウザや異なるJavaScriptのバージョンでも動作し、コードの一貫性を保てます。</li>
+          <li><strong>チェーン操作:</strong> Lodashはメソッドチェーンをサポートしており、複数の操作を1行で書くことができます。</li>
+          <li><strong>`_.`記法:</strong> Lodashのすべての関数は<code>_.</code>で始まり、簡潔さと一貫性を提供します。これは、元となったライブラリであるUnderscore.jsの形式を継承しています。</li>
+        </ul>
+        
+        <h3>名前の由来</h3>
+        <p>
+          Lodashの名前は「低レベル（low）」と「ダッシュ（dash）」を掛け合わせたもので、短く効率的に操作できるユーティリティツールというイメージに基づいています。また、元のライブラリUnderscore.jsに由来し、さらに細かい機能を提供するという意味合いも含まれています。
+        </p>
+        
+        <h3>代表的な関数例</h3>
+        <pre><code>// _.map: 配列の各要素を変換
+let arr = [1, 2, 3];
+let result = _.map(arr, x =&gt; x * 2);
+console.log(result); // [2, 4, 6]
+
+// _.filter: 配列の要素から特定の条件を満たすものを抽出
+let filtered = _.filter(arr, x =&gt; x % 2 === 0);
+console.log(filtered); // [2]
+
+// _.cloneDeep: 深いコピーを作成
+let obj = { a: 1, b: { c: 2 } };
+let copy = _.cloneDeep(obj);
+console.log(copy); // { a: 1, b: { c: 2 } }
+        </code></pre>
+        
+        <h3>インストールと使用例</h3>
+        <p>Lodashはnpmを使ってインストールできます:</p>
+        <pre><code>npm install lodash</code></pre>
+        <p>使用例:</p>
+        <pre><code>const _ = require('lodash');
+let arr = [1, 2, 3];
+let result = _.concat(arr, [4, 5]);
+console.log(result); // [1, 2, 3, 4, 5]
+        </code></pre>
+        
+
+
+      </ol>
+      <h1 id="object">オブジェクトの操作</h1>
+      <ol>
+        <h2><li>オブジェクトの作成</li></h2>
+        <div class="example">
+          オブジェクトリテラルを使う方法が一般的です。
+          <pre><code>let obj = { key1: "value1", key2: "value2" };
+console.log(obj); // { key1: 'value1', key2: 'value2' }</code></pre>
+        </div>
+        <div class="example">
+          配列と同様、コンストラクタによる作成も可能です。
+          <pre><code>let obj = new Object();
+obj.key1 = "value1";
+obj.key2 = "value2";
+console.log(obj); // { key1: 'value1', key2: 'value2' }</code></pre>
+        </div>
+        <div class="example">
+          違い:
+          <ul>
+            <li>リテラル: 簡潔で、一般的に使用される方法。</li>
+            <li>コンストラクタ: 動的に作成したい場合に便利。</li>
+          </ul>
+        </div>
+
+        <h2><li>プロパティの追加</li></h2>
+        <div class="example">
+          ドット記法を使ってプロパティを追加できます。
+          <pre><code>let obj = {};
+obj.newKey = "newValue";
+console.log(obj); // { newKey: 'newValue' }</code></pre>
+        </div>
+        <div class="example">
+          ブラケット記法を使うと、キー名を動的に設定可能です。
+          <pre><code>let obj = {};
+let key = "dynamicKey";
+obj[key] = "dynamicValue";
+console.log(obj); // { dynamicKey: 'dynamicValue' }</code></pre>
+        </div>
+
+        <h2><li>プロパティの削除</li></h2>
+        <div class="example">
+          `delete`演算子を使ってプロパティを削除します。
+          <pre><code>let obj = { key1: "value1", key2: "value2" };
+delete obj.key1;
+console.log(obj); // { key2: 'value2' }</code></pre>
+        </div>
+
+        <h2><li>プロパティの変更</li></h2>
+        <div class="example">
+          <strong>既存のプロパティに新しい値を代入します。</strong>
+          <pre><code>let obj = { key1: "value1" };
+obj.key1 = "newValue";
+console.log(obj); // { key1: 'newValue' }</code></pre>
+        </div>
+
+        <h2><li>プロパティの確認</li></h2>
+        <div class="example">
+          <strong>キーの存在を確認:</strong><br />
+          <code>in</code>演算子を使います。
+          <pre><code>let obj = { key1: "value1" };
+console.log("key1" in obj); // true
+console.log("key2" in obj); // false</code></pre>
+        </div>
+        <div class="example">
+          <strong>すべてのキーを取得:</strong><br />
+          <code>Object.keys</code>を使います。
+          <pre><code>let obj = { key1: "value1", key2: "value2" };
+console.log(Object.keys(obj)); // ['key1', 'key2']</code></pre>
+        </div>
+        <h2><li>オブジェクトのコピー</li></h2>
+        <div class="example">
+          <strong>浅いコピー</strong><br />
+          <code>Object.assign</code>またはスプレッド演算子を使います。
+          <pre><code>let obj = { key1: "value1" };
+
+// Object.assignを使用して浅いコピーを作成
+let shallowCopy = Object.assign({}, obj);
+
+console.log(shallowCopy); // { key1: 'value1' }
+
+// コピーしたオブジェクトを変更しても元のオブジェクトには影響しない
+shallowCopy.key1 = "newValue";
+console.log(obj);         // { key1: 'value1' } (元のオブジェクト)
+console.log(shallowCopy); // { key1: 'newValue' } (コピー後のオブジェクト)</code></pre>
+<p><code>Object.assign({}, obj)</code>:
+  <ul>
+    <li>第一引数に空のオブジェクト {} を渡し、コピー元の obj をマージします。</li>
+    <li>これにより、元のオブジェクトのプロパティが空のオブジェクトにコピーされます。</li>
+    <li>浅いコピーなので、ネストされたオブジェクトや配列はコピーされず、参照が共有されます。</li>
+  </ul>
+</p>
+          <pre><code>let obj = { key1: "value1" };
+let shallowCopy = { ...obj }; // スプレッド演算子
+console.log(shallowCopy); // { key1: 'value1' }</code></pre>
+結果は<code>Object.assign</code>と同じですが、スプレッド演算子はシンプルで読みやすいので、浅いコピーにはこちらが一般的に推奨されます。
+        </div>
+        <div class="example">
+          <strong>深いコピー</strong><br />
+          深いコピーには再帰的処理が必要ですが、簡単な方法として<code>JSON</code>を使うことができます（ただし、関数や<code>undefined</code>はコピーされません）。
+          <pre><code>let obj = { key1: "value1", nested: { key2: "value2" } };
+let deepCopy = JSON.parse(JSON.stringify(obj));
+console.log(deepCopy); // { key1: 'value1', nested: { key2: 'value2' } }</code></pre>
+        </div>
+        <div>
+          <strong>浅いコピーと深いコピーの違い</strong>
+          <ul>
+            <li>浅いコピー: ネストされたオブジェクトや配列の中身は元のオブジェクトを参照します。</li>
+            <li>深いコピー: ネストされたオブジェクトや配列も完全に複製されます。</li>
+            <li>浅いコピーでは変更すると元のオブジェクトにも影響します。したがって、浅いコピーでは、ネストされたデータに注意が必要です。一方、深いコピーを作成することで、元データとコピーの独立性を保てます。</li>
+          </ul>
+          <pre><code>let obj = { key1: "value1", nested: { key2: "value2" } };
+let shallowCopy = Object.assign({}, obj);
+
+shallowCopy.nested.key2 = "newValue"; // ネストされた部分を変更
+console.log(obj.nested.key2);         // "newValue" (元のオブジェクトにも影響する)</code></pre>
+        </div>
+
+        <div class="example">
+          <p>コピーしたオブジェクトをマージすることもできます</p>
+          <strong>Object.assign</strong><br />
+          <pre><code>let obj1 = { key1: "value1" };
+let obj2 = { key2: "value2" };
+let merged = Object.assign({}, obj1, obj2);
+console.log(merged); // { key1: 'value1', key2: 'value2' }</code></pre>
+        </div>
+        <div class="example">
+          <strong>スプレッド演算子</strong><br />
+          <pre><code>let obj1 = { key1: "value1" };
+let obj2 = { key2: "value2" };
+let merged = { ...obj1, ...obj2 };
+console.log(merged); // { key1: 'value1', key2: 'value2' }</code></pre>
+        </div>
+        <h2><li>イテレーション（ループ）</li></h2>
+        <div class="example">
+          <code>for...in</code>
+          オブジェクトのキーをループします。<br />
+          <pre><code>let obj = { key1: "value1", key2: "value2" };
+for (let key in obj) {
+  console.log(`${key}: ${obj[key]}`);
+}
+// key1: value1
+// key2: value2</code></pre>
+        </div>
+        <div class="example">
+          <code>Object.entries</code>
+          キーと値のペアを配列として取得してループします。<br />
+          <pre><code>let obj = { key1: "value1", key2: "value2" };
+for (let [key, value] of Object.entries(obj)) {
+  console.log(`${key}: ${value}`);
+}
+// key1: value1
+// key2: value2</code></pre>
+        </div>
+        <h2><li>オブジェクトの操作例まとめ</li></h2>
+        <div class="example">
+          <pre><code>let obj = {};
+
+// プロパティの追加
+obj.name = "Alice";
+obj["age"] = 25;
+
+// プロパティの確認
+console.log("name" in obj); // true
+
+// プロパティの変更
+obj.age = 30;
+
+// プロパティの削除
+delete obj.name;
+
+// プロパティのループ
+for (let key in obj) {
+  console.log(`${key}: ${obj[key]}`);
+}</code></pre>
+        </div>
+      </ol>
+<h1 id="access">配列とオブジェクトに対するアクセス</h1>
+<p>
+  <ol>
+    <h2><li>配列へのアクセス</li></h2>
+    <p>配列は「番号付きの引き出し」のようなもので、番号（インデックス）を使ってデータを取り出します。</p>
+    <p><b>例：</b></p>
+    <pre><code>let fruits = ["りんご", "バナナ", "みかん"];
+console.log(fruits[0]); // 一番目の引き出し → りんご
+console.log(fruits[1]); // 二番目の引き出し → バナナ
+console.log(fruits[2]); // 三番目の引き出し → みかん</code></pre>
+    <p><b>ポイント：</b>番号は0から始まります。データを取り出すときは <code>配列名[番号]</code> を使います。</p>
+  
+    <h2><li>オブジェクトへのアクセス</li></h2>
+    <p>オブジェクトは「名前付きの引き出し」のようなもので、ラベル（キー）を使ってデータを取り出します。</p>
+    <p><b>例：</b></p>
+    <pre><code>let person = {
+    name: "たろう",
+    age: 10,
+    hobby: "サッカー"
+};
+console.log(person.name);  // 「name」の引き出し → たろう
+console.log(person.age);   // 「age」の引き出し → 10
+console.log(person.hobby); // 「hobby」の引き出し → サッカー</code></pre>
+    <p><b>ポイント：</b>データを取り出すときは <code>オブジェクト名.ラベル名</code> を使います。</p>
+
+    <h2><li>即時実行関数式 (IIFE)</li></h2>
+    <p>関数をその場で定義して即座に実行します。</p>
+    <pre><code>// 即時実行関数式 (IIFE) の例
+(function () {
+console.log("This is an IIFE");
+})();
+</code></pre>
+
+    <h2><li>配列やオブジェクトの分割代入</li></h2>
+    <p>オブジェクトや配列から簡単に値を取り出す構文です。</p>
+    <h3>配列の分割代入:</h3>
+    <pre><code>// 配列の分割代入の例
+const [first, second] = [1, 2, 3];
+console.log(first); // 1
+console.log(second); // 2
+</code></pre>
+    <h3>オブジェクトの分割代入:</h3>
+    <pre><code>// オブジェクトの分割代入の例
+const { name, age } = { name: "Bob", age: 30 };
+console.log(name); // "Bob"
+console.log(age); // 30
+</code></pre>
+
+    <h2><li>テンプレートリテラル</li></h2>
+    <p>文字列を動的に生成するための構文です。</p>
+    <pre><code>// テンプレートリテラルの例
+const name = "John";
+const message = `Hello, ${name}!`;
+console.log(message); // "Hello, John!"
+</code></pre>
+
+    <h2><li>配列操作の短縮</li></h2>
+    <p>配列のフィルタリングやマッピングを簡潔に記述できます。</p>
+    <pre><code>// 配列操作の例
+const numbers = [1, 2, 3, 4, 5];
+const doubledEvens = numbers.filter(n =&gt; n % 2 === 0).map(n =&gt; n * 2);
+console.log(doubledEvens); // [4, 8]
+</code></pre>
+
+<h2><li>Optional Chaining (?.)</li></h2>
+<p>ネストしたプロパティに安全にアクセスするための構文です。</p>
+<pre><code>// Optional Chainingの例
+const user = { name: "Alice" };
+console.log(user?.profile?.age); // undefined
+</code></pre>
+
+<h2><li>デフォルト値付きの関数引数</li></h2>
+<p>引数が渡されない場合にデフォルト値を設定できます。</p>
+<pre><code>// デフォルト値付きの関数引数の例
+function greet(name = "Guest") {
+return `Hello, ${name}!`;
+}
+console.log(greet()); // "Hello, Guest!"
+console.log(greet("Alice")); // "Hello, Alice!"
+</code></pre>
+
+    <h2><li>複雑な構造へのアクセス</li></h2>
+    <p>配列とオブジェクトを組み合わせることで、より複雑なデータ構造を扱うことができます。例えば、複数人のプロフィールを配列で管理し、各プロフィールをオブジェクトで表現する場合です。</p>
+    
+    <p><b>例：</b></p>
+    <pre><code>let players = [
+      { name: "たろう", age: 10, hobby: "サッカー" },
+      { name: "はなこ", age: 12, hobby: "ピアノ" },
+      { name: "じろう", age: 11, hobby: "野球" }
+  ];
+  
+// 1人目の名前を取得
+console.log(players[0].name); // → "たろう"
+
+// 2人目の趣味を取得
+console.log(players[1].hobby); // → "ピアノ"
+
+// 3人目の年齢を取得
+console.log(players[2].age); // → 11</code></pre>
+    
+    <p><b>ポイント：</b></p>
+    <ul>
+      <li><b>配列部分：</b>複数のデータを管理する「リスト」のような役割。</li>
+      <li><b>オブジェクト部分：</b>個々のデータ（プロフィールなど）を「名前付きの引き出し」で管理。</li>
+      <li><b>アクセスの仕方：</b>
+        <ul>
+          <li><code>配列名[番号].ラベル名</code> のようにアクセスします。</li>
+        </ul>
+      </li>
+    </ul>
+    
+    <p>さらに深い構造も扱えます。例えば、プロフィールに「住所」などの詳細がさらにオブジェクトとして含まれる場合です。</p>
+    
+    <p><b>例：</b></p>
+    <pre><code>let players = [
+    {
+        name: "たろう",
+        age: 10,
+        hobby: "サッカー",
+        address: { city: "東京", zip: "100-0001" }
+    },
+    {
+        name: "はなこ",
+        age: 12,
+        hobby: "ピアノ",
+        address: { city: "大阪", zip: "530-0001" }
+    }
+];
+
+// 1人目の都市名を取得
+console.log(players[0].address.city); // → "東京"
+
+// 2人目の郵便番号を取得
+console.log(players[1].address.zip); // → "530-0001"
+
+// 2人目の住所を変更
+players[1].address.city = "京都";
+players[1].address.zip = "600-0001";
+
+// 確認
+console.log(players[1].address); 
+// → { city: "京都", zip: "600-0001" }</code></pre>
+    
+    <p><b>注意：</b>深い構造にアクセスするときは、プロパティ名や配列のインデックスを正確に指定することが大事です。</p>
+    <p>
+      <strong>オブジェクトの中身を更新する方法として、複数の方法があります。</strong>
+      <pre><code>let players = [
+    {
+        name: "たろう",
+        age: 10,
+        hobby: "サッカー",
+        address: { city: "東京", zip: "100-0001" }
+    },
+    {
+        name: "はなこ",
+        age: 12,
+        hobby: "ピアノ",
+        address: { city: "大阪", zip: "530-0001" }
+    }
+];</code></pre>
+      <ol>
+        <li>オブジェクト全体を一行で上書きする<br>
+          新しい値を直接代入することで簡潔に記述できます。
+          <pre><code>players[1].address = { city: "京都", zip: "600-0001" };</code></pre>
+          この方法は、最もシンプルですが、<code>address</code>に他のプロパティ（例: <code>extra </code>など）が存在する場合、他の既存のプロパティは削除されます。
+        </li>
+        <li>スプレッド演算子を利用して部分的に更新<br>
+          既存のプロパティを保持しつつ、部分的に更新できます。
+          <pre><code>players[1].address = { ...players[1].address, city: "京都", zip: "600-0001" };</code></pre>
+          この方法は、<code>address</code>に他のプロパティ（例: <code>extra </code>など）が存在する場合でも、それらを維持しつつ指定した部分だけ上書きします。
+        </li>
+        <li>Object.assign を利用して更新<br>
+          一時的なオブジェクトを使って、一行で複数の値を設定します。
+          <pre><code>Object.assign(players[1].address, { city: "京都", zip: "600-0001" });</code></pre>
+          スプレッド演算子と同じ機能ですが、やや冗長に見える場合があります。
+        </li>
+      </ol>
+    </p>
+      
+    <h2><li>まとめ</li></h2>
+    <p><b>配列</b>は順番が重要なときに便利で、<code>配列名[番号]</code> でアクセスします。</p>
+    <p><b>オブジェクト</b>はラベル（キー）で管理したいときに便利で、<code>オブジェクト名.ラベル名</code> でアクセスします。</p>
+    <p>違いを表にまとめると以下のようになります：</p>
+    <table border="1" style="border-collapse: collapse;">
+      <thead>
+        <tr>
+          <th>項目</th>
+          <th>配列 (Array)</th>
+          <th>オブジェクト (Object)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>イメージ</b></td>
+          <td>番号付きの引き出し</td>
+          <td>名前（ラベル）付きの引き出し</td>
+        </tr>
+        <tr>
+          <td><b>アクセス方法</b></td>
+          <td><code>配列名[番号]</code> <br>例: <code>fruits[1]</code></td>
+          <td><code>オブジェクト名.ラベル名</code> <br>例: <code>person.name</code></td>
+        </tr>
+        <tr>
+          <td><b>使う場面</b></td>
+          <td>順番が重要なデータ（例: リスト）</td>
+          <td>名前で管理したいデータ（例: プロフィール）</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>それぞれの特性に合わせて使い分けましょう！</p>
+    
+  </ol>
+  
+  
+</p>
+<div class="column">
+<h1>配列操作の名称が直感的ではない理由</h1>
+<p>
+  <ol>
+    <h3><li>push と pop</li></h3>
+    <p>由来<br>
+      これらの用語は、スタックというデータ構造に由来しています。スタックは**LIFO（Last In, First Out）**の性質を持ち、以下のように操作が定義されています：<br>      
+      push: スタックの上に新しい要素を「押し込む」操作。<br>
+      → 配列の末尾に要素を追加する。<br>
+      <br>
+      pop: スタックの上から要素を「取り出す」操作。<br>
+      → 配列の末尾から要素を削除する。<br>
+      <br>
+      イメージ<br>
+      push は、押し込むように「上に追加」。<br>
+      pop は、上から「ポンッ」と要素を取り除く。<br>
+
+<pre><code>let stack = [];
+stack.push(1); // [1]
+stack.push(2); // [1, 2]
+stack.pop();   // [1]</code></pre>
+      </p>
+    <h3><li>shift と unshift</li></h3>
+    <p>由来<br>
+      これらは**キュー（queue）というデータ構造に由来しています。キューはFIFO（First In, First Out）**の性質を持ち、以下のような操作が定義されています：
+<br>      
+shift: キューの先頭の要素を「シフトして」取り出す操作。<br>
+→ 配列の先頭の要素を削除して戻す。<br>
+<br>
+unshift: キューの先頭に要素を「押し込む」操作。<br>
+→ 配列の先頭に要素を追加する。<br>
+      <br>
+      イメージ<br>
+      shift は、列（queue）から「先頭が押し出される」感じ。<br>
+unshift は、列の先頭に新しい人が「割り込む」感じ。<br>
+
+<pre><code>let queue = [];
+queue.unshift(1); // [1]
+queue.unshift(2); // [2, 1]
+queue.shift();    // [1]</code></pre>
+
+
+      </p>
+      <h3><li>なぜ直感的でないのか？</li></h3>
+      <p>
+        <ol>
+          <li>英単語としての意味がピンとこない<br>
+            push や pop は、英語としては直感的ですが、特にプログラミング初学者には「末尾操作」のイメージと結びつきにくいです。
+            shift と unshift はさらに難解で、日常英語でもあまり使われません。</li>
+          <li>背景に特化した知識が必要<br>
+            これらの名前は、スタックやキューといったデータ構造を知らないと、命名の意図が理解しにくいです。</li>
+          <li>操作位置が直感的でない<br>
+            push や pop は末尾を操作しますが、日常的には「先頭を操作するイメージ」が強い場合があります。
+            shift と unshift は先頭を操作しますが、「末尾との関連性」が薄いため混乱を招きがちです。</li>
+        </ol>
+      </p>
+  </ol>
+
+ 
+
+</p>
+</div>
+      <p>
+        <button onclick="history.back()">戻る</button>
+      </p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
