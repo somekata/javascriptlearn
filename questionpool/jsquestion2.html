@@ -10,32 +10,33 @@
     <div class="container">
       <h1>JavaScript Quiz</h1>
       <p class="question">
-        <strong>問題2</strong>
+        <strong>問題</strong>
         次のコードを実行するとコンソールに表示される値はどれか。
       </p>
       <pre class="code">
-let numbers = [1, 2, 3, 4, 5];
-let newNumbers = numbers.filter(num =&gt; num % 2 === 0);
-console.log(newNumbers);</pre
+let score = 85;
+let result;
+
+if (score &gt;= 90) {
+  result = "A";
+} else if (score &gt;= 80) {
+  result = "B";
+} else if (score &gt;= 70) {
+  result = "C";
+} else {
+  result = "F";
+}
+
+console.log(result);</pre
       >
-      <form id="quizForm" data-correct-answer="[2, 4]">
-        <label
-          ><input type="radio" name="answer" value="[1, 2, 3]" /> a. [1, 2,
-          3]</label
+      <form id="quizForm" data-correct-answer="B">
+        <label><input type="radio" name="answer" value="A" /> a. "A"</label
         ><br />
-        <label
-          ><input type="radio" name="answer" value="[2, 4]" /> b. [2, 4]</label
+        <label><input type="radio" name="answer" value="B" /> b. "B"</label
         ><br />
-        <label
-          ><input type="radio" name="answer" value="[1, 3, 5]" /> c. [1, 3,
-          5]</label
+        <label><input type="radio" name="answer" value="C" /> c. "C"</label
         ><br />
-        <label
-          ><input type="radio" name="answer" value="[1, 2, 3, 4, 5]" /> d. [1,
-          2, 3, 4, 5]</label
-        ><br />
-        <label
-          ><input type="radio" name="answer" value="error" /> e. error</label
+        <label><input type="radio" name="answer" value="F" /> d. "F"</label
         ><br />
         <button type="button" id="submitAnswer">Submit</button>
       </form>
@@ -43,75 +44,46 @@ console.log(newNumbers);</pre
       <div id="explanation" class="hidden">
         <h2>解説</h2>
         <p>
-          <strong>正解: b. [2, 4]</strong><br />
+          <strong>正解: b. "B"</strong><br />
           このコードの処理内容は以下の通りです:
         </p>
         <ol>
           <li>
-            <code>let numbers = [1, 2, 3, 4, 5];</code><br />
-            配列 <code>numbers</code> を初期化します。この配列には 1 から 5
-            までの連続した数値が含まれています。
+            <code>let score = 85;</code>: <br />
+            <code>score</code> に値 85 を代入します。
           </li>
           <li>
-            <code>numbers.filter(num =&gt; num % 2 === 0);</code><br />
-            <code>filter</code>
-            メソッドは、配列の各要素に対してコールバック関数を適用し、条件を満たす要素だけを新しい配列として返します。<br />
-            この場合、条件
-            <code>num % 2 === 0</code>
-            は「偶数であること」を意味します。具体的には:
-            <ul>
-              <li>1 % 2 === 1（条件不一致） → 除外される</li>
-              <li>2 % 2 === 0（条件一致） → 新しい配列に含まれる</li>
-              <li>3 % 2 === 1（条件不一致） → 除外される</li>
-              <li>4 % 2 === 0（条件一致） → 新しい配列に含まれる</li>
-              <li>5 % 2 === 1（条件不一致） → 除外される</li>
-            </ul>
-            その結果、新しい配列 <code>[2, 4]</code> が生成されます。
+            <code>if (score &gt;= 90)</code>: <br />
+            条件が成立しない（85は90以上ではない）ため、<code>"A"</code>
+            は選ばれません。
           </li>
           <li>
-            <code>console.log(newNumbers);</code><br />
-            フィルタリングされた結果である新しい配列
-            <code>[2, 4]</code> がコンソールに出力されます。
+            <code>else if (score &gt;= 80)</code>: <br />
+            条件が成立する（85は80以上）ため、<code>result</code> に<code
+              >"B"</code
+            >
+            が代入されます。
+          </li>
+          <li>
+            残りの条件は評価されず、<code>"B"</code>
+            がコンソールに表示されます。
           </li>
         </ol>
         <p>
           <strong>重要ポイント:</strong><br />
-          <code>filter</code> メソッドは元の配列を変更しません。元の配列
-          <code>numbers</code> はそのまま保持され、新しい配列が返されます。
+          条件分岐では、最初に成立した条件のみが実行され、残りの条件は無視されます。
         </p>
         <p>問題レベル：初級</p>
         <p>難易度：☆</p>
-        <p>領域：配列操作</p>
+        <p>領域：条件分岐</p>
       </div>
-
       <!-- 戻るボタン -->
       <button id="backButton">戻る</button>
 
       <!-- 問題ジャンプセクション -->
       <div class="jump-section">
-        <label for="jumpToQuestion">問題を選択:</label>
-        <select id="jumpToQuestion">
-          <option value="jsquestion1.html">問題1</option>
-          <option value="jsquestion2.html" selected>問題2</option>
-          <option value="jsquestion3.html">問題3</option>
-          <option value="jsquestion4.html">問題4</option>
-          <option value="jsquestion5.html">問題5</option>
-          <option value="jsquestion6.html">問題6</option>
-          <option value="jsquestion7.html">問題7</option>
-          <option value="jsquestion8.html">問題8</option>
-          <option value="jsquestion9.html">問題9</option>
-          <option value="jsquestion10.html">問題10</option>
-          <option value="jsquestion11.html">問題11</option>
-          <option value="jsquestion12.html">問題12</option>
-          <option value="jsquestion13.html">問題13</option>
-          <option value="jsquestion14.html">問題14</option>
-          <option value="jsquestion15.html">問題15</option>
-          <option value="jsquestion16.html">問題16</option>
-          <option value="jsquestion17.html">問題17</option>
-          <option value="jsquestion18.html">問題18</option>
-          <option value="jsquestion19.html">問題19</option>
-          <option value="jsquestion20.html">問題20</option>
-        </select>
+        <label for="questionNumber">問題番号を入力:</label>
+        <input type="number" id="questionNumber" min="1" placeholder="例: 1" />
         <button id="jumpButton">ジャンプ</button>
       </div>
     </div>

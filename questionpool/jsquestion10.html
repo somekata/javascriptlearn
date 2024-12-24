@@ -61,36 +61,17 @@ console.log(result);</pre
           <code>8</code> となります。
         </p>
         <p>問題レベル：初級</p>
-        <p>難易度：☆</p>
+        <p>難易度：☆☆</p>
         <p>領域：演算子、後置インクリメント</p>
       </div>
 
-      <!-- 戻るボタンとジャンプセクション -->
+      <!-- 戻るボタン -->
+      <button id="backButton">戻る</button>
+
+      <!-- 問題ジャンプセクション -->
       <div class="jump-section">
-        <button id="backButton">戻る</button>
-        <label for="jumpToQuestion">問題を選択:</label>
-        <select id="jumpToQuestion">
-          <option value="jsquestion1.html">問題1</option>
-          <option value="jsquestion2.html">問題2</option>
-          <option value="jsquestion3.html">問題3</option>
-          <option value="jsquestion4.html">問題4</option>
-          <option value="jsquestion5.html">問題5</option>
-          <option value="jsquestion6.html">問題6</option>
-          <option value="jsquestion7.html">問題7</option>
-          <option value="jsquestion8.html">問題8</option>
-          <option value="jsquestion9.html">問題9</option>
-          <option value="jsquestion10.html" selected>問題10</option>
-          <option value="jsquestion11.html">問題11</option>
-          <option value="jsquestion12.html">問題12</option>
-          <option value="jsquestion13.html">問題13</option>
-          <option value="jsquestion14.html">問題14</option>
-          <option value="jsquestion15.html">問題15</option>
-          <option value="jsquestion16.html">問題16</option>
-          <option value="jsquestion17.html">問題17</option>
-          <option value="jsquestion18.html">問題18</option>
-          <option value="jsquestion19.html">問題19</option>
-          <option value="jsquestion20.html">問題20</option>
-        </select>
+        <label for="questionNumber">問題番号を入力:</label>
+        <input type="number" id="questionNumber" min="1" placeholder="例: 1" />
         <button id="jumpButton">ジャンプ</button>
       </div>
     </div>

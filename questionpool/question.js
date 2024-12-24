@@ -37,7 +37,20 @@ document.getElementById('backButton').addEventListener('click', () => {
 });
 
   // 問題選択ジャンプ機能
-document.getElementById('jumpButton').addEventListener('click', () => {
-  const selectedQuestion = document.getElementById('jumpToQuestion').value;
-  window.location.href = selectedQuestion;
-});
+  document.getElementById("jumpButton").addEventListener("click", function () {
+    // 入力された問題番号を取得
+    const questionNumber = document.getElementById("questionNumber").value;
+  
+    // 問題番号が有効かどうかチェック
+    if (questionNumber && Number(questionNumber) > 0) {
+      // ファイル名を生成
+      const targetFile = `jsquestion${questionNumber}.html`;
+  
+      // ページを遷移
+      window.location.href = targetFile;
+    } else {
+      // エラーメッセージを表示
+      alert("有効な問題番号を入力してください！");
+    }
+  });
+  

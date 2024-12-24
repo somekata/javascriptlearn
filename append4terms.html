@@ -77,7 +77,107 @@
         <p>
           　スレッドは、CPUで実行される処理の最小単位です。マルチスレッド化することで、一度に複数の処理を並行して実行することができ、コンピュータの処理能力を最大限に引き出すことができます。
         </p>
+
+        <h2><li>HTML関連用語</li></h2>
+        <p>
+          <strong>タグ (Tag)</strong>:
+          HTML要素を定義する基本構造で、開始タグ(`<tag>`)、終了タグ(`</tag>`)、および内容から構成されます。
+          例: `&lt;div&gt;`や`&lt;p&gt;`。
+        </p>
+        <p>
+          <strong>要素 (Element)</strong>: HTMLタグ全体とその内容を含む構造。
+          例: `&lt;a href="https://example.com"&gt;リンク&lt;/a&gt;`。
+        </p>
+        <p>
+          <strong>要素名 (Element Name)</strong>: タグの名前そのもの。例:
+          `&lt;a&gt;`の要素名は`a`。
+        </p>
+        <p>
+          <strong>属性 (Attribute)</strong>:
+          要素に追加情報を付加するためのもの。例: `id`, `class`, `src`。
+        </p>
+        <p>
+          <strong>属性値 (Attribute Value)</strong>:
+          属性に設定された具体的な値。例: `id="main"`の`main`。
+        </p>
+
+        <h2><li>CSS関連用語</li></h2>
+        <p>
+          <strong>プロパティ (Property)</strong>:
+          要素のデザインやスタイルを指定するためのキーワード。例: `color`,
+          `font-size`。
+        </p>
+        <p>
+          <strong>プロパティ値 (Property Value)</strong>:
+          プロパティに設定する具体的な値。例: `color: red;`の`red`。
+        </p>
+
+        <h2><li>JavaScript関連用語</li></h2>
+        <p>
+          <strong>オブジェクト (Object)</strong>:
+          プロパティとメソッドを持つデータ構造。例:
+          DOMオブジェクトやカスタムオブジェクト。
+          <ol>DOMのオブジェクトとJavaScriptのオブジェクトは関係がありますが、意味や用途において異なります。以下にそれぞれの違いを説明します。
+            <li>JavaScriptのオブジェクト
+              <ul>
+                <li>説明: JavaScriptにおけるデータ構造の一つで、キーと値のペアを持つ汎用的な構造。オブジェクトは、プロパティとメソッドを持つことができます。</li>
+                <li>用途: データの格納、操作、再利用可能なコードを作成するための基本的な構造。</li>
+              </ul>
+            </li>
+            例
+            <pre><code>// カスタムオブジェクト
+var person = {
+  name: "太郎",           // プロパティ
+  age: 30,               // プロパティ
+  greet: function() {    // メソッド
+    return "こんにちは、" + this.name + "です。";
+  }
+};
+
+console.log(person.name);  // "太郎" (プロパティの取得)
+console.log(person.greet());  // "こんにちは、太郎です。" (メソッドの呼び出し)</code></pre>
+            <li>DOMのオブジェクト
+              <ul>
+                <li>説明: DOM（Document Object Model）は、HTMLやXMLドキュメントをツリー構造として表現したもの。DOM内の各要素（&lt;div&gt;, &lt;p&gt;など）はJavaScriptのオブジェクトとして表現されます。</li>
+                <li>用途: Webページの構造（要素や属性）をJavaScriptで操作するためのインターフェース。</li>
+              </ul>
+            </li>
+            <pre><code>// DOMオブジェクトを取得
+var element = document.getElementById("example");
+
+// DOMプロパティの操作
+element.textContent = "新しい内容"; // プロパティを変更して内容を更新
+
+// DOMメソッドの使用
+element.classList.add("highlight"); // メソッドを使ってクラスを追加</code></pre>
+          </ol>
+        </p>
+
+        <p>
+          <strong>プロパティ (Property)</strong>:
+          オブジェクトが持つデータや特徴を表すもの。例: `element.id`。
+        </p>
+        <p>
+          <strong>メソッド (Method)</strong>:
+          オブジェクトに関連付けられた関数。例: `element.addEventListener()`。
+        </p>
+
+        <h2><li>DOM (Document Object Model)関連用語</li></h2>
+        <p>
+          <strong>DOM</strong>:
+          ウェブページの構造をツリー状に表現したもの。JavaScriptを使って操作可能。
+          例: `document.getElementById("example")`。
+        </p>
+        <p>
+          <strong>属性とプロパティの違い</strong>:
+          属性はHTMLソースコードに記述され、初期値を提供します。一方、プロパティはDOMオブジェクトとして操作される値です。
+        </p>
+        <p>
+          例: `&lt;input id="example" value="Hello" /&gt;`の場合、 - 属性:
+          `value="Hello"` - プロパティ: `element.value` (操作可能)
+        </p>
       </ol>
+
       <p>
         <button onclick="history.back()">戻る</button>
       </p>
