@@ -57,10 +57,7 @@
     </style>
   </head>
   <body>
-    <header class="navbar">
-      <a href="list.html">目次</a>
-      <a href="codeSample.html">コード例</a>
-    </header>
+    <header id="headerDefault" class="navbar"></header>
     <div class="container">
       <h2>HTMLタグエスケープ＆コピー機能</h2>
       <textarea id="inputText" placeholder="ここにHTMLコードを入力"></textarea
@@ -78,6 +75,7 @@
 
       <p id="alertMsg" class="alert" style="display: none">コピーしました！</p>
     </div>
+    <footer id="footerDefault"></footer>
     <script>
       // HTMLタグをエスケープする関数
       function escapeHtml() {
@@ -117,5 +115,6 @@
         }, 2000);
       }
     </script>
+    <script src="script.js"></script>
   </body>
 </html>

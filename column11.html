@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>コラム11 - JSとPythonの変数、構文、配列の比較</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header id="headerDefault" class="navbar"></header>
+
+    <div class="container">
+      <h1>JSとPythonの変数、構文、配列の比較</h1>
+      <p>
+        JavaScript（JS）とPythonは、どちらも広く使われている人気の高いプログラミング言語です。どちらも異なる特性を持っているため、それぞれの用途に応じて選択されます。ここでは、JSとPythonの変数の扱い方、基本的な構文、配列操作の違いを比較してみましょう。
+      </p>
+      <ol>
+        <h2><li>変数の宣言</li></h2>
+        <p>
+          JavaScriptとPythonの間で、変数の宣言には違いがあります。JavaScriptでは、`let`や`const`キーワードを使って変数を宣言しますが、Pythonではキーワードを使わず、直接変数名に値を代入します。
+        </p>
+
+        <h3>JavaScript</h3>
+        <pre><code>let x = 10;  // 変数xを宣言して値を代入
+const y = 20;  // 定数yを宣言</code></pre>
+
+        <h3>Python</h3>
+        <pre><code>x = 10  # 変数xを宣言して値を代入
+y = 20  # 変数yに値を代入（定数は通常使わない）</code></pre>
+
+        <h2><li>条件分岐とループ構文</li></h2>
+        <p>
+          JSとPythonの間で、条件分岐やループの構文に若干の違いがあります。Pythonではインデントが重要ですが、JSでは中括弧を使います。
+        </p>
+
+        <h3>条件分岐の比較</h3>
+
+        <h3>JavaScript</h3>
+        <pre><code>if (x &gt; 10) {
+console.log('xは10より大きい');
+} else {
+console.log('xは10以下');
+}</code></pre>
+
+        <h3>Python</h3>
+        <pre><code>if x &gt; 10:
+print('xは10より大きい')
+else:
+print('xは10以下')</code></pre>
+
+        <h3>ループの比較</h3>
+
+        <h3>JavaScript</h3>
+        <pre><code>for (let i = 0; i &lt; 5; i++) {
+console.log(i);
+}</code></pre>
+
+        <h3>Python</h3>
+        <pre><code>for i in range(5):
+print(i)</code></pre>
+
+        <h2><li>配列とリストの扱い</li></h2>
+        <p>
+          JavaScriptでは配列を使い、Pythonではリストを使います。両者は似たような機能を提供しますが、操作方法には違いがあります。
+        </p>
+
+        <h3>JavaScriptの配列</h3>
+        <pre><code>let arr = [1, 2, 3, 4];
+arr.push(5);  // 配列に要素を追加
+console.log(arr);  // [1, 2, 3, 4, 5]</code></pre>
+
+        <h3>Pythonのリスト</h3>
+        <pre><code>arr = [1, 2, 3, 4]
+arr.append(5)  # リストに要素を追加
+print(arr)  # [1, 2, 3, 4, 5]</code></pre>
+
+        <p>JSとPythonにはそれぞれ特徴があり、どちらも学んでおくと便利です。</p>
+      </ol>
+      <p>
+        <button onclick="history.back()">戻る</button>
+      </p>
+    </div>
+    <footer id="footerDefault"></footer>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -7,11 +7,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="navbar">
-      <a href="list.html">目次</a>
-      <a href="codeSample.html">コード例</a>
-      <a href="tagTransform.html">エスケープ変換</a>
-    </header>
+    <header id="headerDefault" class="navbar"></header>
 
     <div class="container">
       <h1>第4章: JavaScriptの基本</h1>
@@ -40,7 +36,7 @@ const age = 30;      // 数値型
 let isStudent = true; // ブール型</code></pre>
 
         <h2>
-          <li>演算子と計算</li>
+          <li id="enzanshi">演算子と計算</li>
         </h2>
         <p>
           　JavaScriptでは、演算子を使って数値を計算したり、文字列を結合することができます。以下は基本的な演算子の例です。
@@ -52,9 +48,13 @@ let isStudent = true; // ブール型</code></pre>
           <li>割り算: `/`</li>
         </ul>
         <pre><code>let result = 10 + 5; // 結果は15</code></pre>
+        <pre><code>let result = "10" + 5; // 結果は105　10は文字列とみなされ、+は文字列の結合となる。</code></pre>
+        <pre><code>let result = "10" - 5; // 結果は5　減算の場合に10は自動的に数値型に変換される。</code></pre>
+        <pre><code>let result = "10" * 5; // 結果は50　積算の場合も10は自動的に数値型に変換される。</code></pre>
+        <pre><code>let result = "10" * 5 + "3"; // 結果は503　10は自動的に数値型に変換されるが、50と文字列3との結合となる。</code></pre>
 
         <h2>
-          <li>条件分岐（`if`文、`else`文）</li>
+          <li id="condition">条件分岐（`if`文、`else`文）</li>
         </h2>
         <p>
           　条件に応じて異なる処理を実行するために、条件分岐を使います。`if`文と`else`文を使用して、特定の条件が満たされた場合にのみコードを実行することができます。<a
@@ -63,7 +63,7 @@ let isStudent = true; // ブール型</code></pre>
           >で詳しく説明します。
         </p>
         <pre><code>let age = 20;
-if (age >= 18) {
+if (age &gt;= 18) {
     console.log("成人です");
 } else {
     console.log("未成年です");
@@ -79,13 +79,13 @@ if (age >= 18) {
           >で詳しく説明します。
         </p>
         <pre><code>// forループの例
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i &lt; 5; i++) {
     console.log(i);
 }
 
 // whileループの例
 let count = 0;
-while (count < 5) {
+while (count &lt; 5) {
     console.log(count);
     count++;
 }</code></pre>
@@ -110,7 +110,7 @@ const sayHello = function() {
 }
 
 // アロー関数の例
-const add = (a, b) => {
+const add = (a, b) =&gt; {
     return a + b;
 };</code></pre>
       </ol>
@@ -176,7 +176,7 @@ count--;  // countは再び0になります</code></pre>
         </a>
       </p>
     </div>
-
+    <footer id="footerDefault"></footer>
     <script src="script.js"></script>
   </body>
 </html>

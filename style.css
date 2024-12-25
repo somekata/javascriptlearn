@@ -50,6 +50,61 @@ button:hover {
     background-color: #34495e;
 }
 
+
+/* ヘッダー全体のスタイル */
+#headerDefault {
+    background: linear-gradient(90deg, #4c93ff, #3c39e6); /* グラデーション背景 */
+    color: white;
+    padding: 15px 20px; /* ヘッダーの内側余白 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影を追加 */
+    position: sticky; /* スクロール時に固定 */
+    top: 0;
+    z-index: 1000;
+  }
+  
+  /* ナビゲーションスタイル */
+  #navigation {
+    display: flex;
+    justify-content: center; /* ナビゲーションを中央揃え */
+    align-items: center;
+    gap: 30px; /* 各リンク間の間隔 */
+  }
+  
+  /* リストのスタイル */
+  #navigation ul {
+    display: flex;
+    list-style: none; /* マーカーを非表示 */
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* 各リンクのスタイル */
+  #navigation a {
+    margin: 0px 10px 0px 10px;
+    color: white;
+    text-decoration: none; /* 下線を削除 */
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px; /* リンクの内側余白 */
+    border-radius: 5px; /* 角を丸く */
+    transition: background 0.3s ease, transform 0.3s ease; /* アニメーション */
+  }
+  
+  /* リンクのホバー時のスタイル */
+  #navigation a:hover {
+    background: rgba(255, 255, 255, 0.2); /* ホバー時に背景色を追加 */
+    transform: scale(1.1); /* 少し拡大 */
+  }
+  
+  /* スマートフォン対応のレスポンシブデザイン */
+  @media (max-width: 768px) {
+    #navigation {
+      flex-direction: column; /* 縦並び */
+      gap: 15px; /* 間隔を調整 */
+    }
+  }
+  
+
 /* アコーディオンのスタイル */
 .accordion {
     background-color: #2c3e50;
@@ -110,4 +165,15 @@ code.gray {
     background-color: #eee;
     border-radius: 2px;
     border: solid 1px #ccc;
+}
+
+#footerContent {
+    text-align: center;
+    background: linear-gradient(90deg, #4c93ff, #3c39e6); /* グラデーション背景 */
+    color: white;
+    padding: 15px 20px; /* ヘッダーの内側余白 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 影を追加 */
+    position: sticky; /* スクロール時に固定 */
+    top: 0;
+    z-index: 1000;
 }

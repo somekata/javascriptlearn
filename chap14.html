@@ -7,11 +7,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="navbar">
-      <a href="list.html">目次</a>
-      <a href="codeSample.html">コード例</a>
-      <a href="tagTransform.html">エスケープ変換</a>
-    </header>
+    <header id="headerDefault" class="navbar"></header>
 
     <div class="container">
       <h1>第14章: JavaScriptにおけるモジュール化</h1>
@@ -41,7 +37,7 @@ export default function greet() {
 
 // 名前付きエクスポート
 export const PI = 3.14;
-export const multiply = (a, b) => a * b;</code></pre>
+export const multiply = (a, b) =&gt; a * b;</code></pre>
       </ol>
 
       <p>
@@ -51,7 +47,7 @@ export const multiply = (a, b) => a * b;</code></pre>
         </a>
       </p>
     </div>
-
+    <footer id="footerDefault"></footer>
     <script src="script.js"></script>
   </body>
 </html>
