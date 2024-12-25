@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Appendix 9: JavaScriptでよく使われるメソッド</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header id="headerDefault" class="navbar"></header>
+
+    <div class="container">
+      <h1>JavaScriptでよく使われるメソッド</h1>
+      <main>
+        <section>
+          <h2>1. 型変換 (Type Conversion)</h2>
+          <p>
+            JavaScriptでデータ型を変換する際によく使われるメソッドを以下に示します。
+          </p>
+          <ul>
+            <li><strong>parseInt</strong>: 文字列を整数に変換します。</li>
+            <li><strong>parseFloat</strong>: 文字列を小数に変換します。</li>
+            <li><strong>Number</strong>: 文字列や他の型を数値に変換します。</li>
+            <li>
+              <strong>toString</strong>:
+              数値やオブジェクトを文字列に変換します。
+            </li>
+            <li>
+              <strong>toFixed</strong>: 小数点以下を指定した桁数で丸めます。
+            </li>
+          </ul>
+          <pre><code>let num = "3.141592";
+let intNum = parseInt(num); // 結果: 3
+let floatNum = parseFloat(num); // 結果: 3.141592
+let rounded = floatNum.toFixed(2); // 結果: 3.14</code></pre>
+        </section>
+
+        <section>
+          <h2>2. 数学関連 (Math)</h2>
+          <p>数学的な計算を行う際に使用するメソッドです。</p>
+          <ul>
+            <li><strong>Math.floor</strong>: 小数点以下を切り捨てます。</li>
+            <li><strong>Math.ceil</strong>: 小数点以下を切り上げます。</li>
+            <li><strong>Math.round</strong>: 四捨五入します。</li>
+            <li>
+              <strong>Math.random</strong>:
+              0以上1未満のランダムな数値を生成します。
+            </li>
+            <li><strong>Math.abs</strong>: 絶対値を返します。</li>
+            <li>
+              <strong>Math.max</strong>, <strong>Math.min</strong>:
+              最大値・最小値を返します。
+            </li>
+          </ul>
+          <pre><code>let floorVal = Math.floor(3.8); // 結果: 3
+let ceilVal = Math.ceil(3.2); // 結果: 4
+let roundVal = Math.round(3.5); // 結果: 4
+let randomVal = Math.random(); // 0以上1未満のランダム値
+let maxVal = Math.max(10, 20, 30); // 結果: 30</code></pre>
+        </section>
+
+        <section>
+          <h2>3. DOM操作 (Document Object Model)</h2>
+          <p>HTML要素の操作や内容の変更に使用するメソッドです。</p>
+          <ul>
+            <li>
+              <strong>getElementById</strong>: 特定のIDを持つ要素を取得します。
+            </li>
+            <li>
+              <strong>querySelector</strong>:
+              CSSセレクタを使用して要素を取得します。
+            </li>
+            <li>
+              <strong>.value</strong>:
+              入力フィールドの値を取得または設定します。
+            </li>
+            <li>
+              <strong>.innerHTML</strong>: 要素の内容を取得または更新します。
+            </li>
+            <li>
+              <strong>.outerHTML</strong>:
+              要素をタグを含めて取得または更新します。
+            </li>
+            <li>
+              <strong>.textContent</strong>:
+              要素のテキストを取得または更新します。
+            </li>
+          </ul>
+          <pre><code>let input = document.getElementById("userInput");
+let value = input.value; // 入力値を取得
+input.value = "新しい値"; // 値を設定
+let content = document.querySelector(".myClass").innerHTML;
+console.log(content);</code></pre>
+        </section>
+
+        <section>
+          <h2>4. イベント処理 (Event Handling)</h2>
+          <p>ユーザー操作に応じて動作を設定するためのメソッドです。</p>
+          <ul>
+            <li>
+              <strong>addEventListener</strong>:
+              特定のイベントを監視して動作を設定します。
+            </li>
+            <li>
+              <strong>onclick</strong>: クリックイベントを直接設定します。
+            </li>
+            <li>
+              <strong>onchange</strong>:
+              入力内容が変更された際に動作を設定します。
+            </li>
+          </ul>
+          <pre><code>let button = document.getElementById("myButton");
+button.addEventListener("click", () =&gt; {
+    alert("ボタンがクリックされました！");
+});
+
+let input = document.getElementById("userInput");
+input.addEventListener("change", (event) =&gt; {
+    console.log(event.target.value);
+});</code></pre>
+        </section>
+
+        <section>
+          <h2>5. JSON操作 (JSON Manipulation)</h2>
+          <p>JSON形式のデータを解析・生成するためのメソッドです。</p>
+          <ul>
+            <li>
+              <strong>JSON.parse</strong>:
+              JSON文字列をJavaScriptオブジェクトに変換します。
+            </li>
+            <li>
+              <strong>JSON.stringify</strong>:
+              JavaScriptオブジェクトをJSON形式の文字列に変換します。
+            </li>
+          </ul>
+          <pre><code>let jsonString = '{"name": "Alice", "age": 25}';
+let jsonObject = JSON.parse(jsonString);
+console.log(jsonObject.name); // 結果: "Alice"
+
+let obj = { name: "Bob", age: 30 };
+let jsonStr = JSON.stringify(obj);
+console.log(jsonStr); // 結果: '{"name":"Bob","age":30}'</code></pre>
+        </section>
+
+        <section>
+          <h2>6. CANVASの操作</h2>
+          <p>図形を描画するための方法です。</p>
+          <ol>
+            <li>基本的な使い方</li>
+          <p><code>&lt;canvas&gt;</code>要素をHTMLに記述します。</p>
+          <pre><code>&lt;canvas id="myCanvas" width="400" height="300" style="border:1px solid #000;"s&gt;&lt;/canvass&gt;</code></pre>
+          <p><code>JavaScriptで&lt;canvas&gt;</code>のコンテキストを取得し、描画します。</p>
+          <pre><code>// Canvasエレメントを取得
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
+
+// 四角形を描画
+ctx.fillStyle = "blue"; // 塗りつぶしの色
+ctx.fillRect(50, 50, 150, 100); // (x, y, 幅, 高さ)
+
+// 枠線を描画
+ctx.strokeStyle = "red"; // 枠線の色
+ctx.strokeRect(50, 50, 150, 100);</code></pre>
+            <li>主な描画メソッド</li>
+            <p>基本図形-四角形
+              <ul>
+                <li>fillRect(x, y, width, height): 塗りつぶしの四角形を描画。</li>
+                <li>strokeRect(x, y, width, height): 枠線の四角形を描画。</li>
+                <li>clearRect(x, y, width, height): 指定範囲をクリア。</li>
+              </ul>
+            </p>
+            <p>線やパス-始点と終点
+              <pre><code>ctx.beginPath(); // 新しいパスを開始
+ctx.moveTo(50, 50); // 始点
+ctx.lineTo(200, 50); // 終点
+ctx.lineTo(200, 200); // 次の線の終点
+ctx.closePath(); // パスを閉じる
+ctx.stroke(); // パスを描画</code></pre>
+            </p>
+            <p>円や弧-弧を描画
+              <pre><code>ctx.beginPath();
+ctx.arc(150, 150, 50, 0, Math.PI * 2); // (x, y, 半径, 開始角度, 終了角度)
+ctx.fillStyle = "green";
+ctx.fill(); // 塗りつぶし
+ctx.stroke(); // 枠線</code></pre>
+            </p>
+            <p>テキスト-文字の描画
+              <pre><code>ctx.font = "20px Arial"; // フォント設定
+ctx.fillStyle = "black"; // 塗りつぶしの色
+ctx.fillText("Hello Canvas", 100, 100); // テキストを描画 (x, y)</code></pre>
+            </p>
+            <p>画像の描画-画像を描画
+              <pre><code>const img = new Image();
+img.src = "example.jpg"; // 画像ファイルのパス
+img.onload = () =&gt; {
+  ctx.drawImage(img, 50, 50, 200, 150); // (画像, x, y, 幅, 高さ)
+};</code></pre>
+            </p>
+            <li>アニメーション</li>
+            <p>requestAnimationFrameを使用してスムーズなアニメーションを実現できます。</p>
+            <pre><code>const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
+
+let x = 0; // 描画位置の初期値
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height); // 前のフレームをクリア
+  ctx.fillStyle = "blue";
+  ctx.fillRect(x, 50, 50, 50); // 四角形を描画
+
+  x += 2; // x座標を更新
+  if (x &gt; canvas.width) x = 0; // 画面外に出たら戻る
+
+  requestAnimationFrame(draw); // 次のフレームを描画
+}
+
+draw(); // アニメーション開始</code></pre>
+              <li>クリックやイベントの追加</li>
+              <p>Canvasに対してイベントリスナーを追加して、クリックやその他のインタラクションを実現します。</p>
+              <pre><code>canvas.addEventListener("click", (event) =&gt; {
+  const rect = canvas.getBoundingClientRect(); // Canvasの位置を取得
+  const x = event.clientX - rect.left; // クリック位置のx座標
+  const y = event.clientY - rect.top; // クリック位置のy座標
+
+  ctx.fillStyle = "red";
+  ctx.fillRect(x - 10, y - 10, 20, 20); // クリック位置に四角を描画
+});</code></pre>
+              <li>高度な機能</li>
+              <p>グラデーション</p>
+              <ul>
+                <li>線形グラデーション:</li>
+                <pre><code>const gradient = ctx.createLinearGradient(0, 0, 200, 0);
+gradient.addColorStop(0, "red");
+gradient.addColorStop(1, "blue");
+ctx.fillStyle = gradient;
+ctx.fillRect(50, 50, 200, 100);</code></pre>
+                <li>円形グラデーション:</li>
+                <pre><code>const radialGradient = ctx.createRadialGradient(150, 150, 20, 150, 150, 100);
+radialGradient.addColorStop(0, "yellow");
+radialGradient.addColorStop(1, "green");
+ctx.fillStyle = radialGradient;
+ctx.fillRect(50, 50, 200, 200);</code></pre>
+              </ul>
+              <p>影の追加</p>
+              <pre><code>ctx.shadowColor = "rgba(0, 0, 0, 0.5)"; // 影の色
+ctx.shadowBlur = 10; // ぼかし
+ctx.shadowOffsetX = 5; // x方向の影の距離
+ctx.shadowOffsetY = 5; // y方向の影の距離
+ctx.fillStyle = "purple";
+ctx.fillRect(50, 50, 150, 100);</code></pre>
+
+          </ol>
+          <p>CANVASの用途例</p>
+          <ul>
+            <li>ゲーム開発: スプライト描画、当たり判定、動的な背景。</li>
+            <li>データビジュアライゼーション: グラフやチャートの描画。</li>
+            <li>アニメーション制作: 動画やインタラクティブなアート。</li>
+          </ul>
+          <hr>
+        </section>
+
+      </main>
+
+      <p>
+        <button onclick="history.back()">戻る</button>
+      </p>
+    </div>
+    <footer id="footerDefault"></footer>
+    <script src="script.js"></script>
+  </body>
+</html>
