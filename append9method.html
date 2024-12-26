@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Appendix 9: JavaScriptでよく使われるメソッド</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="table.css" />
   </head>
   <body>
     <header id="headerDefault" class="navbar"></header>
@@ -29,10 +30,136 @@
               <strong>toFixed</strong>: 小数点以下を指定した桁数で丸めます。
             </li>
           </ul>
+          <h3><code>parseInt</code>, <code>parseFloat</code>, <code>toFixed</code> の使い方</h3>
           <pre><code>let num = "3.141592";
 let intNum = parseInt(num); // 結果: 3
 let floatNum = parseFloat(num); // 結果: 3.141592
 let rounded = floatNum.toFixed(2); // 結果: 3.14</code></pre>
+<h3><code>toString</code> の使い方</h3>
+<p><code>toString</code> はオブジェクトや値を文字列に変換するメソッドです。以下のようなシチュエーションで使用されます。
+
+<pre><code>value.toString([radix])
+</code></pre>
+<ul>
+  <li>value: 任意の値（数値、配列、オブジェクトなど）。</li>
+  <li>radix（省略可能）: 数値の場合、基数（2進数, 8進数, 16進数など）を指定できます。</li>
+</ul>
+使用例
+<ol>
+  <li>数値を文字列に変換</li>
+  <pre><code>const num = 42;
+console.log(num.toString()); // "42"
+console.log(num.toString(2)); // "101010"（2進数）
+console.log(num.toString(16)); // "2a"（16進数）</code></pre>
+  <li>配列を文字列に変換</li>
+  <pre><code>const arr = [1, 2, 3];
+console.log(arr.toString()); // "1,2,3"</code></pre>
+  <li>オブジェクトを文字列に変換</li>
+  Object の場合、toString はデフォルトで [object Object] を返します。
+  <pre><code>const obj = { key: "value" };
+console.log(obj.toString()); // "[object Object]"</code></pre>
+  より具体的な文字列が欲しい場合は JSON.stringify を使用します。
+<pre><code>console.log(JSON.stringify(obj)); // '{"key":"value"}'</code></pre>
+</ol>
+注意点<br>
+<code>toString</code> は「値が存在する」場合に使えます。<code>null</code> や <code>undefined</code> に対しては使えないので注意してください。
+<pre><code>const value = null;
+console.log(value.toString()); // TypeError: Cannot read property 'toString' of null</code></pre>
+解決策として、<code>String() </code> 関数を使用することを推奨します。<a href="#stringfunction"><code>String() </code> と <code>.toString()</code> の違い</a>
+<pre><code>console.log(String(value)); // "null"</code></pre>
+</p>
+<p>
+  <h3><code>Number</code> の使い方</h3>
+  <code>Number</code> は、値を数値型に変換する関数です。特に文字列やブール値を数値に変換する際に使われます。
+  <h3>構文</h3>
+  <pre><code>Number(value)</code></pre>
+  <ul>
+    <li>value: 任意の値（文字列、ブール値、配列など）。</li>
+  </ul>
+  <h3>使用例</h3>
+  <ol>
+    <li>文字列を数値に変換</li>
+    <pre><code>const str = "42";
+console.log(Number(str)); // 42</code></pre>
+      文字列が数値として解釈できない場合は NaN を返します。
+      <pre><code>console.log(Number("abc")); // NaN</code></pre>
+    <li>ブール値を数値に変換</li>
+    <pre><code>console.log(Number("abc")); // NaN</code></pre>
+    <li>空文字列や null を数値に変換</li>
+    <pre><code>console.log(Number("")); // 0
+console.log(Number(null)); // 0</code></pre>
+    <li>配列を数値に変換</li>
+    配列に1つの数値要素が含まれている場合は、その値を返します。それ以外の場合は NaN を返します。
+    <pre><code>console.log(Number([42])); // 42
+console.log(Number([1, 2, 3])); // NaN</code></pre>
+  </ol>
+  注意点
+  <ul>
+    <li><code>parseInt</code> との違い:<code>Number</code> は入力全体を数値に変換しようとしますが、<code>parseInt</code> は文字列の先頭部分を数値として解釈します。</li>
+  <pre><code>console.log(Number("42abc")); // NaN
+console.log(parseInt("42abc", 10)); // 42</code></pre>
+    <li>安全な変換方法: 明らかに数値であることが分かっている場合に <code>Number</code> を使用します。それ以外はエラー処理を考慮した方法（例: <code>parseInt</code>）を使用します。</li>
+  </ul>
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>機能</th>
+      <th><code>parseInt</code>, <code>parseFloat</code></th>
+      <th><code>toString</code></th>
+      <th><code>Number</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>目的</td>
+      <td>文字列を解析し、整数や浮動小数点数に変換する</td>
+      <td>任意の値を文字列に変換する</td>
+      <td>任意の値を数値に変換する</td>
+    </tr>
+    <tr>
+      <td>適用可能な値</td>
+      <td>文字列</td>
+      <td>数値、配列、オブジェクトなど</td>
+      <td>文字列、ブール値、配列など</td>
+    </tr>
+    <tr>
+      <td>注意点</td>
+      <td>
+        - 文字列の先頭部分のみを解析<br>
+        - 非数値文字が途中にあると解析を停止<br>
+        - <code>parseInt</code> は基数を指定することが推奨
+      </td>
+      <td>
+        <code>null</code> や <code>undefined</code> に直接使えない
+      </td>
+      <td>
+        - 全体を数値として解釈しようとする<br>
+        - 変換に失敗すると <code>NaN</code> を返す
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+  例: 使い分け
+  <pre><code>const value = "123.45";
+
+console.log(value.toString()); // "123.45"（文字列のまま）
+console.log(Number(value));    // 123.45（数値として解釈）
+console.log(parseInt(value));  // 123（整数部分のみ解析）
+console.log(parseFloat(value));// 123.45（浮動小数点数として解析）
+
+const num = 42;
+console.log(num.toString());   // "42"（数値を文字列に変換）
+console.log(Number(num));      // 42（そのまま）
+console.log(parseInt(num));    // 42（整数そのまま）
+console.log(parseFloat(num));  // 42（整数そのまま）
+</code></pre>
+</p>
+
+
+
         </section>
 
         <section>
@@ -257,6 +384,192 @@ ctx.fillRect(50, 50, 150, 100);</code></pre>
             <li>アニメーション制作: 動画やインタラクティブなアート。</li>
           </ul>
           <hr>
+
+        </section>
+        <section>
+          <h1>JavaScriptにおける メソッド(変数) と 変数.メソッド() の違い</h1>
+          <p>JavaScriptにおける メソッド(変数) と 変数.メソッド() の違いは、主にメソッドの呼び出し方法とそのコンテキスト（this）の扱いに関係しています。それぞれのケースを詳しく説明します。</p>
+          <ol>
+            <h3><li>メソッド(変数) の形式</li></h3>
+            <p>この形式は、通常、関数として呼び出されます。メソッド は関数そのものであり、特定のオブジェクトに紐付いているわけではありません。</p>
+            <ul>特徴
+              <li>関数そのものを呼び出す形。</li>
+              <li><code>this</code> は、呼び出し元に依存しない（非 strict モードではデフォルトでグローバルオブジェクトを指します）。</li>
+              <li>オブジェクトのメソッドとしてではなく、単なる独立した関数として動作します。</li>
+              <pre><code>function greet(name) {
+    console.log(`Hello, ${name}`);
+}
+
+// 関数呼び出し
+greet("Alice"); // 出力: Hello, Alice</code></pre>
+            <p>注意点<br>
+              メソッドとして定義されたものでも、直接関数として呼び出すと this が変わる可能性があります。
+            </p>
+            <pre><code>const obj = {
+    name: "Alice",
+    greet() {
+        console.log(`Hello, ${this.name}`);
+    }
+};
+
+const greet = obj.greet; // メソッドを取り出す
+greet(); // this は undefined（strict モードの場合）か、グローバルオブジェクトを指す</code></pre>
+            </ul>
+            <p>parseInt は JavaScript のグローバル関数であり、特定のオブジェクトに紐付いているメソッドではないため、変数.parseInt() という形式では使えません。
+              <ol>
+                <li>parseInt はグローバル関数</li>
+                <ul>
+                  <li>avaScript のグローバルオブジェクト（例えばブラウザ環境では window）に定義されている関数で、任意の値を整数に変換するために使われます。</li>
+                  <li>特定の型（例: String）のメソッドとして存在するわけではありません。</li>
+                </ul>
+                <pre><code>console.log(typeof parseInt); // "function"
+console.log(window.parseInt === parseInt); // true</code></pre>
+                <li>オブジェクトに依存しない</li>
+                <ul>
+                  <li>parseInt は渡された引数を解析するだけで、どのオブジェクトから呼び出されたかには依存しません。</li>
+                </ul>
+              </ol>
+              <p>変数.parseInt() とした場合：<br>
+                JavaScript は 変数 の型に応じて、そのオブジェクトのメソッドを探索します。しかし、parseInt は例えば String.prototype には定義されていないため、この形式ではエラーになります。
+                <pre><code>const str = "123";
+console.log(str.parseInt); // undefined
+str.parseInt(); // TypeError: str.parseInt is not a function</code></pre>
+                解決方法：<br>
+                parseInt を使う場合は、直接グローバル関数として呼び出してください。
+                <pre><code>const str = "123";
+const number = parseInt(str, 10); // 第2引数は基数
+console.log(number); // 123</code></pre>
+                もし parseInt を特定の変数のメソッドのように使いたい場合は、自分でプロトタイプメソッドを追加することもできます。
+              </p>
+              <p>parseInt を String のメソッドとして利用する例：<br>
+                以下のようにして、String.prototype にカスタムメソッドを追加できます。ただし、これは通常のコードでは推奨されません（他のコードとの競合リスクがあるため）。
+                <pre><code>String.prototype.toInt = function (radix = 10) {
+    return parseInt(this, radix);
+};
+
+const str = "123";
+console.log(str.toInt()); // 123</code></pre>
+              結論：
+              parseInt はグローバル関数であり、変数.parseInt() の形式では使えません。必要に応じて直接グローバル関数として呼び出すか、独自のカスタムメソッドを作成してください。
+              </p>
+
+            </p>
+            <h3><li>変数.メソッド() の形式</li></h3>
+            <p>この形式は、オブジェクトのプロパティとして定義されたメソッドを呼び出すものです。メソッドの呼び出し元（変数）が this に設定されます。</p>
+            <ul>特徴
+              <li>メソッドが特定のオブジェクトに紐付いている場合に使用。</li>
+              <li>this は呼び出し元のオブジェクトを指します。</li>
+            </ul>
+            <pre><code>const obj = {
+    name: "Alice",
+    greet() {
+        console.log(`Hello, ${this.name}`);
+    }
+};
+
+// メソッド呼び出し
+obj.greet(); // 出力: Hello, Alice</code></pre>
+          <p>注意点<br>
+            this の挙動はオブジェクトに紐付いている場合にのみ期待通りになります。たとえば、関数として代入されると this が失われます。</p>
+            <pre><code>const greet = obj.greet;
+greet(); // this が undefined またはグローバルオブジェクトを指す</code></pre>
+              <p>この問題を防ぐためには、bind() を使うか、アロー関数を使用して this を固定する方法があります。</p>
+          </ol>
+          <p>
+            <table>
+              <thead>
+                  <tr>
+                      <th>特徴</th>
+                      <th>メソッド(変数)</th>
+                      <th>変数.メソッド()</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>呼び出し方</td>
+                      <td>関数そのものとして呼び出す</td>
+                      <td>オブジェクトのメソッドとして呼び出す</td>
+                  </tr>
+                  <tr>
+                      <td>this の挙動</td>
+                      <td>呼び出し元に依存しない</td>
+                      <td>呼び出し元オブジェクトを参照</td>
+                  </tr>
+                  <tr>
+                      <td>主な使用場面</td>
+                      <td>グローバル関数やユーティリティ関数</td>
+                      <td>オブジェクトに紐付くメソッドの呼び出し</td>
+                  </tr>
+              </tbody>
+          </table>
+          <p>必要に応じて、<code>this</code> の扱いを確認しながら使い分けることが重要です！</p>
+          </p>
+        </section>
+        <hr>
+        <section>
+          <h1 id="stringfunction"><code>String()</code> と <code>.toString()</code> の違い</h1>
+          <p>
+            <ol>
+              <li><code>String()</code> の特徴</li>
+              <code>String()</code> はグローバル関数で、任意の値を安全に文字列に変換します。
+              <h4>使用方法</h4>
+              <pre><code>String(value);</code></pre>
+              <h4>特徴</h4>
+              <ul>
+                <li>すべての値に適用可能: null や undefined にも安全に使用できます。</li>
+                <li>必ず文字列を返します。</li>
+                <pre><code>console.log(String(123));          // "123"
+console.log(String(true));         // "true"
+console.log(String(null));         // "null"
+console.log(String(undefined));    // "undefined"
+console.log(String([1, 2, 3]));    // "1,2,3"</code></pre>
+              </ul>
+              <li><code>.toString()</code> の特徴</li>
+              <code>.toString()</code> はオブジェクトのメソッドで、オブジェクトやプリミティブ型のラッパーで利用されます。
+              <h4>使用方法</h4>
+              <pre><code>value.toString();</code></pre>
+              <h4>特徴</h4>
+              <ul>
+                <li>使用するには、対象が <code>null</code> または <code>undefined</code> ではない必要があります。: <code>null</code> や <code>undefined</code> に対して呼び出すとエラーになります。</li>
+                <li>文字列への変換は、その型に応じたメソッドの実装に依存します。</li>
+                <pre><code>console.log((123).toString());     // "123"
+console.log(true.toString());      // "true"
+console.log([1, 2, 3].toString()); // "1,2,3"
+
+// これらはエラー
+console.log(null.toString());      // TypeError: Cannot read property 'toString' of null
+console.log(undefined.toString()); // TypeError: Cannot read property 'toString' of undefined</code></pre>
+              </ul>
+            </ol>
+            <table>
+              <thead><code>String()</code> と <code>.toString()</code> のまとめ</thead>
+              <tr>
+                <th>特徴</th>
+                <th><code>String()</code></th>
+                <th><code>.toString()</code></th>
+              </tr>
+              <tr>
+                <td>適用可能な値</td>
+                <td>任意の値</td>
+                <td><code>null</code> や <code>undefined</code> には使えない</td>
+              </tr>
+              <tr>
+                <td>安全性</td>
+                <td>常に安全（エラーが発生しない）</td>
+                <td><code>null</code> や <code>undefined</code> に使うとエラー</td>
+              </tr>
+              <tr>
+                <td>返り値</td>
+                <td>常に文字列</td>
+                <td>型によって結果が異なる</td>
+              </tr>
+              <tr>
+                <td>主な使用場面		</td>
+                <td>どんな値でも確実に文字列が必要な場合</td>
+                <td>オブジェクトやプリミティブで型に応じた文字列が必要な場合</td>
+              </tr>
+            </table>
+          </p>
         </section>
 
       </main>
