@@ -80,12 +80,12 @@ button:hover {
   
   /* 各リンクのスタイル */
   #navigation a {
-    margin: 0px 10px 0px 10px;
+    margin: 0px 2px 0px 2px;
     color: white;
     text-decoration: none; /* 下線を削除 */
     font-size: 18px;
     font-weight: bold;
-    padding: 10px 15px; /* リンクの内側余白 */
+    padding: 10px 10px; /* リンクの内側余白 */
     border-radius: 5px; /* 角を丸く */
     transition: background 0.3s ease, transform 0.3s ease; /* アニメーション */
   }
@@ -176,4 +176,27 @@ code.gray {
     position: sticky; /* スクロール時に固定 */
     top: 0;
     z-index: 1000;
+}
+
+#toTopBtn {
+    display: none; /* 初期状態は非表示 */
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    background-color: transparent; /* 背景を透明に */
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 1200;
+}
+
+#toTopBtn img {
+    width: 60px; /* 画像の大きさを調整 */
+    height: auto;
+    transition: transform 0.2s ease; /* アニメーションの追加 */
+}
+
+#toTopBtn:hover img {
+    transform: scale(1.1); /* ホバー時に拡大 */
+    content: url('img/pagetophover.png'); /* ホバー時の画像変更 */
 }

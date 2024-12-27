@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <li><a href="codeSample.html">コード例</a></li>
         <li><a href="tagTransform.html">エスケープ変換</a></li>
     </ul>
-    </nav>     
+    </nav>
     `;
   
     // メニュー要素に内容を挿入
@@ -33,18 +33,38 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
  
-document.addEventListener("DOMContentLoaded", () => {
-// メニュー要素を取得
-const footerElement = document.getElementById("footerDefault");
+  document.addEventListener("DOMContentLoaded", () => {
+    // フッター要素を取得
+    const footerElement = document.getElementById("footerDefault");
 
-// ヘッダーの内容をHTML文字列として定義
-const footerContent = `
+    // フッターの内容をHTML文字列として定義
+    const footerContent = `
         <p id="footerContent">&copy; 2024 JavaScript解説</p>
-`;
+        <button id="toTopBtn" style="display: none;"><img id="pagetop" src="img/pagetop.png"></button>
+    `;
 
-// メニュー要素に内容を挿入
-if (footerElement) {
-    footerElement.innerHTML = footerContent;
-}
+    // フッター要素に内容を挿入
+    if (footerElement) {
+        footerElement.innerHTML = footerContent; // innerHTMLで中身だけを更新
+    }
+
+    // スクロールボタンの取得（挿入後に取得可能）
+    const toTopBtn = document.getElementById('toTopBtn');
+
+    // スクロールイベントを監視
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) { // 100px以上スクロールしたら表示
+            toTopBtn.style.display = 'block';
+        } else { // ページのトップ付近では非表示
+            toTopBtn.style.display = 'none';
+        }
+    });
+
+    // ボタンをクリックしたらページトップに戻る
+    toTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // スムーズにスクロール
+        });
+    });
 });
-    
